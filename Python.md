@@ -3,7 +3,7 @@
 ## Important Data Structures
 
 ### List
-Mutable, flexible data structure. Data in it can be changed, thus its flexibility.
+Mutable, flexible data structure. Data in it can be changed, hence its flexibility.
 
     [1, 2, 3, 4]
     
