@@ -165,4 +165,113 @@ This OS is used when time is the most important factor. This OS is strict on tim
 - Complex Algorithms used
 - Potential Crashes
 
----
+## System Calls
+
+These are interfaces provided by the OS that lets the user commands request deeper level services, like file operations, process management etc. Basically it's a way of user level processes to talk with the kernel.
+
+- Typically written in a high-level language (C / C++)
+- Examples are:
+    - **Win32 API** for Windows
+    - **POSIX API** for Unix, Linux and Mac OS X
+    - **Java API** for JVM 
+
+### 1. Process Control Call
+
+- Create or Terminate a process. 
+- Wait for a process
+- Get Process ID for a process
+- Allocate or free memory
+- Debugger and Locks
+
+### 2. File Management Call
+
+- Create, Open, Read, Write, Close or Delete a file
+- Get or set file attributes
+
+### 3. Device Management Call
+
+- Request, Release, Read, Write or Control a device
+- Get or set device attributes
+
+### 4. Information Maintenance Call
+
+- Get or set System time
+- Get status of a process
+- Get system information
+
+### 5. Protection Call
+
+- Get or set permissions
+- Control access to resources
+- Allow or deny user access
+
+## System Programs
+
+These are programs provided by the OS to control or manipulate certain aspects of the system.
+
+### Types:
+
+- **Text Editors** like Notepad, nano, vi
+
+- **File Management tools** like File Explorer (Windows), Finder (macOS), ls (Linux)
+
+- **Compiler and Interpreter** like gcc, javac, python
+
+- **Debuggers** like gdb, WinDbg
+
+- **System Monitoring tools** like Task Manager (Windows), Activity Monitor (macOS), top (Linux)
+
+## Process
+
+An instance of a running program is a process. An OS is responsible to allocate resources to a process for its execution. OS uses **Process Control Block (PCB)** to keep track of processes.
+
+- **Process** represents execution of a program.
+- **PCB** stores data related to a process like process ID, state, priority, CPU registers, and memory management information
+- **Process Scheduling** is performed by the OS by allocating specific CPU time to each process based on certain algorithms and priorities
+
+## Threads
+
+A process can be divided into lightweight sub-processes that can be individually identified. These are called Threads.
+
+- **Resource Sharing:** Threads share same memory space and resources
+- **Independence:** Threads can execute independently
+- **Concurrency:** Threads execute simultaneously, allowing multiple tasks to be performed at the same time
+- **Communication:** Threads of a same process communicate with each other, as they share same resources
+- **Lightweight:** Threads are parts of a process so they are lightweight
+
+## CPU Scheduling
+
+It is the process of determining which processes or threads should be allocated CPU time and in what order. Basically it is arranging processes or threads in a line or multiple lines based on some priority and then letting them execute individually or multiple at the same time.
+
+### Types:
+
+**1. Preemptive Scheduling**
+
+- OS can interrupt a running process and allocate those resources to another process with higher priority
+- Ensures fairness by prohibiting long-running processes to occupy resources for a long time
+- Common in **Real Time OS** and **Multi-User Systems** where responsiveness is critical
+
+**2. Non-Preemptive Scheduling**
+
+- OS can't interrupt a running process. When a running process voluntarily releases the resources, only then the OS can reallocate another process
+- Simpler to implement
+- May lead to poor responsiveness
+
+### Criteria for Scheduling:
+
+1. **CPU Utilisation:** Maximizing the utilisation of CPU by keeping it busy
+2. **Throughput:** Maximizing the number of processes completed in unit time
+3. **Turnaround Time:** Minimizing the time taken by a process from start to end
+4. **Waiting Time:** Minimizing the total waiting time by processes
+5. **Response Time:** Minimizing the time taken between a request and its result
+
+### Scheduling Algorithms:
+
+1. **FCFS (First Come First Serve):** Processes are executed in the order they arrive
+2. **SJN (Shortest Job Next):** Process with the shortest CPU time is executed next
+3. **RR (Round Robin):** Processes executed in a cyclic manner repeatedly, each time for a small CPU time quantum
+4. **Priority Scheduling:** Processes have priorities, and the process with highest priority executes first
+5. **Multilevel Queue Scheduling:** Processes are categorized into different queues based on priority, and scheduling is performed among these queues.
+
+## Inter-Process Communication
+
