@@ -150,3 +150,19 @@ This OS is used when time is the most important factor. This OS is strict on tim
 
 <img src = "https://www.guru99.com/images/1/121119_0515_Realtimeope1.png" height = 400>
 
+- Strict on time
+- Time intervals are required to process and respond
+
+**Advantages:**
+
+- Better Resource management
+- Simple to develop
+- Error-free
+
+**Disadvantages:**
+
+- Expensive
+- Complex Algorithms used
+- Potential Crashes
+
+---
