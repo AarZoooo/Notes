@@ -61,8 +61,92 @@ It organises jobs so that CPU always has one process to execute, thus increasing
 
 <img src = "https://miro.medium.com/v2/resize:fit:1400/1*2kuD8t-fMimdPBZz6UCfAg.png" height = 400></img>
 
-- Less idle time
 - Keeps multiple jobs in main memory
 - Generally non-primitive
 - When a process is demanded by I/O, the CPU can start the execution of the next process
-- 
+
+
+**Advantages:**
+
+- Less idle time
+- CPU Utilisation is increased
+
+**Disadvantages:**
+
+- Execution of process takes more time
+
+---
+
+### Multi-Tasking Operating System
+
+It organises jobs just like Multi-Program OS, but it divides the execution into repeated cycles of a small time quantum.
+
+<img src = "https://www.itrelease.com/wp-content/uploads/2018/07/Multitasking-in-operating-system.png" height = 400></img>
+
+- Extension of Multi-Program OS
+- Fast switching of multiple jobs
+- Primitive
+- Also called **Time Sharing OS**
+
+**Advantages:**
+
+- Increase in CPU Utilisation and Response Time
+- Faster execution of processes
+
+**Disadvantages:**
+
+- Tasks may compete for system resources
+
+---
+
+### Multi-Processing Operating System
+
+The OS Divides the tasks for each CPU Cores, thus multiple processes are executed at once.
+
+<img src="https://lh4.googleusercontent.com/znhDsqLpcd0ssF3vkNUJaxjMDvcUnXHrXoSGqs1lwe-C9kfG0v6VckvMDkJ4F0pgm7b2ryvx2Z-YESVPNhwGCNbdWy4eUJRjIuibFp_7Rc93KkceFm9qG0_no4Ggfoeq-4zOptrZfCvxulkc97iz5AI" height = 400></img>
+
+- Multiple CPUs share memory buses and memory devices
+- Multiple Processes executed at the same time
+
+**Advantages:**
+
+- Reliable
+- Fast Processing
+- Maximum Throughput
+
+**Disadvantages:**
+
+- More Complex
+- Expensive
+- More Memory requirement
+
+---
+
+### Distributed Operating System
+
+This OS uses multiple CPUs and devices, but to the user it appears as a single centralised device.
+
+<img src = "https://media.geeksforgeeks.org/wp-content/uploads/20230605102519/What-is-Distributed-Operating-System.png" height = 400></img>
+
+- Users can access multiple components accross the system
+- Multiple tasks are executed simultaneously at different system nodes
+
+**Advantages:**
+
+- Scalable: Can be expanded by adding more hardware to the network
+- Fault-Tolerance: Can continue working after some hardware failure
+- Less Delay
+
+**Disadvantages:**
+
+- Expensive
+- Complex
+
+---
+
+### Real Time Operating System
+
+This OS is used when time is the most important factor. This OS is strict on time.
+
+<img src = "https://www.guru99.com/images/1/121119_0515_Realtimeope1.png" height = 400>
+
