@@ -37,7 +37,7 @@ Builds upon NumPy by offering additional functionality for optimization, interpo
 
 ## Root Finding Methods
 
-### Bisection Method
+### 1. Bisection Method
 A numerical technique for finding roots of a continuous function within a given interval.
 
 - The bisection method operates on the principle of repeatedly halving the interval containing the root until the interval becomes sufficiently small.
@@ -58,7 +58,7 @@ A numerical technique for finding roots of a continuous function within a given 
 3. **Termination:** Repeat the iteration until the desired level of accuracy is achieved or until a maximum number of iterations is reached.
 
 
-### Newton-Raphson Method
+### 2. Newton-Raphson Method
 An iterative numerical technique for finding roots of a differentiable function. The method uses linear approximation to iteratively refine the estimate of the root until convergence is achieved.
 
 - The Newton-Raphson method uses the derivative of the function to iteratively update the current estimate of the root.
@@ -81,7 +81,7 @@ An iterative numerical technique for finding roots of a differentiable function.
 
 3. **Termination:** Stop iterating when the difference between successive approximations is smaller than a specified tolerance or after a maximum number of iterations.
 
-### Secant Method
+### 3. Secant Method
 Another iterative numerical technique for finding roots of a function. Unlike the Newton-Raphson method, the secant method does not require knowledge of the derivative of the function and approximates it using finite differences.
 
 - The secant method uses two initial guesses to approximate the derivative of the function using finite differences.

@@ -275,3 +275,6 @@ It is the process of determining which processes or threads should be allocated 
 
 ## Inter-Process Communication
 
+This allows processes that are running simultaneously to exchange data and synchronize their actions. 
+
+- 
