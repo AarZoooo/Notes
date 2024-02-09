@@ -275,6 +275,27 @@ It is the process of determining which processes or threads should be allocated 
 
 ## Inter-Process Communication
 
-This allows processes that are running simultaneously to exchange data and synchronize their actions. 
+This allows processes that are running simultaneously to exchange data and synchronize their actions.
 
-- 
+### Methods:
+
+- **Shared Memory:** Processes share a region of memory to communicate directly
+- **Message Passing:** Processes share messages to each other through the OS
+- **Pipes:** One-Directional channel of communication between two processes
+- **Sockets:** Endpoints over a network, that allow two processes to communicate
+- **Signals:** Asynchronous messages sent by processes or the OS to signal events, or handle exceptions
+
+## Remote-Procedure Calls (RPC)
+
+RPC allows a process to execute on a remote system as if it were a local system. This is achieved by hiding the network communication between the different parts of the system, making the remote call procedure transparent to the programmer. Distributed Computing is acieved using this.
+
+- RPCs typically follow a **Client-Server Architecture**, where the Client systems put processes, and those processes are executed in the Server system.
+- Parameters and Results which flow through the network are serialized and deserialized between systems to facilitate the communication, also called **Marshalling and Unmarshalling**
+- **Stub Code** on the client side and **Skeleton Code** on the server side handle Marshalling and Unmarshalling of RPCs
+
+## Process Synchronization
+
+It is the process of arranging processes or threads that are running simultaneously in such a way that they don't cause trouble to each other when they access the same resources. This prevents issues like race conditions, deadlocks, and starvations.
+
+### Race Condition
+
