@@ -145,7 +145,7 @@ It contains the rules or conditions that are followed in the mapping of conceptu
 
 ## Relational Algebra
 
-It is a **procedural query language** used to perform operations in a relational database.
+It is a **procedural query language** used to perform operations in a relational database. Basically it focusses on how to obtain a desired result from a database.
 
 ### Syntax
 
@@ -163,10 +163,53 @@ It is a **procedural query language** used to perform operations in a relational
 
 - `⋈` **(Join)** : Combines records from two relations based on a common attribute
 
+  - `⨝` **(Inner Join)** : Combines records from two relations only when the condition is fulfilled in both relations
+
+  - `⟕` **(Left Join)** : Combines records from two relations based on a condition, but also includes all records from left relation even if they don't have matching values with the right relation. In that case **NULL** will be used to fill the gap
+
+  - `⟖` **(Right Join)** : Combines records from two relations based on a condition, but also includes all records from right relation even if they don't have matching values with the left relation. In that case **NULL** will be used to fill the gap
+
+  - `⟗` **(Outer Join)** : Combines records from two relations based on a condition, but also includes all records from both relations if condition is not satisfied. In that case **NULL** is used to fill the gap.
+
 ### Properties
 
 - Each operation in Relational Algebra produces a new relation, which can be used as an input to other operations
 - Operations are performed sequentially, meaning than the output of one serves as an input to the next one
 - The result of multiple subsequent operations is also a relation
 
+### Example
+
+Consider two relations:
+
+- Students (StudentID, Name, Age)
+- Courses (CourseID, Title)
+
+To retrieve the names of students who have enrolled in a specific course, let's say the course with ID "C001", using Relational Algebra:
+
+> **Result ← π<sub>Name</sub> (σ<sub>StudentID=Enrollment.StudentID ∧ CourseID='C001'</sub> (Students ⨝ Enrollment))**
+
 ## Relational Calculus
+
+Unlike Relational Algebra, Relational Calculus is a **non-procedural query language** used to specify the desired result from a database without specifying the sequence of operations to retrieve it. Basically, it focusses on what to expect, rather than how to obtain it.
+
+**1. Tuple Calculus:** The result is in the form of a set of tuples
+
+**2. Domain Calculus:** The result is in the form of a set of values for attributes
+
+Relational Calculus uses mathematical logic (e.g. `∀` for **"for all"** and `∃` for **"there exists"**)
+
+### Example
+
+Consider the same two relations:
+
+- Students (StudentID, Name, Age)
+- Courses (CourseID, Title)
+
+**1. Tuple Calculus:** To retrieve the names of students who are older than 20:
+
+> **{ s.Name | ∃ s ∈ Students (s.Age > 20) }**
+
+**2. Domain Calculus:** To retrieve the titles of courses:
+
+> **{ c.Title | c ∈ Courses }**
+
