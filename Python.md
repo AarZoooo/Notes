@@ -100,3 +100,4 @@ Another iterative numerical technique for finding roots of a function. Unlike th
 
 3. **Termination:** Stop iterating when the difference between successive approximations is smaller than a specified tolerance or after a maximum number of iterations.
 
+---
