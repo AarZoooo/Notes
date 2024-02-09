@@ -78,3 +78,82 @@ It defines the skeleton structure of a relational database. In other words, it i
 
 These refer to the actual data stored in a database at a point of time.They are represented as rows and columns with the actual data.
 
+### Referential Integrity
+
+It ensures the integrity or consistency of data between related tables. For example, when a foreign key of a table represents the primary key of another table, Referential integrity ensures that every value in the foreign key corresponds to some value in the primary key. This prohibits irregular data manipulation such as inserting a record without proper foreign key etc.
+
+### Entity Integrity
+
+It ensures that each record (row) in a table is uniquely identified by some attribute (column) in the table. In other words, there must be a Primary key in a table which uniquely identifies every record in it.
+
+---
+
+### Relational Model
+
+A database model based on the mathematical concept of Relations.
+
+- Introduced by Edgar F. Codd in 1970
+- Most widely used database model
+
+In this model, data is organized in into tables (relations), where each table consists of rows and columns. 
+
+### Network Model
+
+An older database model that represents data as a collection of records connected by links.
+
+- Developed in late 1960s and early 1970s
+- An improvement over the Hierarchical model
+
+In this model, data is organised into a graph-like structure, where records (nodes) are connected by pointers (edges) to form a network.
+
+### Hierarchical Model
+
+A database model in which data is stored in tree-like structure with a root. It consists of parent-child relationship.
+
+- Each record is a node
+- A Child node can have only one parent
+- A Parent node can have multiple children
+- Traversal in this node is done using Navigation methods
+
+## ER Model
+
+A conceptual data model used to describe the data and its relationships in a database system.
+
+- Introduced by Peter Chen in 1976
+- Allows visualisation and representation of the structure of a database system
+
+In this model, entities or tables are represented as **objects** (rectangles), attributes are represented as **Ovals**, and relationships between entities are represented by **Lines** connecting them.
+
+<img src = "https://www.simplilearn.com/ice9/free_resources_article_thumb/ERDiagramsInDBMS_1.png" height = 400></img>
+
+**Challenges:**
+
+- Representing complex relationships can be challenging
+- Representing certain aspects of the real-world domain can lead to Ambiguity
+- Limited Semantics for specifying constraints and behaviour
+- Overhead in case of creating and maintaining ER Diagram for large and complex databases
+
+### Mapping Constraints
+
+It contains the rules or conditions that are followed in the mapping of conceptual schema (ER Diagram) and the logical schema (Relational Schema) of a database. These ensure that the keys, attributes and relationships in the ER Diagram can be effectively mapped to Columns, Rows and Tables of the Relational Dataset.
+
+**Examples:**
+
+- **Entity-Attribute mapping:** Each entity should correspond to a table, and each attribute should correspond to a column in the relational database.
+- **Relationship mapping:** Each relationship in the ER diagram should be represented by Foreign Key relationships between corresponding tables.
+- **Cardinality constraints:** Cardinality ratios mentioned in the ER Diagram (such as **one-to-one**, **one-to-many** etc.) should be reflected in the design of the Relational Schema.
+
+## Relational Algebra
+
+It is a **procedural query language** used to perform operations in a relational database.
+
+### Syntax
+
+- `σ` **(Selection)** : Selects records from a relation that satisfy the given condition
+- `π` **(Projection)** : Selects a subset of attributes from a relation
+- `∪` **(Union)** : Combines records from two relations, removing duplicates
+- `∩` **(Intersection)** : Retrieves only common records from two relations
+- `-` **(Difference)** : Retrieves records from a relation that don't exist in another relation
+- `×` **(Cartesian Product)** : Combines records from two relations and creates a new relation with all possible combinations
+- `⋈` **(Join)** : Combines records from two relations based on a common attribute
+
