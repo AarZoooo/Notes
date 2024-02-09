@@ -150,10 +150,23 @@ It is a **procedural query language** used to perform operations in a relational
 ### Syntax
 
 - `σ` **(Selection)** : Selects records from a relation that satisfy the given condition
+
 - `π` **(Projection)** : Selects a subset of attributes from a relation
+
 - `∪` **(Union)** : Combines records from two relations, removing duplicates
+
 - `∩` **(Intersection)** : Retrieves only common records from two relations
+
 - `-` **(Difference)** : Retrieves records from a relation that don't exist in another relation
+
 - `×` **(Cartesian Product)** : Combines records from two relations and creates a new relation with all possible combinations
+
 - `⋈` **(Join)** : Combines records from two relations based on a common attribute
 
+### Properties
+
+- Each operation in Relational Algebra produces a new relation, which can be used as an input to other operations
+- Operations are performed sequentially, meaning than the output of one serves as an input to the next one
+- The result of multiple subsequent operations is also a relation
+
+## Relational Calculus
