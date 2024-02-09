@@ -186,7 +186,7 @@ Consider two relations:
 
 To retrieve the names of students who have enrolled in a specific course, let's say the course with ID "C001", using Relational Algebra:
 
-> **Result ← π<sub>Name</sub> (σ<sub>StudentID=Enrollment.StudentID ∧ CourseID='C001'</sub> (Students ⨝ Enrollment))**
+> **Result = π<sub>Name</sub> (σ<sub>StudentID=Enrollment.StudentID ∧ CourseID='C001'</sub> (Students ⨝ Enrollment))**
 
 ## Relational Calculus
 
