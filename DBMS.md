@@ -50,6 +50,8 @@ This is a person of a group of people responsible for design, implementation, ma
 - Managing user accounts, permissions and privileges
 - Maintaining data through consistency, accuracy and integrity of data
 
+</br>
+
 ## Relational Database structure
 
 In this method, data is stored in **Tables** (relations). Tables have **Rows** (tuples) and **Columns** (attributes). Each row represents a record, and each column represents an attribute of a record.
@@ -181,12 +183,17 @@ It is a **procedural query language** used to perform operations in a relational
 
 Consider two relations:
 
-- Students (StudentID, Name, Age)
-- Courses (CourseID, Title)
+    Students (StudentID, Name, Age)
+    Courses (CourseID, Title)
+
+    Enrollment(StudentID, CourseID)
+
 
 To retrieve the names of students who have enrolled in a specific course, let's say the course with ID "C001", using Relational Algebra:
 
 > **Result = π<sub>Name</sub> (σ<sub>StudentID=Enrollment.StudentID ∧ CourseID='C001'</sub> (Students ⨝ Enrollment))**
+
+</br>
 
 ## Relational Calculus
 
@@ -202,8 +209,8 @@ Relational Calculus uses mathematical logic (e.g. `∀` for **"for all"** and `�
 
 Consider the same two relations:
 
-- Students (StudentID, Name, Age)
-- Courses (CourseID, Title)
+    Students (StudentID, Name, Age)
+    Courses (CourseID, Title)
 
 **1. Tuple Calculus:** To retrieve the names of students who are older than 20:
 
@@ -211,5 +218,30 @@ Consider the same two relations:
 
 **2. Domain Calculus:** To retrieve the titles of courses:
 
-> **{ c.Title | c ∈ Courses }**
+> **{ Title |< Title > ? Courses }**
 
+</br>
+
+## Grouping and Ungrouping Operators
+
+Grouping allows for the aggregation of data based on specific attributes. Aggregate functions compute summary statistics like sum, average, count etc. on grouped data.
+
+Ungrouping operators reverse the grouping process, returning its data to its original format.
+
+### Examples
+
+Consider a relation containing sales data:
+
+    Sales(ProductID, SalesDate, Amount)
+
+To compute the total sales amount for each product:
+
+> TotalSalesByProduct = π<sub>ProductID, SUM(Amount)</sub>(GroupBy<sub>ProductID</sub>(Sales))
+
+To return the total sales amount for each product to the original format:
+
+> OriginalSales = Ungroup(TotalSalesByProduct)
+
+</br>
+
+---
