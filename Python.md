@@ -53,7 +53,7 @@ A numerical technique for finding roots of a continuous function within a given 
 1. **Initialization:** Start with an interval `[a, b]` where the function changes sign, i.e. `f(a) . f(b) < 0`
 
 2. **Iteration:**
-    - Compute the midpoint \(c\) of the interval: `c = (a + b) / 2.`
+    - Compute the midpoint of the interval: `c = (a + b) / 2.`
     - Evaluate the function `f(c)`
     - Update the interval:
         - If `f(c) = 0` or the width of the interval becomes smaller than a specified tolerance, consider `c` as the root.
