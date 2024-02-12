@@ -1,19 +1,23 @@
 # UNIT 1
 
+## Python Syntax
+
+For syntax you can go to **Python Cheatsheet** [(link)](https://www.pythoncheatsheet.org/cheatsheet/basics), it has every possible python syntax. Adding syntax to the notes was a bit irrelevant to me as it can be read anywhere.
+
 ## Important Data Structures
 
 ### List
-Mutable, flexible data structure. Data in it can be changed, hence its flexibility.
+Mutable, **flexible** data structure. Data in it can be changed, hence its flexibility.
 
     [1, 2, 3, 4]
     
 ### Tuple
-Immutable data structure used to represent fixed data. Once they are created, the data in a tuple can't be changed. A new tuple is needed in that case.
+**Immutable** data structure used to represent fixed data. Once they are created, the data in a tuple can't be changed. A new tuple is needed in that case.
 
     (2, 4, 6, 8, 10)
     
 ### Dictionary
-Unordered, Key-Value paired, Mutable data structure. Used to store data based on a key-value pair, and retrieval of value is done using its key. Keys are *unique*.
+Unordered, **Key-Value paired**, Mutable data structure. Used to store data based on a key-value pair, and retrieval of value is done using its key. Keys are *unique*.
 
     {
     "John Doe" : 001,
@@ -22,7 +26,7 @@ Unordered, Key-Value paired, Mutable data structure. Used to store data based on
     }
     
 ### Set
-Unordered, Mutable list of *Unique* elements. Used for storage of non-repeating data.
+Unordered, Mutable list of **Unique** elements. Used for storage of non-repeating data.
 
     {1, 2, 3, 4, 5}
 
