@@ -40,9 +40,10 @@ Builds upon NumPy by offering additional functionality for optimization, interpo
 ### 1. Bisection Method
 A numerical technique for finding roots of a continuous function within a given interval.
 
-- The bisection method operates on the principle of repeatedly halving the interval containing the root until the interval becomes sufficiently small.
-- It requires that the function changes sign over the interval, ensuring that a root exists within that interval.
-- The method is guaranteed to converge to a root of the function as long as the function is continuous and changes sign over the interval.
+- The bisection method operates on the principle of narrowing down the search space for the root by iteratively halving the interval in which the root lies.
+- It starts with an initial interval where the function changes sign, indicating that the root is somewhere within that interval.
+- By repeatedly halving the interval and selecting the subinterval where the function changes sign, the method narrows down the search space until the width of the interval becomes sufficiently small.
+
 
 **Process:**
 1. **Initialization:** Start with an interval `[a, b]` where the function changes sign, i.e. `f(a) . f(b) < 0`
@@ -61,9 +62,9 @@ A numerical technique for finding roots of a continuous function within a given 
 ### 2. Newton-Raphson Method
 An iterative numerical technique for finding roots of a differentiable function. The method uses linear approximation to iteratively refine the estimate of the root until convergence is achieved.
 
-- The Newton-Raphson method uses the derivative of the function to iteratively update the current estimate of the root.
-- It typically converges faster than the bisection method by calculating tangent at a certain point on the curve, and moving on to intersection of the tangent and x-axis.
-- However, the method may fail to converge, or may converge to a local minimum if the initial guess is far from the true root or if the function has complex behavior near the root.
+- It starts with an initial guess for the root and then computes the slope of the tangent line to the function at that point.
+- The method then finds the point where this tangent line intersects the x-axis, which provides a new, hopefully more accurate, estimate of the root.
+- By iteratively updating the estimate using this process, the method converges towards the root.
 
 **Process:**
 1. **Initialization:** Start with an initial guess `x₀` for the root.
@@ -75,7 +76,7 @@ An iterative numerical technique for finding roots of a differentiable function.
 
         where `f'(xₙ)` is the derivative of the function evaluated at `xₙ`.
     
-    - What actually happens here is we draw a tangent on the curve at `x = x₀`, and move on to the intersection of the tangent and the x-axis.
+    - What actually happens here is we draw a tangent on the curve at `x = x₀`, and move on to the intersection of the tangent and the x-axis. Then we continue with the new point.
 
     - Repeat this process until we reach the desired level of accuracy.
 
@@ -84,9 +85,12 @@ An iterative numerical technique for finding roots of a differentiable function.
 ### 3. Secant Method
 Another iterative numerical technique for finding roots of a function. Unlike the Newton-Raphson method, the secant method does not require knowledge of the derivative of the function and approximates it using finite differences.
 
-- The secant method uses two initial guesses to approximate the derivative of the function using finite differences.
-- It iteratively updates the current estimate of the root based on the secant line connecting the function values at the two previous points.
-- Like the Newton-Raphson method, the secant method may fail to converge if the initial guesses are poorly chosen or if the function has complex behavior near the root.
+**Algorithm**
+
+- You start with two initial guesses, let's call them `x₀` and `x₁`.
+- You calculate the slope of the line between the points `(x₀, f(x₀))` and `(x₁, f(x₁))`.
+- You extend that line until it intersects the x-axis, giving you a new guess `x₂` for the root.
+- Then you repeat the process with the new guess and the last guess (so, `x₁` becomes the old guess, and you calculate a new guess based on `x₂` and `x₁`).
 
 **Process:**
 1. **Initialization:** Start with two initial guesses `x₀` and `x₁` for the root.
@@ -94,10 +98,13 @@ Another iterative numerical technique for finding roots of a function. Unlike th
 2. **Iteration:**
     - Compute the next approximation `xₙ₊₁` using the formula:
 
-        `xₙ₊₁ = xₙ - f(xₙ) * (xₙ - xₙ₋₁) / (f(xₙ) - f(xₙ₋₁))`
+        `xₙ₊₁ = xₙ - { f(xₙ) * (xₙ - xₙ₋₁) / (f(xₙ) - f(xₙ₋₁)) }`
+
+    - What happens here is we take two initial guesses, and draw a line between the two points where these two guesses intersect the curve respectively. Then we extend that line to intersect the x-axis. That becomes our new point.
 
     - Repeat this process until we reach the desired level of accuracy.
 
 3. **Termination:** Stop iterating when the difference between successive approximations is smaller than a specified tolerance or after a maximum number of iterations.
 
 ---
+
