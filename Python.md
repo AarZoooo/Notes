@@ -72,7 +72,7 @@ An iterative numerical technique for finding roots of a differentiable function.
 2. **Iteration:**
     - Compute the next approximation `xₙ₊₁` using the formula:
 
-        `xₙ₊₁ = xₙ - (f(xₙ) / f'(xₙ))`
+        `xₙ₊₁ = xₙ - { f(xₙ) / f'(xₙ) }`
 
         where `f'(xₙ)` is the derivative of the function evaluated at `xₙ`.
     
