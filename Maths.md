@@ -32,17 +32,15 @@ The process of constructing a **curve** or mathematical function that has the be
 
 Let `x` be an **independent variable** and `y` be the **dependent variable**, and we have a set of values:
 
-`(x1, y1)`, `(x2, y2)`, ... `(xn, yn)`.
+$(x_1, y_1), (x_2, y_2), ... (x_n, y_n)$
 
-Suppose `Y = f(X)` is an approximate relation that fits into a given data `(xi, yi)`. 
+Suppose `Y = f(X)` is an approximate relation that fits into a given data $x_i, y_i$. 
 
-Then `yi` are called **observed (given) values** and `Yi = f(Xi)` are **expected values**.
+Then $y_i$ are called **observed (given) values** and $Y_i = f(X_i)$ are **expected values**.
 
-The difference between `Ri = yi - Yi` is called **error or residual of yi**.
+The difference $R_i = y_i - Y_i$ is called **error or residual of $y_i$**.
 
 <img src = "https://blog.mbedded.ninja/mathematics/curve-fitting/linear-curve-fitting/linear_curve_fitting_graph_of_points_and_line.png" height = 400></img>
-
-There are ways to minimize the residual, as follows:
 
 ### Method of Least Squares
 
@@ -52,3 +50,32 @@ $E_i = \sum_{i=1}^{n}(y_i - Y_i)^2$
 
 We need to make the output of this formula minimum to reduce the residuals.
 
+### Fitting of Straight line
+
+We fit a straight line on the given points `(xi, yi)`:
+
+Let: $Y = a + bx$ be the equation of a straight line to be fitted.
+
+Now residual or error at $x = x_i$ is:
+
+$E_i = y_i - Y_i$
+
+or, $E_i = y_i - a - bx_i$
+
+Now, $E = \sum_{i=1}^{n}(y_i - Y_i)^2$
+
+therefore, $E = \sum_{i=1}^{n}(y_i - a - bx_i)$
+
+By the method of least square, `a` and `b` are to be determined so that the sum of squares of residues is minimum.
+
+$\frac{\delta E}{\delta a} = 0$
+
+$\frac{\delta E}{\delta b} = 0$
+
+now, $\frac{\delta E}{\delta a} = 2\sum_{i=1}^{n}(y_i - a - bx_i)(-1) = 0$
+
+or, $\frac{\delta E}{\delta a} = \sum_{i=1}^{n}(y_i - a - bx_i) = 0$
+
+or, $\sum y_i - a \sum 1 - b \sum x_i = 0$
+
+or, $\sum y_i = an + b \sum x_i = 0$
