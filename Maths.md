@@ -52,7 +52,7 @@ We need to make the output of this formula minimum to reduce the residuals.
 
 ### Fitting of Straight line
 
-We fit a straight line on the given points `(xi, yi)`:
+We fit a straight line on the given points $(x_i, y_i)$:
 
 Let: $Y = a + bx$ be the equation of a straight line to be fitted.
 
