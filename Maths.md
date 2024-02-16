@@ -22,27 +22,33 @@ There are **three methods** to find mean:
 2. Short-cut method
 3. Step deviation method
 
-### Direct Method
+To be completed later
 
-**Symbols:**
+# UNIT 2
 
-- x̄ = Mean
-- xᵢ = each observation
-- n = number of observations
-- A = assumed center observation
+## Curve Fitting
 
-- f = frequency of each group
-- N = 
+The process of constructing a **curve** or mathematical function that has the best fit to a series of data points. Basically it examines the relationship between one or more independent variables and a dependent variable.
 
-For **Ungrouped data:**
+Let `x` be an **independent variable** and `y` be the **dependent variable**, and we have a set of values:
 
-x̄ = $\frac{\sum xᵢ}{n}$
+`(x1, y1)`, `(x2, y2)`, ... `(xn, yn)`.
 
-**Example:**
+Suppose `Y = f(X)` is an approximate relation that fits into a given data `(xi, yi)`. 
 
+Then `yi` are called **observed (given) values** and `Yi = f(Xi)` are **expected values**.
 
+The difference between `Ri = yi - Yi` is called **error or residual of yi**.
 
-For **Grouped data:**
+<img src = "https://blog.mbedded.ninja/mathematics/curve-fitting/linear-curve-fitting/linear_curve_fitting_graph_of_points_and_line.png" height = 400></img>
 
-x̄ = $\frac{\sum f x}{N}$
+There are ways to minimize the residual, as follows:
+
+### Method of Least Squares
+
+This method leads to minimizing the sum of squares of the residuals with the formula:
+
+$E_i = \sum_{i=1}^{n}(y_i - Y_i)^2$
+
+We need to make the output of this formula minimum to reduce the residuals.
 
