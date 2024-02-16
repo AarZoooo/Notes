@@ -78,4 +78,5 @@ or, $\frac{\delta E}{\delta a} = \sum_{i=1}^{n}(y_i - a - bx_i) = 0$
 
 or, $\sum y_i - a \sum 1 - b \sum x_i = 0$
 
-or, $\sum y_i = an + b \sum x_i = 0$
+or, $\sum y_i = an + b \sum x_i$
+
