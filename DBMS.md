@@ -244,4 +244,43 @@ To return the total sales amount for each product to the original format:
 
 </br>
 
----
+# UNIT 2
+
+## Normalization
+
+The process of analyzing the relations, their attributes, keys and functional dependencies among them.
+
+- Reduces redundancy among relations
+- Makes relations more effective and operational
+- Reduces insertion, deletion and update anomalies
+
+### Functional Dependency
+
+The association between two or more attributes in a relation.
+
+    A ---> B
+
+Here,
+
+- A = Determinant relation
+- B = Determined relation
+
+Thus,
+
+- A is functionally determining B, or
+- B is functionally determined by A, or
+- B is functionally dependent on A
+- For same value of A, there is same value of B
+
+e.g.
+
+    1)  A  |  B     2)  A  |  B
+        ---+---         ---+--- 
+        1  |  3         1  |  2
+        2  |  7         2  |  4
+        3  |  9         3  |  6
+        4  |  5         2  |  3
+        6  |  2         4  |  5
+        3  |  9         6  |  9
+
+In 1<sup>st</sup> example: A --> B, whereas in 2<sup>nd</sup> example: A not --> B.
