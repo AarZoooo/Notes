@@ -254,7 +254,7 @@ The process of analyzing the relations, their attributes, keys and functional de
 - Makes relations more effective and operational
 - Reduces insertion, deletion and update anomalies
 
-### Functional Dependency
+## Functional Dependency
 
 The association between two or more attributes in a relation.
 

@@ -299,3 +299,18 @@ It is the process of arranging processes or threads that are running simultaneou
 
 ### Race Condition
 
+> to be continued
+
+<br>
+
+# UNIT 2
+
+## Memory Management
+
+It is a type of resource management applied to the computer memory. The requirement of memory management is to provide the ways of dynamically portioning of memory to program and free-ing on request if it is not used anymore.
+
+**Importances:**
+
+- Allocation and Deallocation of memory before and after process execution
+- Minimize the fragmentation issues
+- 
