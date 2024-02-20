@@ -254,7 +254,9 @@ The process of analyzing the relations, their attributes, keys and functional de
 - Makes relations more effective and operational
 - Reduces insertion, deletion and update anomalies
 
-## Functional Dependency
+<br>
+
+### Functional Dependency
 
 The association between two or more attributes in a relation.
 
@@ -284,3 +286,52 @@ e.g.
         3  |  9         6  |  9
 
 In 1<sup>st</sup> example: A --> B, whereas in 2<sup>nd</sup> example: A not --> B.
+
+<br>
+
+### Transitive Functional Dependency
+
+Suppose:
+- `A ---> B`, `B not ---> A`
+- `B ---> C`
+
+Therefore, we can say:
+- `A ---> C`
+
+For example:
+
+    Book | Author | Age
+    -----+--------+----
+     B1  |   A1   | 79
+     B2  |   A2   | 56
+     B3  |   A3   | 56
+     B4  |   A4   | 43
+ 
+In this relation:
+- `Book ---> Author`
+- `Author not ---> Book`
+- `Author ---> Age`
+
+Therefore,
+- `Book ---> Age`
+
+<br>
+
+## 1<sup>st</sup> Normal Form
+
+A relation is said to be in 1<sup>st</sup> Normal Form if every attribute has an **atomic nature** (single value is assigned).
+
+**Methods of conversion:**
+
+- **Flattening a relation:** Breaking multiple comma-separated values of a single row into multiple separate rows
+
+- **Decomposition:** Separating the repeating and non-repeating attributes
+
+<br>
+
+## 2<sup>nd</sup> Normal Form
+
+A relation is said to be in 2<sup>nd</sup> Normal Form if:
+- it is in 1<sup>st</sup> Normal Form
+- every non-key attribute is **Fully Functionally Dependent** on the key attribute.
+
