@@ -313,4 +313,46 @@ It is a type of resource management applied to the computer memory. The requirem
 
 - Allocation and Deallocation of memory before and after process execution
 - Minimize the fragmentation issues
-- 
+- Proper utilization of Main Memory
+
+### Techniques of Memory Management
+
+1. **Contiguous memory management**
+
+    Assigning continuous blocks of memory to the processes. Types of Contiguous memory management are:
+
+    - **Fixed (static) partition** 
+
+        Characteristics:
+        - Number of partitions are fixed
+        - Size of each partition may or may not be same
+
+        Disadvantages:
+        - Internal Fragmentations
+        - Limit in Process size
+        - External Fragmentation
+        - Limitation on degree of multi-programming
+
+        <br>
+
+    - **Variable (dynamic) partition**
+
+        Memory is allocated to processes only when they come into the RAM.
+
+        Characteristics:
+        - No Internal Fragmentation
+        - No limitations on Processes or Process sizes
+
+        Disadvantages:
+        - External Fragmentation
+        - Allocation and Deallocation is complex
+
+<br>
+
+2. **Non-Contiguous memory management**
+
+    The program is divided into blocks and loaded at different portions of memory.
+
+    - Paging
+    - Segmentation
+
