@@ -82,6 +82,8 @@ or, $\sum y_i = an + b \sum x_i$
 
 <br>
 
+---
+
 ### Fitting of a Power Curve $Y = a x^b$
 
 Let:
@@ -123,6 +125,8 @@ After that take $a = antilog(A)$
 
 <br>
 
+---
+
 ### Fitting of an exponential curve $Y = a b^X$
 
 Let:
@@ -163,6 +167,8 @@ After that take $a = antilog(A)$, $b = antilog(B)$
 
 <br>
 
+---
+
 ### Fitting of exponential curve $Y = a e^{bX}$
 
 Let:
@@ -201,3 +207,8 @@ Solving, we get `A` and `B`
 After that, we take:
 - $a = antilog(A)$
 - $b = \frac{B}{log(e)}$
+
+<br>
+
+---
+
