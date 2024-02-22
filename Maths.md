@@ -24,6 +24,8 @@ There are **three methods** to find mean:
 
 To be completed later
 
+<br>
+
 # UNIT 2
 
 ## Curve Fitting
@@ -50,7 +52,11 @@ $E_i = \sum_{i=1}^{n}(y_i - Y_i)^2$
 
 We need to make the output of this formula minimum to reduce the residuals.
 
-### Fitting of Straight line
+<br>
+
+---
+
+### Fitting of a Straight line $Y = a + bx$
 
 We fit a straight line on the given points $(x_i, y_i)$:
 
