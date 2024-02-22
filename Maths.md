@@ -80,3 +80,124 @@ or, $\sum y_i - a \sum 1 - b \sum x_i = 0$
 
 or, $\sum y_i = an + b \sum x_i$
 
+<br>
+
+### Fitting of a Power Curve $Y = a x^b$
+
+Let:
+$$
+Y = a x^b
+$$
+be a power curve where `a` and `b` are constants.
+
+Taking log on both sides, we get:
+$$
+log (Y) = log (a X^b)
+$$
+$$
+log (Y) = log (a) + log (X^b)
+$$
+$$
+log Y = log (a) + b*log (X) ----(2)
+$$
+Let: $log (Y) = U$, $log (a) = A$, and $log (X) = V$
+
+Then (2) becomes:
+
+$$
+U = A + bV ----(3)
+$$ 
+
+The normal equations corresponding to (3) are:
+
+$$
+\sum U = n A + b \sum V
+$$
+$$
+\sum U V = A \sum V + b \sum V^2
+$$
+
+Solving, we get `A` and `b`
+
+After that take $a = antilog(A)$
+
+<br>
+
+### Fitting of an exponential curve $Y = a b^X$
+
+Let:
+$$
+Y = a b^X
+$$
+
+Applying log on both sides:
+$$
+log (Y) = log (a b^X)
+$$
+$$
+log(Y) = log(a) + log(b^X)
+$$
+$$
+log(Y) = log(a) + X*log(b) ---- (2)
+$$
+
+Let $log(Y) = U$, $log(a) = A$, $log(b) = B$
+
+Then (2) becomes:
+$$
+U = A + BX ---- (3)
+$$
+
+THe normal equations corresponding to (3) are:
+
+$$
+\sum U = n A + B \sum X
+$$
+$$
+\sum U X = A \sum X + B \sum X^2
+$$
+
+Solving, we get `A` and `B`
+
+After that take $a = antilog(A)$, $b = antilog(B)$
+
+<br>
+
+### Fitting of exponential curve $Y = a e^{bX}$
+
+Let:
+$$
+Y = a e^{bX} ---- (1)
+$$
+
+Taking log on both sides, we have:
+$$
+log (Y) = log (a) + log(e^{bX})
+$$
+$$
+log(Y) = log(a) + b * X * log(e) ---- (2)
+$$
+
+Let:
+- $log (Y) = U$
+- $log(a) = A$
+- $b*log(e) = B$
+
+Then (2) becomes:
+$$
+U = A + BX ---- (3)
+$$
+
+The normal equations corresponding to (3) are:
+$$
+\sum U = n A + B \sum X
+$$
+$$
+\sum U X = A \sum X + B \sum X^2
+$$
+
+Solving, we get `A` and `B`
+
+After that, we take:
+- $a = antilog(A)$
+- $b = \frac{B}{log(e)}$
