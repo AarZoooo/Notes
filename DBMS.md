@@ -317,7 +317,7 @@ Therefore,
 
 <br>
 
-## 1<sup>st</sup> Normal Form
+### 1<sup>st</sup> Normal Form
 
 A relation is said to be in 1<sup>st</sup> Normal Form if every attribute has an **atomic nature** (single value is assigned).
 
@@ -329,9 +329,15 @@ A relation is said to be in 1<sup>st</sup> Normal Form if every attribute has an
 
 <br>
 
-## 2<sup>nd</sup> Normal Form
+### 2<sup>nd</sup> Normal Form
 
 A relation is said to be in 2<sup>nd</sup> Normal Form if:
 - it is in 1<sup>st</sup> Normal Form
 - every non-key attribute is **Fully Functionally Dependent** on the key attribute.
 
+<br>
+
+### 3<sup>rd</sup> Normal Form
+
+A relation is said to be in 3<sup>rd</sup> normal form if:
+- it
