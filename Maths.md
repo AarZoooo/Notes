@@ -218,3 +218,21 @@ After that, we take:
 
 ---
 
+## Population
+
+A group of individuals under study. It may be finite or infinite.
+
+### Sampling
+
+The process of selecting a sample. A random sample is one in which each population has equal chance of being involved in it.
+
+They are: $^N C _n$
+
+Different samples of size `n` can be picked up from the population of size `N`.
+
+### Parameters of Statistics
+
+    Population      |       Sample
+    ----------------+-------------
+    Size(N)         |       Size(n)
+    Population mean = 
