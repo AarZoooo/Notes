@@ -218,21 +218,78 @@ After that, we take:
 
 ---
 
-## Population
+## Testing of Hypothesis
 
-A group of individuals under study. It may be finite or infinite.
+Hypothesis testing is used to test some hypothesis about parent population from which the sample is drawn.
 
-### Sampling
+### Hypothesis
 
-The process of selecting a sample. A random sample is one in which each population has equal chance of being involved in it.
+It is a statement that is yet to be tested. It is a tentative answer to your research work. Hypothesis may be accepted or rejected based on the test.
 
-They are: $^N C _n$
+### Procedure of testing of hypothesis for large sample
 
-Different samples of size `n` can be picked up from the population of size `N`.
+Steps:
 
-### Parameters of Statistics
+1. Set up **Null** and **Alternate** Hypothesis
+2. Set up level of significance $\alpha$ (Generally it is taken 5% or 1%)
+3. Use Z-test formula and find the value.
+4. Find out the Critical or Cut off values corresponding to $\alpha$
+5. Take the decision about the null hypothesis based on the calculated and critical value of test. i.e.
+   - If `Computed value < Critical Value` => `Accept the null hypothesis`
+   - If `Computed value > Critical Value` => `Reject the null hypothesis`
+  
+## Formula to find the value of Z-test
 
-    Population      |       Sample
-    ----------------+-------------
-    Size(N)         |       Size(n)
-    Population mean = 
+$$
+Z = \frac{\bar x - \mu _0}{\frac{\sigma}{\sqrt n}}
+$$
+
+Where:
+
+- $\bar x$ -> mean of sample
+- $\mu _0$ -> mean of population
+- $\sigma$ -> Standard Deviation of population
+- $n     $ -> Number of observations
+
+**Note:** Critical value depends upon the nature of test:
+1. One tailed test
+2. Two tailed test
+
+<img src = "https://d138zd1ktt9iqe.cloudfront.net/media/seo_landing_files/critical-value-2-1640777886.png">
+
+### One Tailed test
+
+- For One Sample test:
+  
+  $H_0 : \mu = \bar X$
+  
+  $H_1 : \mu < \bar X (left tailed)$
+  
+  $H_2 : \mu > \bar X (right tailed)$
+  
+
+- For Two Sample test:
+  
+  $H_0 : \bar X_1 = \bar X_2$
+
+  $H_1 : \bar X_1 < \bar X_2 (left tailed)$
+
+
+  $H_2 : \bar X_1 > \bar X_2 (right tailed)$
+  
+
+### Two Tailed test
+
+- For One Sample test:
+  
+  $H_0 : \mu = \bar X$
+  
+  $H_1 : \mu _1 \neq \bar X$
+  
+
+- For Two Sample test:
+  
+  $H_0 : \bar X_1 = \bar X_2$
+  
+  $H_1 : \bar X_1 \neq \bar X_2$
+  
