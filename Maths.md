@@ -292,4 +292,5 @@ Where:
   $H_0 : \bar X_1 = \bar X_2$
   
   $H_1 : \bar X_1 \neq \bar X_2$
+
   
