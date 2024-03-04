@@ -126,23 +126,17 @@ Using the method of least square, find the best fitting line for the given data:
 
 Assume: 
 
-$$
-y = a + bx ---- (1)
-$$
+$y = a + bx ---- (1)$
 
 Multiplying x in both sides:
 
-$$
-xy = ax + bx^2 ---- (2)
-$$
+$xy = ax + bx^2 ---- (2)$
 
 Performing Summation in equation (1) and (2):
 
-$$
-\sum y = na + b \sum x  ---- (3)
+$\sum y = na + b \sum x  ---- (3)$
 
-\sum xy = a \sum x + b \sum x^2  ---- (4)
-$$
+$\sum xy = a \sum x + b \sum x^2  ---- (4)$
 
     x  |  y  |  xy  |  x^2  |
     ---+-----+------+-------+
@@ -152,44 +146,70 @@ $$
     4  |  6  |  24  |   16  |
     5  |  5  |  25  |   25  |
 
-$$
-\sum x = 15
+$\sum x = 15$
 
-\sum y = 20
+$\sum y = 20$
 
-\sum xy = 71
+$\sum xy = 71$
 
-\sum x^2 = 55
-$$
+$\sum x^2 = 55$
 
 So the equations become:
 
-$$
-20 = 5a + 15b
+$20 = 5a + 15b$
 
-71 = 15a + 55b
-$$
+$71 = 15a + 55b$
+
 
 Performing subtraction on these equations:
 
-$$
--11 = -10b
+$-11 = -10b$
 
-b = 1.1
-$$
+$b = 1.1$
+
 
 Thus, we get:
 
-$$
-20 = 5a + 15 * 1.1
+$20 = 5a + 15 * 1.1$
 
-20 = 5a + 16.2
+$20 = 5a + 16.2$
 
-a = 0.7
-$$
+$a = 0.7$
+
 
 Therefore our curve becomes:
 
-$$
-y = 0.7 + 1.1x
-$$
+$y = 0.7 + 1.1x$
+
+Q. 2) Fit the parabola $y = a + bx + cx^2$ for the following data. Also find `y` when `x = 6`.
+
+    x  |  0   1    2    3    4  |
+    ---+------------------------+
+    y  |  1  1.8  1.9  2.5  6.3 |
+
+=> $y = a + bx + cx^3$
+
+$\sum y = na + b \sum x + c \sum x^2$ --- (1)
+
+Normal equations are:
+
+$\sum xy = a \sum x + b \sum x^2 + c \sum x^3$ --- (2)
+
+$\sum x^2 y = a \sum x^2 + b \sum x^3 + c \sum x^4$ --- (3)
+
+    x  |  y  |  x^2  |  x^3  |  x^4  |  xy   |  x^2 * y  |
+    ---+-----+-------+-------+-------+-------+-----------+
+    0  |  1  |   0   |   0   |   0   |  0    |     0     |
+    1  | 1.8 |   1   |   1   |   1   |  1.8  |    1.8    |  
+    2  | 1.9 |   4   |   8   |   10  |  3.8  |    7.6    |
+    3  | 2.5 |   9   |  27   |   81  |  7.5  |    22.5   |
+    4  | 6.3 |   16  |  64   |  256  |  25.2 |   100.8   |
+
+$\sum x = 10$
+$\sum y = 13.5$
+$\sum x^2 = 30$
+$\sum x^3 = 100$
+$\sum x^4 = 354$
+$\sum xy = 38.3$
+$\sum x^2 y = 132.7$
+
