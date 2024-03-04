@@ -140,6 +140,7 @@ Performing Summation in equation (1) and (2):
 
 $$
 \sum y = na + b \sum x  ---- (3)
+
 \sum xy = a \sum x + b \sum x^2  ---- (4)
 $$
 
@@ -153,8 +154,11 @@ $$
 
 $$
 \sum x = 15
+
 \sum y = 20
+
 \sum xy = 71
+
 \sum x^2 = 55
 $$
 
@@ -162,6 +166,7 @@ So the equations become:
 
 $$
 20 = 5a + 15b
+
 71 = 15a + 55b
 $$
 
@@ -169,6 +174,7 @@ Performing subtraction on these equations:
 
 $$
 -11 = -10b
+
 b = 1.1
 $$
 
@@ -176,7 +182,9 @@ Thus, we get:
 
 $$
 20 = 5a + 15 * 1.1
+
 20 = 5a + 16.2
+
 a = 0.7
 $$
 
