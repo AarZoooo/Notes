@@ -116,5 +116,72 @@ Another iterative numerical technique for finding roots of a function. Unlike th
 
 # UNIT 2
 
-## Polynomial Interpolation
+## Curve Fitting
 
+Using the method of least square, find the best fitting line for the given data:
+
+    x  | 1 | 2 | 3 | 4 | 5 |
+    ---+---+---+---+---+---+
+    y  | 1 | 3 | 5 | 6 | 5 |
+
+Assume: 
+
+$$
+y = a + bx ---- (1)
+$$
+
+Multiplying x in both sides:
+
+$$
+xy = ax + bx^2 ---- (2)
+$$
+
+Performing Summation in equation (1) and (2):
+
+$$
+\sum y = na + b \sum x  ---- (3)
+\sum xy = a \sum x + b \sum x^2  ---- (4)
+$$
+
+    x  |  y  |  xy  |  x^2  |
+    ---+-----+------+-------+
+    1  |  1  |  1   |   1   |
+    2  |  3  |  6   |   4   |
+    3  |  5  |  15  |   9   |
+    4  |  6  |  24  |   16  |
+    5  |  5  |  25  |   25  |
+
+$$
+\sum x = 15
+\sum y = 20
+\sum xy = 71
+\sum x^2 = 55
+$$
+
+So the equations become:
+
+$$
+20 = 5a + 15b
+71 = 15a + 55b
+$$
+
+Performing subtraction on these equations:
+
+$$
+-11 = -10b
+b = 1.1
+$$
+
+Thus, we get:
+
+$$
+20 = 5a + 15 * 1.1
+20 = 5a + 16.2
+a = 0.7
+$$
+
+Therefore our curve becomes:
+
+$$
+y = 0.7 + 1.1x
+$$
