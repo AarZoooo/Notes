@@ -434,3 +434,18 @@ Virutal memory simpley appears to be present but it is not present physically.
 - Large sized programs can easily execute
 - It reduces external fragmentation
 - Degree of multi-programming is increased
+
+### Page Fault
+
+A type of interruption that happens when a running process ascesses the main memory page that are mapped into virtual memory but not loaded in the main memory.
+
+### Page Replacement
+
+The process in which a page from main memory is replaced with a page from secondary memory. It is a technique used by OS to decide which memory page to **swap out**. It also decides how much memory is to be allocated to each memory process.
+
+**Algorithms used:**
+
+- First In First Out (FIFO)
+- Optimal Page Replacement (OPR)
+- Least Recently Used (LRU)
+
