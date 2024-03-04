@@ -341,3 +341,32 @@ A relation is said to be in 2<sup>nd</sup> Normal Form if:
 
 A relation is said to be in 3<sup>rd</sup> normal form if:
 - it
+
+## Iterative Statements
+
+- **Simple Loop**
+- **While Loop**
+- **For Loop**
+
+### Simple Loop
+
+    LOOP
+    <statements>
+    EXIT WHEN <condition>
+    END LOOP
+
+### While Loop
+
+    WHILE <condition>
+    LOOP
+    <statements>
+    END LOOP
+    END
+
+### For Loop
+
+    FOR <variable> in <start..end>
+    LOOP
+    <statements>
+    END LOOP
+
