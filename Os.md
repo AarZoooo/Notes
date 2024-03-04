@@ -449,3 +449,166 @@ The process in which a page from main memory is replaced with a page from second
 - Optimal Page Replacement (OPR)
 - Least Recently Used (LRU)
 
+---
+
+### Numerical Example
+
+**Reference String:-** 7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 1, 2, 0
+
+**Memory Block Size:-** 3
+
+    Case 1:
+
+    +-----+
+    |  7  |  -> Page Fault
+    +-----+
+    |     |
+    +-----+
+    |     |
+    +-----+
+
+    Case 2:
+
+    +-----+
+    |  7  |  
+    +-----+
+    |  0  |  -> Page Fault
+    +-----+
+    |     |
+    +-----+
+
+    Case 3:
+
+    +-----+
+    |  7  |  
+    +-----+
+    |  0  |  
+    +-----+
+    |  1  |  -> Page Fault
+    +-----+
+
+    Case 4:
+
+    +-----+
+    |  2  |  -> Page Fault
+    +-----+
+    |  0  |  
+    +-----+
+    |  1  |  
+    +-----+
+
+    Case 5:
+
+    +-----+
+    |  2  |  
+    +-----+
+    |  0  |  -> Page Hit
+    +-----+
+    |  1  |  
+    +-----+
+
+    Case 6:
+
+    +-----+
+    |  2  |  
+    +-----+
+    |  3  |  -> Page Fault
+    +-----+
+    |  1  |  
+    +-----+
+
+    Case 7:
+
+    +-----+
+    |  2  |  
+    +-----+
+    |  3  |  
+    +-----+
+    |  0  |  -> Page Fault
+    +-----+
+
+    Case 8:
+
+    +-----+
+    |  4  |  -> Page Fault
+    +-----+
+    |  3  |  
+    +-----+
+    |  0  |  
+    +-----+
+
+    Case 9:
+
+    +-----+
+    |  4  |  
+    +-----+
+    |  2  |  -> Page Fault
+    +-----+
+    |  0  |  
+    +-----+
+
+    Case 10:
+
+    +-----+
+    |  4  |  
+    +-----+
+    |  2  |  
+    +-----+
+    |  3  |  -> Page Fault
+    +-----+
+
+    Case 11:
+
+    +-----+
+    |  0  |  -> Page Fault
+    +-----+
+    |  2  |  
+    +-----+
+    |  3  |  
+    +-----+
+
+    Case 12:
+
+    +-----+
+    |  0  |  
+    +-----+
+    |  2  |  
+    +-----+
+    |  3  |  -> Page Hit
+    +-----+
+
+    Case 13:
+
+    +-----+
+    |  0  |  
+    +-----+
+    |  1  |  -> Page Fault
+    +-----+
+    |  3  |  
+    +-----+
+
+    Case 14:
+
+    +-----+
+    |  0  |  
+    +-----+
+    |  1  |  
+    +-----+
+    |  2  |  -> Page Fault
+    +-----+
+
+    Case 15:
+
+    +-----+
+    |  0  |  -> Page Hit
+    +-----+
+    |  1  |  
+    +-----+
+    |  2  |  
+    +-----+
+
+Therefore:
+
+- **Cases =** 15
+- **Page Faults =** 12, **Average =** $\frac{12}{15}$
+- **Page Hits =** 3, **Average =** $\frac{3}{15}$
