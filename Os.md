@@ -446,6 +446,9 @@ The process in which a page from main memory is replaced with a page from second
 **Algorithms used:**
 
 - First In First Out (FIFO)
+    - Very Simple to use
+    - Oldest Page is replaced with new page
+    - Performance is not good
 - Optimal Page Replacement (OPR)
 - Least Recently Used (LRU)
 
