@@ -445,16 +445,18 @@ The process in which a page from main memory is replaced with a page from second
 
 **Algorithms used:**
 
-- First In First Out (FIFO)
+- **First In First Out (FIFO)**
     - Very Simple to use
-    - Oldest Page is replaced with new page
+    - Oldest inserted Page is replaced with new page
     - Performance is not good
-- Optimal Page Replacement (OPR)
-- Least Recently Used (LRU)
+- **Optimal Page Replacement (OPR)**
+    - Replaces the page which is least likely to be used in the future
+- **Least Recently Used (LRU)**
+    - Replaces the least recently used page, i.e. Page which has not been used for the longest time in the Main memory.
 
 ---
 
-### Numerical Example
+### Numerical Example for FIFO
 
 **Reference String:-** 7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 1, 2, 0
 
@@ -518,5 +520,150 @@ Therefore:
 
 ---
 
-### Optimal Page Replacement
+### Numerical Example for OPR
 
+**Reference String:-** 7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 1, 2, 0, 1, 7, 0, 1
+
+**Memory Block Size:-** 4
+
+    Case 1:                     Case 2:                     Case 3:                     Case 4:
+
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  7  |  -> Page Fault      |  7  |                     |  7  |                     |  7  |    
+    +-----+                     +-----+                     +-----+                     +-----+
+    |     |                     |  0  |  -> Page Fault      |  0  |                     |  0  |  
+    +-----+                     +-----+                     +-----+                     +-----+
+    |     |                     |     |                     |  1  |  -> Page Fault      |  1  |
+    +-----+                     +-----+                     +-----+                     +-----+
+    |     |                     |     |                     |     |                     |  2  |  -> Page Fault
+    +-----+                     +-----+                     +-----+                     +-----+
+
+    Case 5:                     Case 6:                     Case 7:                     Case 8:
+
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  7  |                     |  3  |  -> Page Fault      |  3  |                     |  3  |    
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  0  |  -> Page Hit        |  0  |                     |  0  |  -> Page Hit        |  0  |  
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  1  |                     |  1  |                     |  1  |                     |  4  |  -> Page Fault
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  2  |                     |  2  |                     |  2  |                     |  2  |  
+    +-----+                     +-----+                     +-----+                     +-----+
+
+    Case 9:                     Case 10:                    Case 11:                    Case 12:
+
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  3  |                     |  3  |  -> Page Hit        |  3  |                     |  3  |  -> Page Hit
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  0  |                     |  0  |                     |  0  |  -> Page Hit        |  0  |  
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  4  |                     |  4  |                     |  4  |                     |  4  |
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  2  |  -> Page Hit        |  2  |                     |  2  |                     |  2  |  
+    +-----+                     +-----+                     +-----+                     +-----+
+
+    Case 13:                    Case 14:                    Case 15:                    Case 16:
+
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  3  |                     |  3  |                     |  3  |                     |  3  |  
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  0  |                     |  0  |                     |  0  |                     |  0  |  -> Page Fault
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  1  |                     |  1  |  -> Page Fault      |  1  |                     |  1  |  
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  2  |  -> Page Fault      |  2  |                     |  2  |  -> Page Fault      |  2  |  
+    +-----+                     +-----+                     +-----+                     +-----+
+
+    Case 17:                    Case 18:                    Case 19:                    Case 20:
+
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  3  |                     |  7  |  -> Page Fault      |  7  |                     |  7  |  
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  0  |                     |  0  |                     |  0  |  -> Page Hit        |  0  |  
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  1  |  -> Page Hit        |  1  |                     |  1  |                     |  1  |  -> Page Hit
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  2  |                     |  2  |                     |  2  |                     |  2  |  
+    +-----+                     +-----+                     +-----+                     +-----+                
+
+Therefore:
+
+- **Cases =** 20
+- **Page Faults =** 9, **Average =** $\frac{9}{15}$
+- **Page Hits =** 11, **Average =** $\frac{11}{15}$
+
+---
+
+### Numerical Example for LRU
+
+**Reference String:-** 7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 1, 2, 0, 1, 7, 0, 1
+
+**Memory Block Size:-** 4
+
+    Case 1:                     Case 2:                     Case 3:                     Case 4:
+
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  7  |  -> Page Fault      |  7  |                     |  7  |                     |  7  |    
+    +-----+                     +-----+                     +-----+                     +-----+
+    |     |                     |  0  |  -> Page Fault      |  0  |                     |  0  |  
+    +-----+                     +-----+                     +-----+                     +-----+
+    |     |                     |     |                     |  1  |  -> Page Fault      |  1  |
+    +-----+                     +-----+                     +-----+                     +-----+
+    |     |                     |     |                     |     |                     |  2  |  -> Page Fault
+    +-----+                     +-----+                     +-----+                     +-----+
+
+    Case 5:                     Case 6:                     Case 7:                     Case 8:
+
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  7  |                     |  3  |  -> Page Fault      |  3  |                     |  3  |    
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  0  |  -> Page Hit        |  0  |                     |  0  |  -> Page Hit        |  0  |  
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  1  |                     |  1  |                     |  1  |                     |  4  |  -> Page Fault
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  2  |                     |  2  |                     |  2  |                     |  2  |  
+    +-----+                     +-----+                     +-----+                     +-----+
+
+    Case 9:                     Case 10:                    Case 11:                    Case 12:
+
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  3  |                     |  3  |  -> Page Hit        |  3  |                     |  3  |  -> Page Hit
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  0  |                     |  0  |                     |  0  |  -> Page Hit        |  0  |  
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  4  |                     |  4  |                     |  4  |                     |  4  |
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  2  |  -> Page Hit        |  2  |                     |  2  |                     |  2  |  
+    +-----+                     +-----+                     +-----+                     +-----+
+
+    Case 13:                    Case 14:                    Case 15:                    Case 16:
+
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  3  |                     |  3  |                     |  3  |                     |  3  |  
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  0  |                     |  0  |                     |  0  |                     |  0  |  -> Page Fault
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  1  |                     |  1  |  -> Page Fault      |  1  |                     |  1  |  
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  2  |  -> Page Fault      |  2  |                     |  2  |  -> Page Fault      |  2  |  
+    +-----+                     +-----+                     +-----+                     +-----+
+
+    Case 17:                    Case 18:                    Case 19:                    Case 20:
+
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  3  |                     |  7  |  -> Page Fault      |  7  |                     |  7  |  
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  0  |                     |  0  |                     |  0  |  -> Page Hit        |  0  |  
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  1  |  -> Page Hit        |  1  |                     |  1  |                     |  1  |  -> Page Hit
+    +-----+                     +-----+                     +-----+                     +-----+
+    |  2  |                     |  2  |                     |  2  |                     |  2  |  
+    +-----+                     +-----+                     +-----+                     +-----+                  
+
+Therefore:
+
+- **Cases =** 20
+- **Page Faults =** 9, **Average =** $\frac{9}{15}$
+- **Page Hits =** 11, **Average =** $\frac{11}{15}$
+
+---
