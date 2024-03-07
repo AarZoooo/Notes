@@ -350,4 +350,10 @@ Q) If test is two-tailed and calculated value of test `z` is `2.42`, then calcul
 - $\bar X$ = 1180
 
 Now,
-$Z = \frac{\bar X - \mu _0}{frac{\sigma}{\sqrt{n}}}$
+$Z = \frac{\bar X - \mu _0}{\frac{\sigma}{\sqrt{n}}}$
+
+$Z = -1.41$
+
+The critical values for two tailed test at 5% level of significance are:
+
+$Z_{\frac{\alpha}{2}} = \pm Z_0.025 = \pm 1.96$
