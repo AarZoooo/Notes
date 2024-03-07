@@ -302,3 +302,18 @@ In this case we compare the p-value with given level of significance ($\alpha$)
 If p-value <= $\alpha$, then we reject the null hypothesis
 
 If p-value >= $\alpha$, then we accept the null hypothesis
+
+### For two-tailed test:
+
+$p-value = 2p[Z >= z]$
+
+### For one-tailed test:
+
+- For $H_1 : \mu > \bar X$ (Right tailed)
+  
+  $p-value = P[Z >= z]$
+
+- For $H_1 : \mu < \bar X$ (Left tailed)
+
+  $p-value = P[Z <= z]$
+
