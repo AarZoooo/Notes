@@ -305,15 +305,29 @@ If p-value >= $\alpha$, then we accept the null hypothesis
 
 ### For two-tailed test:
 
-$p-value = 2p[Z >= z]$
+p-value = $2p[Z >= z]$
 
 ### For one-tailed test:
 
 - For $H_1 : \mu > \bar X$ (Right tailed)
   
-  $p-value = P[Z >= z]$
+  p-value = $P[Z >= z]$
 
 - For $H_1 : \mu < \bar X$ (Left tailed)
 
-  $p-value = P[Z <= z]$
+  p-value = $P[Z <= z]$
+
+**Example:** If test is right-tailed and calculated value of test statistics `z` is `1.23`, then calculate the p-value.
+
+**Answer:** We know for right-tailed test,
+
+P-value = $P[Z >= z$
+
+P-value = $P[Z >= 1.23]$
+
+P-value = $1 - P[Z <= 1.23]$
+
+P-value = $1 - 0.89065$
+
+P-value = $0.1093$
 
