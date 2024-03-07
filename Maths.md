@@ -350,10 +350,13 @@ Q) If test is two-tailed and calculated value of test `z` is `2.42`, then calcul
 - $\bar X$ = 1180
 
 Now,
-$Z = \frac{\bar X - \mu _0}{\frac{\sigma}{\sqrt{n}}}$
+$z = \frac{\bar X - \mu _0}{\frac{\sigma}{\sqrt{n}}}$
 
-$Z = -1.41$
+$z = -1.41$
 
 The critical values for two tailed test at 5% level of significance are:
 
-$Z_{\frac{\alpha}{2}} = \pm Z_0.025 = \pm 1.96$
+$Z_{\frac{\alpha}{2}} = \pm Z_{0.025} = \pm 1.96$
+
+Since calculated value of test `z = -1.41` is greater than critical value `(-1.96)` and less than critical value `(1.96)`: **It lies in non-rejection region.**
+
