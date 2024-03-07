@@ -305,23 +305,25 @@ If p-value >= $\alpha$, then we accept the null hypothesis
 
 ### For two-tailed test:
 
-p-value = $2p[Z >= z]$
+P-value = $2P[Z >= z]$
 
 ### For one-tailed test:
 
 - For $H_1 : \mu > \bar X$ (Right tailed)
   
-  p-value = $P[Z >= z]$
+  P-value = $P[Z >= z]$
 
 - For $H_1 : \mu < \bar X$ (Left tailed)
 
-  p-value = $P[Z <= z]$
+  P-value = $P[Z <= z]$
+
+---
 
 **Example:** If test is right-tailed and calculated value of test statistics `z` is `1.23`, then calculate the p-value.
 
 **Answer:** We know for right-tailed test,
 
-P-value = $P[Z >= z$
+P-value = $P[Z >= z]$
 
 P-value = $P[Z >= 1.23]$
 
@@ -331,3 +333,12 @@ P-value = $1 - 0.89065$
 
 P-value = $0.1093$
 
+<br>
+
+Q) If test is two-tailed and calculated value of test `z` is `2.42`, then calculate p-value.
+
+---
+
+## Testing of hypothesis for Population mean using Z-test
+
+**Example:** A light bulb company claims that their 100-watt light bulb 
