@@ -297,4 +297,4 @@ Where:
 
 ## Decision Making about Null Hypothesis using p-value
 
-In this case we compare the p-value with given level of significance(\alpha)
+In this case we compare the p-value with given level of significance($\alpha$)
