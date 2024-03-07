@@ -297,4 +297,8 @@ Where:
 
 ## Decision Making about Null Hypothesis using p-value
 
-In this case we compare the p-value with given level of significance($\alpha$)
+In this case we compare the p-value with given level of significance ($\alpha$)
+
+If p-value <= $\alpha$, then we reject the null hypothesis
+
+If p-value >= $\alpha$, then we accept the null hypothesis
