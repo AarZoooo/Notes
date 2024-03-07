@@ -249,7 +249,7 @@ Where:
 - $\bar x$ -> mean of sample
 - $\mu _0$ -> mean of population
 - $\sigma$ -> Standard Deviation of population
-- $n     $ -> Number of observations
+- $n$ -> Number of observations
 
 **Note:** Critical value depends upon the nature of test:
 1. One tailed test
@@ -293,4 +293,8 @@ Where:
   
   $H_1 : \bar X_1 \neq \bar X_2$
 
-  
+---
+
+## Decision Making about Null Hypothesis using p-value
+
+In this case we compare the p-value with given level of significance(\alpha)
