@@ -341,4 +341,13 @@ Q) If test is two-tailed and calculated value of test `z` is `2.42`, then calcul
 
 ## Testing of hypothesis for Population mean using Z-test
 
-**Example:** A light bulb company claims that their 100-watt light bulb 
+**Example:** A light bulb company claims that their 100-watt light bulb has an average life of 1200 hours with Standard Deviation of 100 hours. For testing the claim, 50 new bulbs were selected randomly and allowed to burn out. The average lifetime of these bulbs was found to be 1180 hours. Is the company's claim true at 5% level of significance?
+
+**Answer:** Given:
+- $\mu _0$ = 1200
+- $\sigma$ = 100
+- $n$ = 50
+- $\bar X$ = 1180
+
+Now,
+$Z = \frac{\bar X - \mu _0}{frac{\sigma}{\sqrt{n}}}$
