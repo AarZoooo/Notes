@@ -246,6 +246,125 @@ To return the total sales amount for each product to the original format:
 
 # UNIT 2
 
+## Keys in Databases
+
+The keys in the database play a vital role in identifying the data present in it. Using keys, you can find any data from the table quickly and easily. The large tables are divided into smaller ones, and keys are used to connect the smaller tables.
+
+### Types of Keys
+
+- Primary Key
+- Candidate Key
+- Super Key
+- Alternate Key
+- Foreign Key
+- Partial Key
+- Composite Key
+
+---
+
+### Primary Key
+
+The primary key is an attribute of the table that identifies any row or tuple uniquely. You must choose the primary key that will uniquely find any data from the table. 
+
+**Example**
+
+Consider a relation `Employee`. It has attributes like `Emp_ID`, `Emp_Name`, `Emp_Add`, `Passport_Number`, and `License_Number`.
+
+The primary key of the `Employee` relation will be the **`Emp_ID`**, as it will uniquely identify every employee’s data. Additionally, the `Passport_Number` and `License_Number` can also serve as primary keys as they are unique for every employee.
+
+### Candidate Key
+
+The candidate key of any table is a set of minimal attributes and can uniquely identify any row in the relation. There can be single or more candidate keys for a single relation. 
+
+**Example**
+
+Consider the above relation of `Employee`. We saw that the primary key is the `Emp_ID`, which is unique and non-repetitive for every employee. The other two attributes, `Passport_Number` and `License_Number`, are also non-repetitive. So, they both can serve as candidate keys.
+
+### Super Key
+
+As the primary key and candidate key identifies every tuple uniquely, the **super key** also helps find the table’s unique tuple. The candidate key is the subset of the super key. There can be one or many super keys.
+
+**Example**
+
+We can use the same Employee relation to have a clear idea about the super key. The `Emp_ID` attribute can uniquely find out any employee’s data. The `Emp_Name` attribute cannot be used as the primary key, as two employees can have the same name. But, the combination of the `Emp_ID` and `Emp_Name` can find employee’s data uniquely. So, `(Epm_ID, Emp_Name)` serves as super keys for the Employee relation.
+
+The `Passport_Number` and `License_Number` are also super keys of the Employee relation.
+
+### Alternate Key
+
+**Candidate keys** that are left unimplemented or unused after implementing the primary key are called as alternate keys.
+
+### Foreign Key
+
+The foreign key is quite different from the above three keys. It is used to establish a connection between two relations. Consider two relations `A` and `B`. Suppose any attribute in the relation `A` is the **primary key** of the relation B; that attribute is referred to as the **foreign key**.
+
+**Example**
+
+We shall look at the simple example to understand the foreign key concept. Let us take the example of employees in the company. Every employee is assigned to different departments. Hence, we use two relations, `Employee` and `Department`. 
+
+We define Employee relations as:
+
+    Employee (Emp_ID, Emp_Name, Passport_Number, License_Number, Dept_ID)
+
+and Department relation as:
+
+    Department (Dept_ID, Dept_Name). 
+
+In the `Employee` relation, `Emp_ID` is the primary key, whereas `Dept_ID` is the `Department` relation’s primary key. The attribute `Dept_Id` is one attribute in the `Employee` relation, which is the primary key in the `Department` relation. Hence, the `Dept_ID` serves as the foreign key in the `Employee` relation.
+
+### Partial Key
+
+Partial key is a key using which all the records of the table can not be identified uniquely. However, a bunch of related tuples can be selected from the table using the partial key.
+
+**Example**
+
+Consider the following schema:
+
+<table>
+<tr>
+<th>Emp_no</td>
+<th>Dependent_name</td>
+<th>Relation</td>
+</tr>
+<tr>
+<td>E1</td>
+<td>Suman</td>
+<td>Mother</td>
+</tr>
+<tr>
+<td>E1</td>
+<td>Ajay</td>
+<td>Father</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>Vijay</td>
+<td>Father</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>Ankush</td>
+<td>Son</td>
+</tr>
+</table>
+
+
+Here, using partial key `Emp_no`, we can not identify a tuple uniquely but we can select a bunch of tuples from the table.
+
+### Composite Key
+
+A composite key is a group of attributes that uniquely finds every employee’s data from the relation. The composite key is the combination of two or more than two attributes.  
+
+**Example**
+
+From the above `Employee` relation:
+
+    Emp (Emp_ID, Emp_Name, Passport_Number, License_Number)
+    
+the composite key is `(Emp_name, Emp_ID)`.
+
+<br>
+
 ## Normalization
 
 The process of analyzing the relations, their attributes, keys and functional dependencies among them.
@@ -254,15 +373,22 @@ The process of analyzing the relations, their attributes, keys and functional de
 - Makes relations more effective and operational
 - Reduces insertion, deletion and update anomalies
 
-<br>
+### Types of Normalization
 
-### Functional Dependency
+- First Normal Form (1NF)
+- Second Normal Form (2NF)
+- Third Normal Form (3NF)
+- Boyce-Codd Normal Form (BCNF)
+- Fourth Normal Form (4NF)
+- Fifth Normal Form (5NF)
 
-The association between two or more attributes in a relation.
+## Functional Dependency
 
-    A ---> B
+A relationship between attributes of a table dependent on each other. For example, if:
 
-Here,
+    A -> B
+
+Then,
 
 - A = Determinant relation
 - B = Determined relation
@@ -285,18 +411,36 @@ e.g.
         6  |  2         4  |  5
         3  |  9         6  |  9
 
-In 1<sup>st</sup> example: A --> B, whereas in 2<sup>nd</sup> example: A not --> B.
+In 1<sup>st</sup> example: `A -> B`, whereas in 2<sup>nd</sup> example: `A not -> B` (For same value of A, B should be same).
 
-<br>
+### Advantages
+
+- Functional Dependency avoids data redundancy. Therefore same data do not repeat at multiple locations in that database
+- It helps you to maintain the quality of data in the database
+- It helps you to define meanings and constraints of databases
+- It helps you to identify bad designs
+- It helps you to find the facts regarding the database design
+
+### Fully Functional Dependency
+
+If `X` and `Y` are an attribute set of a relation and `X -> Y`, then Y is functionally dependent on X but not on any proper subset of X.
+
+**Example:** In the relation `ABC -> D`, attribute `D` is fully functionally dependent on ABC and not on any proper subset of `ABC`. That means that subsets of `ABC` like `AB`, `BC`, `A`, `B`, etc cannot determine `D`.
+
+### Partial Functional Dependency
+
+A functional dependency `X -> Y` is a partial dependency if `Y` is functionally dependent on `X` and `Y` can be determined by any proper subset of `X`.
+
+**Example:** We have a relationship  `AC -> B`, `A -> D`, and `D -> B`. Here `A` is alone capable of determining `B`, which means `B` is partially dependent on `AC`.
 
 ### Transitive Functional Dependency
 
 Suppose:
-- `A ---> B`, `B not ---> A`
-- `B ---> C`
+- `A -> B`, `B not -> A`
+- `B -> C`
 
 Therefore, we can say:
-- `A ---> C`
+- `A -> C`
 
 For example:
 
@@ -308,65 +452,99 @@ For example:
      B4  |   A4   | 43
  
 In this relation:
-- `Book ---> Author`
-- `Author not ---> Book`
-- `Author ---> Age`
+- `Book -> Author`
+- `Author not -> Book`
+- `Author -> Age`
 
 Therefore,
-- `Book ---> Age`
+- `Book -> Age`
+
+### Join Dependency
+
+A table has a JD if it can be recreated by joining multiple related tables that each have fewer columns and contain a subset of the original table's attributes.
+
+<img src = "https://www.scaler.com/topics/images/join-dependency-in-dbms-thumbnail.webp">
+
+### Multi-valued Dependency
+
+Multivalued dependency (MVD) deals with complex attribute relationships in which an attribute may have many independent values while yet depending on another attribute or group of attributes. It improves database structure and consistency and is essential for data integrity and database normalization.
+
+MVD or multivalued dependency means that for a single value of attribute `A` multiple values of attribute `B` exist. We write it as:
+
+    A -> -> B
+
+## Normal Forms
+
+### First Normal Form (1NF)
+
+A relation will be in 1NF if it contains an **atomic value**. It states that an attribute of a table cannot hold multiple values. It must hold only single-valued attributes.
+
+First normal form disallows the multi-valued attribute, composite attribute, and their combinations.
+
+<img src = "https://media.geeksforgeeks.org/wp-content/uploads/20231102134515/Normalisation_normalforms_1.jpg" height = 300>
 
 <br>
 
-### 1<sup>st</sup> Normal Form
+Before we learn **Second Normal Form**, we need to know a couple of things.
 
-A relation is said to be in 1<sup>st</sup> Normal Form if every attribute has an **atomic nature** (single value is assigned).
+> **Prime attribute** − An attribute which is a part of the primary key.
 
-**Methods of conversion:**
+>  **Non-prime attribute** − An attribute which is not a part of the primary key, but is a part of the candidate key.
 
-- **Flattening a relation:** Breaking multiple comma-separated values of a single row into multiple separate rows
+### Second Normal Form (2NF)
 
-- **Decomposition:** Separating the repeating and non-repeating attributes
+A relation is said to be in 2NF if:
+- It is in **First Normal Form**
+- Every non-prime attribute is fully functionally dependent on a prime attribute.
+
+<img src = "https://cdn.educba.com/academy/wp-content/uploads/2019/09/Second-Normal-Form-1.png" height = 400>
+
+### Third Normal Form (3NF)
+
+For a relation to be in Third Normal Form:
+
+- It must be in **Second Normal form**
+- No non-prime attribute is transitively dependent on prime key attribute.
+-For any non-trivial functional dependency `X -> A`, then either:
+    - X is a superkey or,
+    - A is prime attribute.
+
+<img src = "https://files.codingninjas.in/article_images/3nf-third-normal-form-4-1639819884.webp" height = 400>
+
+### Boyce-Codd Normal Form
+
+Boyce-Codd Normal Form (BCNF) is an extension of **Third Normal Form** on strict terms. BCNF states that:
+
+- For any non-trivial functional dependency `X -> A`, `X` must be a **super-key**.
+
+### Fourth Normal Form (4NF)
+
+A table is said to be in the fourth normal form if it holds all the below conditions:
+
+- The relation should comply with the **Boyce Codd Normal Form**.
+- There should be no multi-valued dependencies between the table’s attributes.
+
+<img src = "https://cdn.educba.com/academy/wp-content/uploads/2020/01/Fourth-normal-form.jpg" height = 400>
 
 <br>
 
-### 2<sup>nd</sup> Normal Form
+**Example**
 
-A relation is said to be in 2<sup>nd</sup> Normal Form if:
-- it is in 1<sup>st</sup> Normal Form
-- every non-key attribute is **Fully Functionally Dependent** on the key attribute.
+We shall talk about the fourth normal form using `Students` relation. The `Students` relation has three attributes. `Stud_ID`, `Stud_Course`, and `Stud_Hobby`. The relation is not in the fourth normal form (4NF), as it has multi-valued dependencies in it. The attributes `Stud_Course` and `Stud_Hobby` are dependent on the `Stud_ID` attribute, which ends in multi-valued dependency. Therefore, to make the relation in 4NF, we need to break the relation into two different relations: `Students_Course` and `Students_Hobby`. These two relations are in the fourth normal form. 
 
-<br>
+### Fifth Normal Form (5NF)
 
-### 3<sup>rd</sup> Normal Form
+A relation R is in 5NF if and only if it satisfies following conditions:
 
-A relation is said to be in 3<sup>rd</sup> normal form if:
-- it
+- R should be already in **4NF**.
+- It cannot be subdivided into any smaller tables without losing some form of information (join dependency).
 
-## Iterative Statements
+## Denormalization in Databases
 
-- **Simple Loop**
-- **While Loop**
-- **For Loop**
+Denormalization is a database optimization technique in which we add redundant (extra) data to one or more tables. This can help us avoid costly joins in a relational database. Note that denormalization does **not** mean not doing normalization. It is an optimization technique that is applied after doing normalization. 
 
-### Simple Loop
+In a traditional normalized database, we store data in separate logical tables and attempt to minimize redundant data. We may strive to have only one copy of each piece of data in database. 
 
-    LOOP
-    <statements>
-    EXIT WHEN <condition>
-    END LOOP
+For example, in a normalized database, we might have a `Courses` table and a `Teachers` table. Each entry in `Courses` would store the `teacherID` for a Course but not the `teacherName`. When we need to retrieve a list of all Courses with the Teacher name, we would do a join between these two tables. In some ways, this is great; if a teacher changes his or her name, we only have to update the name in one place. The drawback is that if tables are large, we may spend an unnecessarily long time doing joins on tables. Thus Denormalization is introduced.
 
-### While Loop
-
-    WHILE <condition>
-    LOOP
-    <statements>
-    END LOOP
-    END
-
-### For Loop
-
-    FOR <variable> in <start..end>
-    LOOP
-    <statements>
-    END LOOP
-
+## 
