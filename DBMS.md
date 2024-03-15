@@ -547,4 +547,74 @@ In a traditional normalized database, we store data in separate logical tables a
 
 For example, in a normalized database, we might have a `Courses` table and a `Teachers` table. Each entry in `Courses` would store the `teacherID` for a Course but not the `teacherName`. When we need to retrieve a list of all Courses with the Teacher name, we would do a join between these two tables. In some ways, this is great; if a teacher changes his or her name, we only have to update the name in one place. The drawback is that if tables are large, we may spend an unnecessarily long time doing joins on tables. Thus Denormalization is introduced.
 
-## 
+## Introduction to Database Security
+
+To protect the database from internal and external threats, organizations take various measures. Ensuring these measures is called database security. Since a lot of important information is being sent through the computer network, anyone may hack or breach the security and misuse the data for personal needs. Hence it is necessary to protect the data from possible threats.
+
+We consider database security about the following situations:
+
+- Theft and fraudulent
+- Loss of confidentiality or secrecy
+- Loss of data privacy
+- Loss of data integrity
+- Loss of availability of data
+
+## Threats
+
+Any situation or event, whether intentionally or incidentally, can cause damage, which can reflect an adverse effect on the database structure and, consequently, the organization. A threat may occur by a situation or event involving a person or the action or situations that are probably to bring harm to an organization and its database.
+
+Threats to databases can result in the loss or degradation of some or all of the following commonly accepted security goals: integrity, availability, and confidentiality.
+
+### Types of Threats
+
+**Denial of Service attack.** This attack makes a database server greatly slower or even not available to user at all. DoS attack does not result in the disclosure or loss of the database information, it can cost the victims much time and money.
+
+**Sniff attack.** To accommodate the e-commerce and advantage of distributed systems, database is designed in a client-server mode. Attackers can use sniffer software to monitor data streams, and acquire some confidential information. For example, the credit card number of a customer.
+
+**Spoofing attack.** Attackers forge a legal web application to access the database, and then retrieve data from the database and use it for bad transactions. The most common spoofing attacks are TCP used to get the IP addresses and DNS spoofing used to get the mapping between IP address and DNS name.
+
+**Trojan Horse.** It is a malicious program that embeds into the system. It can modify the database and reside in operating system.
+
+**Excessive privileges.** When workers are granted default database privileges that exceed the requirements of their job functions, these privileges can be abused.
+
+**Database injection attacks.** The two major types of database injection attacks are SQL injections that target traditional database systems and NoSQL injections that target “big data” platforms.
+
+**Malware.** A perennial threat, malware is used to steal sensitive data via legitimate users using infected devices.
+
+**Storage media exposure.** Backup storage media is often completely unprotected from attack.
+
+**Exploitation of vulnerable databases.** It generally takes organizations months to patch databases, during which time they remain vulnerable. Attackers know how to exploit unpatched databases or databases that still have default accounts and configuration parameters.
+
+**The human factor.** The root cause for 30 percent of data breach incidents is human negligence.
+
+## Counter Measures
+
+To protect the database system from the above mentioned threats. Here are some counter measures which are as follows:
+
+- Control Measures
+- RAID - Redundant Array of Independent Disks
+- Authentication
+- Backup
+
+### Control Measures
+
+Four main control measures are used to provide security of data in databases:
+
+- **Access control -** The security mechanism of a DBMS must include provisions for restricting access to the database system as a whole. This function is handled by creating user accounts and passwords to control the login process by the DBMS.
+
+- **Inference control -** A method that prevents unauthorized users from drawing conclusions about sensitive information from less sensitive data. This method protects sensitive information from indirect disclosure by preventing users from completing any inference channel.
+
+- **Flow control -** It regulates how data is transferred between system components. It prevents data from being accessed by unauthorized agents, and ensures that data is processed reliably, effectively, and securely.
+
+- **Data encryption -** The data is encoded using some coding algorithm. An unauthorized user who accesses encoded data will have difficulty deciphering it, but authorized users are given decoding or decrypting algorithms (or keys) to decipher the data.
+
+### Specific Counter Measures
+
+- **Excessive Database Privileges**
+  - It is advised to deploy and uphold a strict access and privileges control policy.
+  - Don’t grant excessive privileges to company employees and revoke outdated privileges in time.
+
+- **SQL Injections**
+  - Stored procedure shall be used instead of direct queries.
+  - MVC Architecture shall be implemented.
+
