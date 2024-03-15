@@ -360,3 +360,7 @@ $Z_{\frac{\alpha}{2}} = \pm Z_{0.025} = \pm 1.96$
 
 Since calculated value of test `z = -1.41` is greater than critical value `(-1.96)` and less than critical value `(1.96)`: **It lies in non-rejection region.**
 
+---
+
+Q) In a random sample of 100 people from town A, 60 are found to be high consumers of wheat. In another sample of 80 people from town B, 40 are found to be high consumers of wheat. Do these data reveal a significant difference between the proportions of high wheat consumers in town A and town B (at $\alpha = 0.05$)?
+
