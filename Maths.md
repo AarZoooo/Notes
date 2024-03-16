@@ -362,5 +362,5 @@ Since calculated value of test `z = -1.41` is greater than critical value `(-1.9
 
 ---
 
-Q) In a random sample of 100 people from town A, 60 are found to be high consumers of wheat. In another sample of 80 people from town B, 40 are found to be high consumers of wheat. Do these data reveal a significant difference between the proportions of high wheat consumers in town A and town B (at $\alpha = 0.05$)?
+1. In a random sample of 100 people from town A, 60 are found to be high consumers of wheat. In another sample of 80 people from town B, 40 are found to be high consumers of wheat. Do these data reveal a significant difference between the proportions of high wheat consumers in town A and town B (at $\alpha = 0.05$)?
 
