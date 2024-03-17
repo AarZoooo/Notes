@@ -1098,3 +1098,153 @@ When the above code is executed at the SQL prompt, it can produce the following 
 
 ---
 
+### Views
+
+Views in SQL are kind of virtual tables. A view also has rows and columns as they are in a real table in the database. We can create a view by selecting fields from one or more tables present in the database. A View can either have all the rows of a table or specific rows based on certain condition.
+
+Creating a view does not take any storage space as only the query is stored in the data dictionary and the actual data is not stored anywhere.
+
+> The maximum number of columns that can be defined in a SQL View are **1000** as in tables.
+
+#### Importances
+
+- Reducing complexity.
+- Improving security.
+- Renaming the table columns.
+
+#### Syntax
+
+    CREATE VIEW <view_name> AS
+    SELECT <column1>, <column2>.....
+    FROM <table_name>
+    WHERE <condition>;
+
+- `view_name`: Name for the View
+- `table_name`: Name of the table
+- `condition`: Condition to select rows
+
+#### Example 1: Creating View from a single table
+
+In this example we will create a View named `DetailsView` from the table `StudentDetails`.
+
+    CREATE VIEW DetailsView AS
+    SELECT NAME, ADDRESS
+    FROM StudentDetails
+    WHERE S_ID < 5;
+
+To see the data in the View, we can query the view in the same manner as we query a table. 
+
+    SELECT * FROM DetailsView;
+
+#### Example 2: Creating View from multiple tables
+
+In this example we will create a View named `MarksView` from two tables `StudentDetails` and `StudentMarks`. To create a View from multiple tables we can simply include multiple tables in the `SELECT` statement.
+
+    CREATE VIEW MarksView AS
+    SELECT StudentDetails.NAME, StudentDetails.ADDRESS, StudentMarks.MARKS
+    FROM StudentDetails, StudentMarks
+    WHERE StudentDetails.NAME = StudentMarks.NAME;
+
+To display data of View MarksView:
+
+    SELECT * FROM MarksView;
+
+#### Deleting a View
+
+SQL allows us to delete an existing View. We can delete or drop a View using the `DROP` statement.
+
+    DROP VIEW <view_name>;
+
+#### Updating a View
+
+There are certain conditions needed to be satisfied to update a view. If any one of these conditions is not met, then we will not be allowed to update the view.
+
+1. The `SELECT` statement which is used to create the view should not include `GROUP BY` clause or `ORDER BY` clause.
+2. The `SELECT` statement should not have the `DISTINCT` keyword.
+3. The View should have all `NOT NULL` values.
+4. The view should not be created using **nested queries** or *complex queries*.
+5. The view should be created from a **single table**. If the view is created using multiple tables then we will not be allowed to update the view.
+
+We can use the `CREATE OR REPLACE VIEW` statement to add or remove fields from a view.
+
+    CREATE OR REPLACE VIEW <view_name> AS
+    SELECT <column1>,<coulmn2>,..
+    FROM <table_name>
+    WHERE <condition>;
+
+For example, if we want to update the view `MarksView` and add the field `AGE` to this View from `StudentMarks` Table, we can do this as:
+
+    CREATE OR REPLACE VIEW MarksView AS
+    SELECT StudentDetails.NAME, StudentDetails.ADDRESS, StudentMarks.MARKS, StudentMarks.AGE
+    FROM StudentDetails, StudentMarks
+    WHERE StudentDetails.NAME = StudentMarks.NAME;
+
+We can fetch all the data from `MarksView` now as:
+
+    SELECT * FROM MarksView;
+
+#### Inserting a row in a view
+
+We can insert a row in a View in a same way as we do in a table. We can use the `INSERT INTO` statement of SQL to insert a row in a View.
+
+    INSERT INTO <view_name> (<column1>, <column2> , <column3>,..)
+    VALUES(<value1>, <value2>, <value3>..);
+
+In the following example we will insert a new row in the View `DetailsView` which we have created in the previous example:
+
+    INSERT INTO DetailsView(NAME, ADDRESS)
+    VALUES("Suresh","Gurgaon");
+
+We can fetch all the data from `DetailsView` now as,
+
+    SELECT * FROM DetailsView;
+
+#### Deleting a row from a View
+
+Deleting rows from a view is also as simple as deleting rows from a table. We can use the `DELETE` statement of SQL to delete rows from a view. Also deleting a row from a view first delete the row from the actual table and the change is then reflected in the view.
+
+    DELETE FROM <view_name>
+    WHERE <condition>;
+
+In the following example we will delete the last row from the view `DetailsView` which we just added in the above example of inserting rows.
+
+    DELETE FROM DetailsView
+    WHERE NAME="Suresh";
+
+We can fetch all the data from `DetailsView` now as,
+
+    SELECT * FROM DetailsView;
+
+#### WITH CHECK OPTION clause
+
+It is applicable to an updatable view. It is used in the `CREATE VIEW` statement.
+
+- The `WITH CHECK OPTION` clause is used to prevent the insertion of rows in the view where the condition in the `WHERE` clause in `CREATE VIEW` statement is not satisfied.
+
+- If we have used the `WITH CHECK OPTION` clause in the `CREATE VIEW` statement, and if the `UPDATE` or `INSERT` clause does not satisfy the conditions then they will return an error.
+
+In the following example we are creating a View `SampleView` from `StudentDetails` Table with `WITH CHECK OPTION` clause.
+
+    CREATE VIEW SampleView AS
+    SELECT S_ID, NAME
+    FROM StudentDetails
+    WHERE NAME IS NOT NULL
+    WITH CHECK OPTION;
+
+In this View if we now try to insert a new row with null value in the `NAME` column then it will give an error because the view is created with the condition for `NAME` column as `NOT NULL`.
+
+#### Importances of using Views
+
+A good database should contain views due to the given reasons:
+
+1. **Restricting data access**: Views provide an additional level of table security by restricting access to a predetermined set of rows and columns of a table.
+
+2. **Hiding data complexity**: A view can hide the complexity that exists in a multiple table join.
+
+3. **Simplify commands for the user**: Views allows the user to select information from multiple tables without requiring the users to actually know how to perform a join.
+
+4. **Store complex queries**: Views can be used to store complex queries.
+
+5. **Rename Columns**: Views can also be used to rename the columns without affecting the base tables provided the number of columns in view must match the number of columns specified in select statement. Thus, renaming helps to to hide the names of the columns of the base tables.
+
+6. **Multiple view facility**: Different views can be created on the same table for different users.
