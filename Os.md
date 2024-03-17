@@ -933,4 +933,165 @@ Mirroring provides high reliability, but it is expensive. Striping provides high
 
   <img src = "https://images.wondershare.com/recoverit/article/2022/07/combine-raid-0-and-1.jpg" height = 400>
 
+## File System
+
+The file system is the most visible aspect of an operating system. It provides the mechanism for on-line storage of and access to both data and programs of the operating system and all the users of the computer system. The file system consists of two distinct parts: a collection of files, each storing related data, and a directory structure, which organizes and provides information about all the files in the system.
+
+> A **file** is a named collection of related information that is recorded on secondary storage.
+
+Files are mapped by the operating system onto physical devices. These storage devices are usually non-volatile, so the contents are persistent between system reboots.
+
+---
+
+### File Attributes
+
+A file’s attributes vary from one operating system to another but typically consist of these:
+- **Name**:  The symbolic file name is the only information kept in human-readable form.
+- **Identifier**: This unique tag, usually a number, identifies the file within the file system; it is the non-human-readable name for the file. 
+- **Type**: This information is needed for systems that support different types of files.
+- **Location**: This information is a pointer to a device and to the location of the file on that device.
+- **Size**:  The current size of the file (in bytes, words, or blocks) and possibly the maximum allowed size are included in this attribute.
+- **Protection**: Access-control information determines who can do reading, writing, executing, and so on.
+- **Time, date, and user identification**: This information may be kept for creation, last modification, and last use. These data can be useful for protection, security, and usage monitoring.
+
+---
+
+### File Operations
+
+- **Creating a file**: Two steps are necessary to create a file -
+  - First, space in the file system must be found for the file.
+  - Second, an entry for the new file must be made in the directory. 
+
+- **Writing a file**:  To write a file, we make a system call specifying both the name of the file and the information to be written to the file.
+
+- **Reading a file**: To read from a file, we use a system call that specifies the name of the file and where (in memory) the next block of the file should be put.
+
+- **Repositioning within a file**: The directory is searched for the appropriate entry, and the current-file-position pointer is repositioned to a given value. This file operation is also known as a **file seek**.
+
+- **Deleting a file**:  To delete a file, we search the directory for the named file. Having found the associated directory entry, we release all file space, so that it can be reused by other files, and erase the directory entry.
+
+- **Truncating a file**: The user may want to erase the contents of a file but keep its attributes. Rather than forcing the user to delete the file and then recreate it, this function allows all attributes to remain unchanged — except for file length — but lets the file be reset to length zero and its file space released.
+
+---
+
+### File Access Methods
+
+Files store information. When it is used, this information must be accessed and read into computer memory. The information in the file can be accessed in several ways.
+
+- **Sequential Access**: Information in the file is processed in order, one record after the other. This mode of access is by far the most common.
+
+- **Direct Access**: Here, a file is made up of fixed-length logical records that allow programs to read and write records rapidly in no particular order. The direct-access method is based on a disk model of a file, since disks allow random access to any file block. For direct access, the file is viewed as a numbered sequence of blocks or records.
+
+- **ISAM (Indexed Sequential Access Method)**: This is a modification of the direct access method. Basically, it is kind of combination of both the sequential access as well as direct access. The main idea of this method is to first access the file directly and then it accesses sequentially.
+
+  In this access method, it is necessary for maintaining an index. The index is nothing but a pointer to a block. The direct access of the index is made to access a record in a file. The information which is obtained from this access is used to access the file.
+
+---
+
+### Directory Structure
+
+Directory helps in organising files in a volume.
+
+- **Single-Level Directory**: The simplest directory structure is the single-level directory. All files are contained in the same directory, which is easy to support and understand.
+
+  <img src = "https://media.geeksforgeeks.org/wp-content/uploads/222-13.png">
+
+  A single-level directory has significant limitations, however, when the number of files increases or when the system has more than one user. Since all files are in the same directory, they must have unique names. If two users call their data file test.txt, then the unique-name rule is violated.
+
+- **Two-Level Directory**: In the two-level directory structure, each user has his own user file directory (UFD).The UFDs have similar structures, but each lists only the files of a single user. When a user job starts or a user logs in, the system’s master file directory (MFD) is searched. The MFD is indexed by user name or account number, and each entry points to the UFD for that user.
+
+  <img src = "https://scaler.com/topics/images/two-level.webp" width = 642>
+
+  This directory structure doesn't allow collaborations between users.
+
+- **Tree-Structured Directories**: A tree is the most common directory structure. The tree has a root directory, and every file in the system has a unique path name. A directory (or subdirectory) contains s a set of files or subdirectories.
+
+  <img src = "https://cl.indiana.edu/~ftyers/courses/2023/Autumn/L-555/practicals/graphics/UnixDirectoryTree.png"  width = 642 style = "background:white">
+
+  Path names can be of two types:
   
+  - An absolute path name begins at the root and follows a path down to the specified file, giving the directory names on the path. 
+  - A relative path name defines a path from the current directory.
+
+- **Acyclic-Graph Directories**: An acyclic graph, that is a graph with no cycles, allows directories to share subdirectories and files.
+
+  <img src = "https://static.javatpoint.com/operating-system/images/os-acyclic-graph-structured-directories.png" height = 400 style = "background:white">
+
+---
+
+### Mounting
+
+Mounting is a process by which the operating system makes files and directories on a storage device( such as Hard Disk) available for users to access via the computer’s file system.
+
+An  opposite process of mounting is called **Unmounting**, in which the operating system cuts off all user access to files and directories on the mount point.
+
+Normally, when the computer is shutting down, every mounted storage will undergo an unmounting process to ensure that all queued data got written, and to preserve integrity of file system structure on media.
+
+> **Mount point** is the location within the file structure where the file system is to be attached.
+
+**Protection mechanisms** provide controlled access by limiting the types of file access that can be made. Access is permitted or denied depending on several factors, one of which is the type of access requested. Several different types of operations may be controlled:
+
+- **Read**:  Read from the file.
+- **Write**. Write or rewrite the file.
+- **Execute**: Load the file into memory and execute it.
+- **Append**: Write new information at the end of the file.
+- **Delete**:  Delete the file and free its space for possible reuse.
+- **List**: List the name and attributes of the file.
+
+---
+
+### File-System Structure
+
+File system provides the mechanism for on-line storage and access to file contents, including data and programs. The file system resides permanently on secondary storage, which is designed to hold a large amount of data permanently.
+
+The file system itself is generally composed of many different levels.
+
+- The **I/O control level** consists of device drivers and interrupts handlers to transfer information between the main memory and the disk system. 
+
+- The **basic file system** needs only to issue generic commands to the appropriate device driver to read and write physical blocks on the disk. 
+
+- The **file-organization module** knows about files and their logical blocks, as well as physical blocks. By knowing the type of file allocation used and the location of the file, the file-organization module can translate logical block addresses to physical block addresses for the basic file system to transfer.
+
+- Finally, the **logical file system** manages metadata information. Metadata includes all of the file-system structure except the actual data (or contents of the files).
+
+---
+
+### Allocation Methods
+
+The direct-access nature of disks gives us flexibility in the implementation of files. In almost every case, many files are stored on the same disk. The main problem is how to allocate space to these files so that disk space is utilized effectively and files can be accessed quickly.
+
+- **Contiguous Allocation**: Contiguous allocation requires that each file occupy a set of contiguous blocks on the disk. Disk addresses define a linear ordering on the disk. With this ordering, assuming that only one job is accessing the disk, accessing block b+1 after block b normally requires no head movement. When head movement is needed (from the last sector of one cylinder to the first sector of the next cylinder), the head need only move from one track to the next. Thus, the number of disk seeks required for accessing contiguously allocated files is minimal, as is seek time when a seek is finally needed.
+
+  Problems:
+
+  - One difficulty is finding space for a new file.
+  - It suffers from the problem of external fragmentation (while finding holes).
+  - Another problem with contiguous allocation is determining how much space is needed for a file.
+
+- **Linked Allocation**: It solves all problems of contiguous allocation. With linked allocation, each file is a linked list of disk blocks; the disk blocks may be scattered anywhere on the disk. The directory contains a pointer to the first and last blocks of the file.
+
+  Problems:
+
+  - It can be used effectively only for sequential-access files.
+  - Extra space required for the pointers.
+
+- **Indexed Location**: In this each file has its own index block, which is an array of disk-block addresses. The $i^{th}$ entry in the index block points to the $i^{th}$ block of the file. The directory contains the address of the index block.
+
+---
+
+### Free-Space Management
+
+Since disk space is limited, we need to reuse the space from deleted files for new files, if possible. To keep track of free disk space, the system maintains a free-space list. The free-space list records all free disk blocks — those not allocated to some file or directory. To create a file, we search the free-space list for the required amount of space and allocate that space to the new file. This space is then removed from the free-space list. When a file is deleted, its disk space is added to the free-space list.
+
+- **Bit Vector**: Frequently, the free-space list is implemented as a **bit map** or **bit vector**. Each block is represented by **1 bit**. If the block is free, the bit is `1`; if the block is allocated, the bit is `0`.
+
+  The main advantage of this approach is its relative simplicity and its efficiency in finding the first free block or n consecutive free blocks on the disk.
+
+  Unfortunately, bit vectors are inefficient unless the entire vector is kept in main memory (and is written to disk occasionally for recovery needs).
+
+- **Linked List**: Another approach to free-space management is to link together all the free disk blocks, keeping a pointer to the first free block in a special location on the disk and caching it in memory. This first block contains a pointer to the next free disk block, and so on. 
+
+- **Grouping**: A modification of the free-list approach stores the addresses of `n` free blocks in the first free block. The first `n−1` of these blocks are actually free. The last block contains the addresses of anothern free blocks, and so on. The addresses of a large number of free blocks can now be found quickly, unlike the situation when the standard linked-list approach is used.
+
+- **Counting**: Rather than keeping a list of n free disk addresses, we can keep the address of the first free block and the number `n` of free contiguous blocks that follow the first block. Each entry in the free-space list then consists of a disk address and a count. Although each entry requires more space than a simple disk address, the overall list is shorter, as long as the count is generally greater than 1.
+
