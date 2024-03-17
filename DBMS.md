@@ -618,3 +618,483 @@ Four main control measures are used to provide security of data in databases:
   - Stored procedure shall be used instead of direct queries.
   - MVC Architecture shall be implemented.
 
+- **Database Backups Exposure**
+  - Encrypt both databases and backups.
+  - Audit both the database and backups.
+
+- **DB Vulnerabilities and Misconfigurations**
+  - Your databases shouldn’t have any default accounts.
+  - Your IT personnel should be highly qualified and experienced.
+
+- **Denial of service attack**
+  - Harden the TCP/IP stack by applying the appropriate registry settings to increase the size of the TCP connection queue.
+  - Decrease the connection establishment period.
+  - Employ dynamic backlog mechanisms to ensure that the connection queue is never exhausted.
+  - Use a network Intrusion Detection System (IDS).
+
+- **Unmanaged Sensitive Data**
+  - Encrypt all sensitive data in your database(s).
+  - Apply required controls and permissions to the database.
+
+## Procedural Language / Structured Query Language (PL/SQL)
+
+PL/SQL is a block structured language that enables developers to combine the power of SQL with procedural statements. All the statements of a block are passed to oracle engine all at once which increases processing speed and decreases the traffic. 
+
+### Characteristics
+
+- PL/SQL is basically a procedural language, which provides the functionality of decision making, iteration and many more features of procedural programming languages.
+- PL/SQL can execute a number of queries in one block using single command.
+- One can create a PL/SQL unit such as procedures, functions, packages, triggers, and types, which are stored in the database for reuse by applications.
+- PL/SQL provides a feature to handle the exception which occurs in PL/SQL block known as exception handling block.
+- Applications written in PL/SQL are portable to computer hardware or operating system where Oracle is operational.
+- PL/SQL Offers extensive error checking.
+
+### Structure
+
+<img src = "https://media.geeksforgeeks.org/wp-content/uploads/pl-sql.jpg">
+
+<br>
+
+- **Declare** section starts with `DECLARE` keyword in which variables, constants, records as cursors can be declared which stores data temporarily. It basically consists definition of PL/SQL identifiers. This part of the code is **optional**.
+
+- **Execution** section starts with `BEGIN` and ends with `END` keyword.This is a mandatory section and here the program logic is written to perform any task like loops and conditional statements. It supports all DML commands, DDL commands and SQL*PLUS built-in functions as well.
+- **Exception** section starts with `EXCEPTION` keyword.This section is **optional** which contains statements that are executed when a run-time error occurs. Any exceptions can be handled in this section.
+
+### Identifiers
+
+1. **Variables**: Like several other programming languages, variables in PL/SQL must be declared prior to its use. They should have a valid name and data type as well.
+
+    Example:
+
+        var1 INTEGER := 10;
+
+    > For learning different SQL datatypes, visit https://www.w3schools.com/sql/sql_datatypes.asp
+
+2. **Displaying Output**: The outputs are displayed by using `DBMS_OUTPUT` which is a built-in package that enables the user to display output, debugging information, and send messages from PL/SQL blocks, subprograms, packages, and triggers.
+    
+    Example:
+
+        dbms_output.put_line('I love PL/SQL');
+    
+    Output will be: `I love PL/SQL`.
+
+3. **Taking input from user**: Just like in other programming languages, in PL/SQL also, we can take input from the user and store it in a variable.
+
+    Example:
+
+        a number := &a;
+
+Let's see a program to take two numbers as input from user and returning their sum:
+
+    DECLARE
+
+        a integer := &a;
+        b integer := &b; 
+        
+        c integer;
+ 
+    BEGIN
+
+        c := a + b;
+        dbms_output.put_line('Sum of '||a||' and '||b||' is = '||c);
+ 
+    END;
+    /
+
+Output:
+
+    Enter value for a: 2
+    Enter value for b: 3
+
+    Sum of 2 and 3 is = 5
+
+### Control Structures - Conditional Control
+
+PL/SQL allows the use of an `IF` statement to control the execution of a block of code. In PL/SQL, the `IF -THEN - ELSIF - ELSE - END IF` construct in code blocks allow specifying certain conditions under which a specific block of code should be executed.
+
+1. `IF-THEN` Statement
+
+    This is used when user needs to execute statements when condition is true.
+
+    **Syntax:**
+
+        IF <condition>
+
+        THEN
+
+        <Statements to execute>;
+
+        END IF;
+    
+    
+
+2. `IF-THEN-ELSE` Statement
+
+    This is used to execute one set of statements when condition is TRUE or different set of statements when condition is FALSE.
+
+    **Syntax:**
+
+        IF <condition>
+
+        THEN
+
+        <Statements to execute when condition is TRUE>
+
+        ELSE
+
+        <Statements to execute when condition is FALSE>
+
+        END IF;
+
+3. `IF-THEN-ELSIF` Statement
+
+    This is used to execute a set of statements when first condition is TRUE or a different set of statements when first condition is FALSE and second condition is TRUE, or another set of statements if second condition is FALSE and so on.
+
+    **Syntax:**
+
+        IF <Condition1>
+
+        THEN
+
+        <Statements to execute when condition1 is TRUE>
+
+        ELSIF <condition2>
+
+        THEN
+
+        <Statements to execute when condition2 is TRUE>
+
+        END IF;
+
+4. `IF-THEN-ELS-IF-ELSE` Statement
+
+    This is a modification of the previous one, where `ELSE` block is written in the end which states the statements that are executed when all of the mentioned conditions are FALSE.
+
+    **Syntax:**
+
+        IF <condition1>
+
+        THEN
+
+        <Statements to execute when condition1 is TRUE>
+
+        ELSIF <condition2>
+
+        THEN
+
+        <Statements to execute when condition2 is TRUE>
+
+        ELSE
+
+        <Statements to execute when both condition1 and condition2 are FALSE>
+
+        END IF;
+
+5. `CASE` Statement
+
+    This Statement provides facility to execute a sequence of statements based on a selector. A selector may be variable, function or an expression.
+
+    **Syntax:**
+
+        CASE <expression>
+
+        WHEN <condition1> THEN <result1>
+
+        WHEN <condition2> THEN <result2>
+
+        ......................
+
+        WHEN <condition_n> THEN <result_n>
+
+        ELSE <result>
+
+        END;
+    
+### Control Structures - Iterative Control (LOOP statements)
+
+LOOP statements let you execute a sequence of statements multiple times. There are three forms of LOOP statements: `LOOP`, `WHILE-LOOP`, and `FOR-LOOP`.
+
+1. **LOOP**
+
+    The simplest form of LOOP statement is the basic (or infinite) loop, which encloses a sequence of statements between the keywords `LOOP` and `END LOOP`.
+
+    **Syntax:**
+
+        LOOP
+
+        <sequence_of_statements>
+
+        END LOOP;
+
+    With each iteration of the loop, the sequence of statements is executed, then control resumes at the top of the loop. You can place one or more EXIT statements anywhere inside a loop, but nowhere outside a loop. There are two forms of EXIT statements: `EXIT` and `EXIT-WHEN`.
+
+    ---
+
+    - The **`EXIT`** statement forces a loop to complete unconditionally. When an EXIT statement is encountered, the loop completes immediately and control passes to the next statement.
+
+            LOOP
+
+            ...
+
+            IF credit_rating < 3 THEN
+
+            ...
+
+            EXIT; -- exit loop immediately
+
+            END IF;
+
+            END LOOP;
+
+    - The **`EXIT-WHEN`** statement lets a loop complete conditionally. When the EXIT statement is encountered, the condition in the WHEN clause is evaluated. If the condition is true, the loop completes and control passes to the next statement after the loop.
+ 
+            LOOP
+
+            FETCH c1 INTO ...
+
+            EXIT WHEN c1%NOTFOUND; -- exit loop if condition is true
+
+            ...
+
+            END LOOP;
+
+            CLOSE c1;
+
+    ---
+
+    Like PL/SQL blocks, loops can be labeled.
+
+    - **Loop Labels:** A label, an undeclared identifier enclosed by double angle brackets, can be used at the beginning of the LOOP statement to put a name to it, as follows:
+
+            <<label_name>>
+
+            LOOP
+
+            sequence_of_statements
+
+            END LOOP;
+        
+        Optionally, the label name can also appear at the end of the LOOP statement.
+
+---
+
+2. **WHILE-LOOP**
+
+    The WHILE-LOOP statement associates a condition with a sequence of statements enclosed by the keywords `LOOP` and `END LOOP`.
+
+    **Syntax:**
+
+        WHILE <condition> LOOP
+
+        <sequence_of_statements>
+
+        END LOOP;
+    
+    Before each iteration of the loop, the condition is evaluated. If the condition is true, the sequence of statements is executed, then control resumes at the top of the loop. If the condition is false or null, the loop ends and control passes to the next statement.
+
+    **Example:** Find reverse of given number using while loop
+
+        DECLARE
+
+            num Number(3) := 123;
+            ans Number(3) := 0;
+            i Number(3) := 0;
+
+        BEGIN
+
+            WHILE num != 0 LOOP
+
+                i := mod(num,10);
+                ans := (ans * 10 ) + i;
+                num := floor(num/10);
+
+            END LOOP;
+
+            dbms_output.put_line('reverse of given number is: ' || ans);
+
+        END;
+        /
+
+---
+
+3. **FOR-LOOP**
+
+    The number of iterations through a FOR loop is known before the loop is entered. FOR loops iterate over a specified range of integers. A double dot `..` serves as the range operator.
+
+    **Syntax:**
+
+        FOR <counter_variable> IN [REVERSE] <lower_bound>..<higher_bound> LOOP
+
+        <sequence_of_statements>
+
+        END LOOP;
+    
+    The range is evaluated when the FOR loop is first entered and is never re-evaluated.
+
+    **Example:** Calculating value of pi($\pi$) for 500 terms
+
+        DECLARE
+
+        p NUMBER := 0;
+
+        BEGIN
+
+        FOR k IN 1..500 LOOP
+
+        p := p + ( ( (-1) ** (k + 1) ) / ((2 * k) - 1) );
+
+        END LOOP;
+
+        p := 4 * p;
+
+        DBMS_OUTPUT.PUT_LINE( 'pi is approximately : ' || p ); -- print result
+
+        END;
+        /
+    
+---
+
+### Cursors
+
+To execute SQL statements, a work area is used by the Oracle engine for its internal processing and storing the information. This work area is private to SQL’s operations. The **Cursor** is the PL/SQL construct that allows the user to name the work area and access the stored information in it.
+
+<img src = "https://media.geeksforgeeks.org/wp-content/uploads/Untitled-Diagram-6.jpg">
+
+The major function of a cursor is to retrieve data, **one row at a time**, from a result set, unlike the SQL commands which operate on all the rows in the result set at one time. Cursors are used when the user needs to update records in a **singleton fashion** or in a **row by row manner**, in a database table. 
+
+> The Data that is stored in the Cursor is called the **Active Data Set**.
+
+**Cursor Actions**
+
+- **Declare Cursor**: A cursor is declared by defining the SQL statement that returns a result set.
+- **Open**: A Cursor is opened and populated by executing the SQL statement defined by the cursor.
+- **Fetch**: When the cursor is opened, rows can be fetched from the cursor one by one or in a block to perform data manipulation.
+- **Close**: After data manipulation, close the cursor explicitly.
+- **Deallocate**: Finally, delete the cursor definition and release all the system resources associated with the cursor.
+
+There are two types of cursors which are listed below:
+
+1. Implicit Cursor
+2. Explicit cursor
+
+---
+
+### Implicit Cursors
+
+These are **automatically** created by Oracle whenever an SQL statement is executed, when there is no explicit cursor for the statement. Programmers **cannot control** the implicit cursors and the information in it.
+
+In PL/SQL, you can refer to the most recent implicit cursor as the SQL cursor, which always has attributes such as `%FOUND`, `%ISOPEN`, `%NOTFOUND`, and `%ROWCOUNT`. The SQL cursor has additional attributes, `%BULK_ROWCOUNT` and `%BULK_EXCEPTIONS`, designed for use with the `FORALL` statement.
+
+- **`%FOUND`:** Returns TRUE if an `INSERT`, `UPDATE`, or `DELETE` statement affected one or more rows or a `SELECT INTO` statement returned one or more rows. Otherwise, it returns FALSE.
+
+- **`%NOTFOUND`:** The logical opposite of `%FOUND`.
+
+- **`%ISOPEN`:** Always returns FALSE for implicit cursors, because Oracle closes the SQL cursor automatically after executing its associated SQL statement.
+
+- **`%ROWCOUNT`:** Returns the number of rows affected by an `INSERT`, `UPDATE`, or `DELETE` statement, or returned by a `SELECT INTO` statement.
+
+Any SQL cursor attribute will be accessed as `sql%attribute_name`.
+
+**Example:**
+
+    DECLARE
+
+        total_rows number(2);
+
+    BEGIN
+
+        UPDATE customers
+        SET salary = salary + 500;
+
+        IF sql%notfound THEN
+
+            dbms_output.put_line('no customers selected');
+
+        ELSIF sql%found THEN
+
+            total_rows := sql%rowcount;
+            dbms_output.put_line( total_rows || ' customers selected ');
+
+        END IF;
+
+    END;
+    /
+
+**Output:** If there are six records updated...
+
+    6 customers selected
+
+    PL/SQL procedure successfully completed.
+
+---
+
+### Explicit Cursors
+
+Explicit cursors are **programmer-defined** cursors for gaining more control over the context area. An explicit cursor should be defined in the **declaration** section of the PL/SQL Block. It is created on a `SELECT` Statement which returns more than one row.
+
+**Syntax:**
+
+    CURSOR <cursor_name> IS <select_statement>;
+
+Working with an explicit cursor includes the following steps:
+
+- **Declaring** the cursor for initializing the memory
+
+        CURSOR c_customers IS
+        SELECT id, name, address FROM customers;
+
+- **Opening** the cursor for allocating the memory
+
+        OPEN c_customers;
+
+- **Fetching** the cursor for retrieving the data
+
+        FETCH c_customers INTO c_id, c_name, c_addr;
+
+- **Closing** the cursor to release the allocated memory
+
+        CLOSE c_customers;
+
+**Example:** Following is a complete example to illustrate the concepts of explicit cursors by fetching customer data from a relation and printing it:
+
+    DECLARE
+
+        c_id customers.id%type;
+        c_name customer.name%type;
+        c_addr customers.address%type;
+
+        CURSOR c_customers is
+        SELECT id, name, address FROM customers;
+
+    BEGIN
+
+        OPEN c_customers;
+
+        LOOP
+
+            FETCH c_customers into c_id, c_name, c_addr;
+
+            EXIT WHEN c_customers%notfound;
+
+            dbms_output.put_line(c_id || ' ' || c_name || ' ' || c_addr);
+
+        END LOOP;
+
+        CLOSE c_customers;
+
+    END;
+    /
+
+When the above code is executed at the SQL prompt, it can produce the following result:
+
+    1 Ramesh Ahmedabad
+    2 Khilan Delhi
+    3 kaushik Kota
+    4 Chaitali Mumbai
+    5 Hardik Bhopal
+    6 Komal MP
+
+    PL/SQL procedure successfully completed.
+
+---
+
