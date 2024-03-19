@@ -253,12 +253,6 @@ Therefore,
 
 $y = \frac{21}{27} + \frac{49}{6} + \frac{-77}{20} + \frac{51}{54} = \frac{1087}{180}$ (Answer)
 
----
-
-#### Newton's method
-
-
-
 ## Polynomial Curve Fitting
 
 Polynomial curve fitting is a mathematical technique used to approximate a relationship between two variables using a polynomial function.
