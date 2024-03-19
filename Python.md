@@ -399,7 +399,7 @@ Trapezoidal Rule is a rule that evaluates the area under the curves by dividing 
 
 <br>
 
-**Formula:** Let $f(x)$ be a continuous function on the interval $[a, b]$.
+**Formula:** Let $y = f(x)$ be a continuous function on the interval $[a, b]$.
 
 Next we divide the interval into $n$ subsequent parts. Thus width of each part is:
 
@@ -412,9 +412,11 @@ where:
 
 Therefore the area is given by:
 
-$\int _a ^bf(x) dx \approx T_n = \frac{\Delta x}{2} \{ f(x_0) + 2f(x_1) + 2f(x_2) + ... + 2f(x_{n - 1}) + 2f(x_n) \}$
+$\int _a ^bf(x) dx \approx T_n = \frac{\Delta x}{2} \{ y_0 + 2y_1 + 2y_2 + ... + 2y_{n - 1} + 2y_n \}$
 
 where: $x_i = a + i (\Delta x)$
+
+>**Note:** It is applicable on any number of intervals.
 
 <br>
 
@@ -459,9 +461,9 @@ So the approximate area under the curve using Trapezoidal rule is **60** (Answer
 
 ---
 
-### Simpson Rule
+### Simpson's $\frac{1}{3}$ Rule
 
-Simpson's Rule is a numerical method that approximates the value of a definite integral by using quadratic functions.
+Simpson's $\frac{1}{3}$ Rule is a numerical method that approximates the value of a definite integral by using quadratic functions.
 
 <img src = "https://math24.net/images/simpsons-rule1.svg" height = 400 style = "background:white">
 
@@ -476,15 +478,21 @@ On each pair of consecutive subintervals $[x_{i - 1}, x_i], [x_i, x_{i + 1}]$, w
 
 Therefore,
 
-$\int ^b _a f(x) dx \approx \frac{\Delta x}{3} \{ f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + 2f(x_4) + ... + 4f(x_{n - 1}) + f(x_n) \}$
+$\int ^b _a f(x) dx \approx \frac{\Delta x}{3} \{ y_0 + 4y_1 + 2y_2 + 4y_3 + 2y_4 + ... + 4y_{n - 1} + y_n \}$
 
 The coefficients have the following pattern:
 
 $\underbrace {1,4,2,4,2, \ldots ,4,2,4,1}_{{n + 1}\;\text{points}}$
 
+We can also write the formula as:
+
+$\int _a ^b f(x) dx \approx \frac{\Delta x}{3} [ \{ y_0 + y_n \} + 2\{ y_2 + y_4 + y_6 + ... \} + 4 \{ y_1 + y_3 + y_5 + ... \} ]$
+
+>**Note:** This rule is applicable for even number of intervals.
+
 <br>
 
->**Example:** A function $f(x)$ is given by the table of values. Approximate the area under the curve $y = f(x)$ between $x = 0$ and $x = 4$ using Simpson's Rule with $n = 4$ subintervals.
+>**Example:** A function $f(x)$ is given by the table of values. Approximate the area under the curve $y = f(x)$ between $x = 0$ and $x = 4$ using Simpson's $\frac{1}{3}$ Rule with $n = 4$ subintervals.
 
 <img src = "https://math24.net/images/simpsons-rule4.svg" width = 300 style = "background:white">
 
@@ -502,6 +510,18 @@ $A \approx S_4 = \frac {1}{3} [2 + 28 + 24 + 40 + 5] = \frac{1}{3} . 99 = 33$ (A
 
 <br>
 
+---
+
+### Simpson's $\frac{3}{8}$ Rule
+
+It is completely based on the cubic interpolation rather than the quadratic interpolation.
+
+**Formula:** Simpson’s 3/8 or three-eight rule is given by:
+
+$\int _a ^b f(x) dx = \frac{3h}{8} [(y_0 + y_n) + 3(y_1 + y_2 + y_4 + y_5 + …. + y_{n-1}) + 2(y_3 + y_6 + y_9 + ….. + y_{n-3})]$
+
+>**Note:** This rule is applicable where the number of intervals is a multiple of 3.
+
 >**Note:** Simpson's rule provides a more accurate value than Trapezoidal rule as it uses Quadratic Approximation instead of Linear Approximation.
 
 ---
@@ -509,4 +529,195 @@ $A \approx S_4 = \frac {1}{3} [2 + 28 + 24 + 40 + 5] = \frac{1}{3} . 99 = 33$ (A
 ### Gaussian Quadrature
 
 The Gauss integration is a very efficient method to perform numerical integration over intervals. In fact, if the function to be integrated is a polynomial of an appropriate egree, then the Gauss integration scheme produces exact results.
+
+<img src = "https://www.12000.org/my_courses/UCI_COURSES/CREDIT_COURSES/spring_2006/spring_MAE_207/other_class_documents/Nasser_Abbasi/numerical_integration/images/d2.svg" style = "background:white">
+
+<br>
+
+**Formula:** Gauss quadrature aims to find the **least** number of fixed points to approximate the integral of a function $f:[a, b]$ such that:
+
+$I=\int _{a} ^b f (x) dx \approx \sum _{i=1} ^n c_i f(x_i)$
+
+where:
+- $1 \leq i \leq n$, where $n$ is the number of parts
+- Associated weight, $c_i = \frac {b - a}{n}$
+- Integration point, $x_i \in [a : b]$
+
+<br>
+
+> **Example:** For the given integral:
+>$$\int _{0.1} ^{1.3} 5xe^{-2x} dx$$
+>- Use the two-point Gauss quadrature rule to estimate the value of the integral
+>- Find the true error
+>- Find the absolute relative error
+
+**Solution:** The two-point Gauss quadrature rule is given by:
+
+$\int _a ^b f(x) dx \approx c_1 f_1(x) + c_2 f_2 (x)$\
+
+## Ordinary Differential Equations
+
+An ordinary differential equation (also abbreviated as ODE), in Mathematics, is an
+equation which consists of one or more functions of one independent variable along
+with their derivatives.
+
+### Types
+The ordinary differential equation is further classified into three types. They
+are:
+- **Autonomous ODE**
+
+  A differential equation which does not depend on the variable, say x is known as an autonomous differential equation.
+
+- **Linear ODE**
+
+  If differential equations can be written as the linear combinations of the derivatives of y, then they are called linear ordinary differential equations.
+
+  These can be further classified into two types:
+
+    - Homogeneous linear differential equations
+    - Non-homogeneous linear differential equations
+
+- **Non-linear ODE**
+
+  If the differential equations cannot be written in the form of linear combinations of the derivatives of y, then it is known as a non-linear ordinary differential equation.
+
+---
+
+### Euler's Rule
+
+The Euler’s method is a first-order numerical procedure for solving ordinary differential equations (ODE) with a given initial value.
+
+**General Formula:** 
+
+$y_{i + 1} = y_i + hf(x_i, y_i)$
+
+where:
+- $y_{i + 1}$ is the next estimated value
+- $y_i$ is the current value
+- $h$ is the interval between steps
+- $f(x_i, y_i)$ is the value of the derivative at the current $(x_i, y_i)$ point.
+
+<br>
+
+>**Example:** Find $y(0.2)$ for $y = x - y^2$, $y(0) = 1$, with step length $0.1$ using Euler method.
+
+**Solution:** Given:
+- $y = x - y^2$
+- $y(0) = 1$
+- $h = 0.1$
+
+We need to find the value of $y(0.2)$.
+
+Applying Euler's method:
+
+$y_1 = y_0 + hf(x_0, y_0)$
+
+$y_1 = 1 + (0.1)f(0, 1)$
+
+$y_1 = 1 + (0.1)(-0.5)$
+
+$y_1 = 0.95$
+
+<br>
+
+$y_2 = y_1 + hf(x_1, y_1)$
+
+$y_2 = 0.95 + (0.1)f(0.1, 0.95)$
+
+$y_2 = 0.95 + (0.1)(-0.425)$
+
+$y_2 = 0.9075$
+
+<br>
+
+Therefore, $y_2 = y(0.2) = 0.9075$ (Answer)
+
+---
+
+### Runge-Kutta method
+
+Runge-Kutta methods is used to solve differential equations. These will give us higher accuracy without performing more calculations.
+
+**Formula:** Consider an ordinary differential equation of the form $\frac{dy}{dx} = f(x, y)$ with initial condition $y(x_0) = y_0$. For this, we can define the formulas for Runge-Kutta methods as follows:
+
+
+- **$1^{st}$ order Runge-Kutta method**
+
+  $y_1 = y_0 + hf(x_0, y_0)$
+
+  or, $y_1 = y_0 + h y' _0$ {since $y'_0 = \frac{dy}{dx} = f(x, y)$}
+  
+  This formula is same as that of Euler's method.
+
+<br>
+
+- **$2^{nd}$ order Runge-Kutta method** (probably **NOT** in syllabus)
+
+  $y_1 = y_0 + \frac{1}{2} (k_1 + k_2)$
+
+  where,
+
+  - $k_1 = hf(x_0, y_0)$
+  - $k_2 = hf(x_0 + h, y_0 + k_1)$
+
+<br>
+
+- **$3^{rd}$ order Runge-Kutta method** (probably **NOT** in syllabus)
+
+  $y_1 = y_0 + \frac{1}{6}(k_1 + 4k_2 + k_3)$
+
+  where,
+  - $k_1 = hf(x_0, y_0)$
+  - $k_2 = hf(x_0 + \frac{1}{2} h, y_0 + \frac{1}{2} k_1)$
+  - $k_3 = hf(x_0 + h, y_0 + k')$ where $k' = hf(x_0 + h, y_0 + k_1)$
+
+  <br>
+
+- **$4^{th}$ order Runge-Kutta method**
+
+  The most commonly used Runge Kutta method to find the solution of a differential equation.
+
+  $y_1 = y_0 + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4)$
+  
+  Here,
+  - $k_1 = hf(x_0, y_0)$
+  - $k_2 = hf[x_0 + \frac{1}{2} h, y_0 + \frac{1}{2} k_1]$
+  - $k_3 = hf[x_0 + \frac{1}{2} h, y_0 + \frac{1}{2} k_2]$
+  - $k_4 = hf(x_0 + h, y_0 + k_3)$
+
+<br>
+
+>**Example:** Consider an ordinary differential equation $\frac{dy}{dx} = x^2 + y^2$, $y(1) = 1.2$. Find $y(1.05)$ using the fourth order Runge-Kutta method.
+
+**Solution:** Given:
+- $\frac{dy}{dx} = x^2 + y^2$
+- $y(1) = 1.2$
+- $x_0 = 1, y_0 = 1.2$
+- $h = 0.05$
+
+Let's calculate $k_1, k_2, k_3, k_4$:
+
+$k_1 = hf(x_0, y_0) = (0.05)(1^2 + 1.2^2) = 0.122$
+
+$k_2 = hf[x_0 + \frac{1}{2} h, y_0 + \frac{1}{2} k_1] = (0.05)f(1 + 0.025, 1.2 + 0.061) = (0.05)(1.025^2 + 1.261^2) = 0.1320$
+
+$k_3 = hf[x_0 + \frac{1}{2} h, y_0 + \frac{1}{2} k_2] = = (0.05)f(1 + 0.025, 1.2 + 0.066) = (0.05)(1.025^2 + 1.266^2) = 0.1326$
+
+$k_4 = hf(x_0 + h, y_0 + k_3) = (0.05)f(1 + 0.05, 1.2 + 0.1326) =  (0.05)(1.05^2 + 1.3326^2) = 0.1439$
+
+<br>
+
+Now, by RK4 method, we have:
+
+$y(1.05) = y_1 = y_0 + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4)$
+
+Substituting the values, we get:
+
+$y(1.05) = 1.2 + \frac{1}{6} \{ 0.122 + 2(0.1320) + 2(0.1326) + 0.1439 \}$
+
+$y(1.05) = 1.2 + \frac{1}{6}  (0.122 + 0.264 + 0.2652 + 0.1439)$
+
+$y(1.05) = 1.2 + 0.1325$
+
+$y(1.05) = 1.3325$ (Answer)
 
