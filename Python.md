@@ -112,31 +112,191 @@ Another iterative numerical technique for finding roots of a function. Unlike th
 
 <br>
 
----
-
 # UNIT 2
 
-## Curve Fitting
+## Interpolation and Curve Fitting
 
-Using the method of least square, find the best fitting line for the given data:
+**Interpolation:**  We construct a curve through the given data points. In doing so, we make the implicit assumption that the data points are accurate and distinct.
+
+**Curve Fitting:**  It is applied to data that contain scatter (noise), usually caused by measurement errors. Here we want to find a smooth curve that approximates the data in some sense. Thus the curve does not necessarily hit the data points.
+
+<img src = "https://www.researchgate.net/publication/350106186/figure/fig1/AS:1002224348057634@1615960313717/Linear-interpolation-black-lines-vs-curve-fit-red-line-for-hypothetical.png" height = 400>
+
+This image illustrates the difference between the two terms.
+
+## Polynomial Interpolation
+
+### For data in Equal Intervals
+
+#### Newton Forward
+
+$p = \frac{x - x_0}{h}$
+
+$y(x) = y_0 + \frac{p}{1!} . \Delta ^1 y_0 + \frac{p(p - 1)}{2!} . \Delta ^2 y_0 + \frac{p(p - 1)(p - 2)}{3!} . \Delta ^3 y_0 + ...$
+
+<br>
+
+>**Question:** Find $y$ for $x = 1895$ using Newton's Forward Difference formula for the given table:
+
+<table>
+<tr>
+<th>x</th>
+<th>f(x)</th>
+</tr>
+<tr>
+<td>1891</td>
+<td>46</td>
+</tr>
+</tr>
+<tr>
+<td>1901</td>
+<td>66</td>
+</tr>
+</tr>
+<tr>
+<td>1911</td>
+<td>81</td>
+</tr>
+</tr>
+<tr>
+<td>1921</td>
+<td>93</td>
+</tr>
+</tr>
+<tr>
+<td>1931</td>
+<td>101</td>
+</tr>
+</table>
+
+**Solution:** To solve, we need to calculate the Newton's forward difference table.
+
+<img src = "https://qph.cf2.quoracdn.net/main-qimg-a0f3262e4e343da05b76ed7a9ea35763">
+
+Now, $h = x_1 - x_0 = 10$
+
+$p = \frac{x - x_0}{h} = \frac{1895 - 1891}{10} = 0.4$
+
+Now, we know $y(x) = y_0 + \frac{p}{1!} . \Delta ^1 y_0 + \frac{p(p - 1)}{2!} . \Delta ^2 y_0 + \frac{p(p - 1)(p - 2)}{3!} . \Delta ^3 y_0 + ...$
+
+$y(1895) = 46 + 0.4 (20) + \frac{0.4(0.4 - 1)}{2} (-5) + \frac{0.4(0.4 - 1)(0.4 - 2)}{6} (2) + \frac{0.4(0.4 - 1)(0.4 - 2)(0.4 - 3)}{24} (-3)$
+
+$y(1895) = 46 + 8 + 0.6 + 0.128 + 0.1248 = 54.8528$ (Answer)
+
+---
+
+#### Newton Backward
+
+$p = \frac{x - x_n}{h}$
+
+$y(x) = y_n + \frac{p}{1!} . \nabla ^1 y_n + \frac{p(p + 1)}{2!} . \nabla ^2 y_n + \frac{p(p + 1)(p + 2)}{3!} . \nabla ^3 y_n + ...$
+
+---
+
+### For data in Unequal Intervals
+
+#### Lagrange's method
+
+The simplest form of an interpolant is a polynomial. It is always possible to construct
+a unique polynomial of degree $n$ that passes through $n + 1$ distinct data points.
+
+$y = P_n(x) = \sum _{i = 0} ^n y_i l_i (x)$
+
+where:
+- $n$ denotes the degree of the polynomial
+- $l_i = \frac{x - x_0}{x_i - x_0} . \frac{x - x_1}{x_i - x_1} . \frac{x - x_2}{x_i - x_2} ... \frac{x - x_n}{x_i - x_n}$
+  
+  where $i = 1, 2, 3 ... n$
+
+<br>
+
+
+>**Question:** Find the value of $y$ at $x = 0$ given some set of values $(-2, 5), (1, 7), (3, 11), (7, 34)$.
+
+**Solution:** Given values are,
+<table>
+<tr>
+<th>x</th>
+<td>-2</td>
+<td>1</td>
+<td>3</td>
+<td>7</td>
+</tr>
+<tr>
+<th>y</th>
+<td>5</td>
+<td>7</td>
+<td>11</td>
+<td>34</td>
+</tr>
+</table>
+
+As we are given $4$ sets of data, $n = 4$
+
+We need to find $y$ for $x = 0$
+
+Therefore:
+
+$y = y_0 l_0(x) + y_1 l_1(x) + y_2 l_2(x) + y_3 l_3(x)$
+
+Now,
+
+$l_0 = \frac{x - x_1}{x_0 - x_1} . \frac{x - x_2}{x_0 - x_2} . \frac{x - x_3}{x_0 - x_3} = \frac{(0-1)(0-3)(0-7)}{(-2-1)(-2-3)(-2-7)} = \frac{21}{135}$
+
+$l_1 = \frac{x - x_0}{x_1 - x_0} . \frac{x - x_2}{x_1 - x_2} . \frac{x - x_3}{x_1 - x_3} = \frac{(0+2)(0-3)(0-7)}{(1+2)(1-3)(1-7)} = \frac{42}{36}$
+
+$l_2 = \frac{x - x_0}{x_2 - x_0} . \frac{x - x_1}{x_2 - x_1} . \frac{x - x_3}{x_2 - x_3} = \frac{(0+2)(0-1)(0-7)}{(3+2)(3-1)(3-7)} = \frac{14}{-40}$
+
+$l_3 = \frac{x - x_0}{x_3 - x_0} . \frac{x - x_1}{x_3 - x_1} . \frac{x - x_2}{x_3 - x_2} = \frac{(0+2)(0-1)(0-3)}{(7+2)(7-1)(7-3)} = \frac{6}{216}$
+
+Therefore,
+
+$y = \frac{21}{27} + \frac{49}{6} + \frac{-77}{20} + \frac{51}{54} = \frac{1087}{180}$ (Answer)
+
+---
+
+#### Newton's method
+
+
+
+## Polynomial Curve Fitting
+
+Polynomial curve fitting is a mathematical technique used to approximate a relationship between two variables using a polynomial function.
+
+Here are some common applications of polynomial curve fitting:
+1. **Data Modeling**: Polynomial curve fitting is often used to model data when there is a suspected polynomial relationship between variables. It can be used to describe and predict data trends.
+
+2. **Interpolation and Extrapolation**: It's used to estimate data points within a given range (interpolation) or outside the observed data range (extrapolation) using a polynomial function.
+
+3. **Function Approximation**: In engineering and physics, polynomial curve fitting is used to approximate complex functions with simpler polynomial functions for ease of analysis.
+
+4. **Signal Processing**: Polynomial curve fitting can be applied in signal processing to smooth data and remove noise from signals.
+
+5. **Regression Analysis**: It's used for polynomial regression, where a polynomial function is fitted to data to make predictions.
+
+6. **Scientific Research**: Polynomial curve fitting is applied in various scientific disciplines to model and analyze experimental data.
+
+### Least Squares fitting of Straight Line
+
+>**Question:** Using the method of least square, find the best fitting straight line for the given data:
 
     x  | 1 | 2 | 3 | 4 | 5 |
     ---+---+---+---+---+---+
     y  | 1 | 3 | 5 | 6 | 5 |
 
-Assume: 
+**Solution:** Let the straight line be: $y = a + bx ---- (1)$
 
-$y = a + bx ---- (1)$
+Multiplying x in both sides, we get: $xy = ax + bx^2 ---- (2)$
 
-Multiplying x in both sides:
-
-$xy = ax + bx^2 ---- (2)$
+<br>
 
 Performing Summation in equation (1) and (2):
 
 $\sum y = na + b \sum x  ---- (3)$
 
 $\sum xy = a \sum x + b \sum x^2  ---- (4)$
+
+<br>
 
     x  |  y  |  xy  |  x^2  |
     ---+-----+------+-------+
@@ -146,13 +306,10 @@ $\sum xy = a \sum x + b \sum x^2  ---- (4)$
     4  |  6  |  24  |   16  |
     5  |  5  |  25  |   25  |
 
-$\sum x = 15$
-
-$\sum y = 20$
-
-$\sum xy = 71$
-
-$\sum x^2 = 55$
+- $\sum x = 15$
+- $\sum y = 20$
+- $\sum xy = 71$
+- $\sum x^2 = 55$
 
 So the equations become:
 
@@ -160,38 +317,37 @@ $20 = 5a + 15b$
 
 $71 = 15a + 55b$
 
+<br>
 
-Performing subtraction on these equations:
+Solving these equations, we get:
+- $a = 0.7$
+- $b = 1.1$
 
-$-11 = -10b$
-
-$b = 1.1$
-
-
-Thus, we get:
-
-$20 = 5a + 15 * 1.1$
-
-$20 = 5a + 16.2$
-
-$a = 0.7$
-
+<br>
 
 Therefore our curve becomes:
 
-$y = 0.7 + 1.1x$
+$y = 0.7 + 1.1x$ (Answer)
 
-Q. 2) Fit the parabola $y = a + bx + cx^2$ for the following data. Also find `y` when `x = 6`.
+
+
+### Least Squares fitting of a $2^{nd}$ degree Parabola
+
+>**Question:** Fit the parabola $y = a + bx + cx^2$ for the following data. Also find `y` when `x = 6`.
 
     x  |  0   1    2    3    4  |
     ---+------------------------+
     y  |  1  1.8  1.9  2.5  6.3 |
 
-=> $y = a + bx + cx^3$
+**Solution:** Let the equation of the parabola be: $y = a + bx + cx^2$
+
+Its normal equation is:
 
 $\sum y = na + b \sum x + c \sum x^2$ --- (1)
 
-Normal equations are:
+<br>
+
+Multiplying $x$ in both sides - once and twice, the other two normal equations are:
 
 $\sum xy = a \sum x + b \sum x^2 + c \sum x^3$ --- (2)
 
@@ -218,4 +374,139 @@ $\sum x^4 = 354$
 $\sum xy = 38.3$
 
 $\sum x^2 y = 132.7$
+
+The equations become:
+
+$13.5 = 5a + 10b + 30c$
+
+$38.3 = 10a + 30b + 100c$
+
+$132.7 = 30a + 100b + 354c$
+
+Rest is solving these equations and putting the values into the curve.
+
+<br>
+
+## Numerical Integration
+
+Numerical integration methods can generally be described as combining evaluations of the integrand to get an approximation to the integral. The integrand is evaluated at a finite set of points called integration points and a weighted sum of these values is used to approximate the integral.
+
+### Trapezoidal Rule
+
+Trapezoidal Rule is a rule that evaluates the area under the curves by dividing the total area into smaller trapezoids rather than using rectangles. This integration works  by approximating the region under the graph of a function as a trapezoid, and it calculates the area. This rule takes the average of the left and the right sum.
+
+<img src = "https://cdn1.byjus.com/wp-content/uploads/2021/06/Trapezoidal-rule.png" height = 400>
+
+<br>
+
+**Formula:** Let $f(x)$ be a continuous function on the interval $[a, b]$.
+
+Next we divide the interval into $n$ subsequent parts. Thus width of each part is:
+
+$\Delta x = \frac{b - a}{n}$
+
+where:
+- $x_0 < x_1 < x_2 < ... < x_{n-1} < x_n $
+- $a = x_0$
+- $b = x_n$
+
+Therefore the area is given by:
+
+$\int _a ^bf(x) dx \approx T_n = \frac{\Delta x}{2} \{ f(x_0) + 2f(x_1) + 2f(x_2) + ... + 2f(x_{n - 1}) + 2f(x_n) \}$
+
+where: $x_i = a + i (\Delta x)$
+
+<br>
+
+>**Example:** Approximate the area under the curve $y = f(x)$ between $x = 0$ and $x = 8$ using Trapezoidal Rule with $n = 4$ subintervals. A function $f(x)$ is given in the table of values.
+
+<table>
+<tr>
+<th>x</th>
+<th>f(x)</th>
+</tr>
+<tr>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>7</td>
+</tr>
+<tr>
+<td>4</td>
+<td>11</td>
+</tr>
+<tr>
+<td>6</td>
+<td>9</td>
+</tr>
+<tr>
+<td>8</td>
+<td>3</td>
+</tr>
+</table>
+
+**Solution:** The Trapezoidal Rule formula for $n = 4$ subintervals is given as:
+
+$T_4 = \frac{\Delta x}{2} \{ f(x_0) + 2f(x_1) + 2f(x_2) + 2f(x_3) + f(x_4) \}$
+
+Here, $\Delta x = 2$
+
+Therefore, $A \approx T_4 = \frac{2}{2} (3 + 14 + 22 + 18 + 3) = 60$
+
+So the approximate area under the curve using Trapezoidal rule is **60** (Answer).
+
+---
+
+### Simpson Rule
+
+Simpson's Rule is a numerical method that approximates the value of a definite integral by using quadratic functions.
+
+<img src = "https://math24.net/images/simpsons-rule1.svg" height = 400 style = "background:white">
+
+**Formula:** To obtain an approximation of the definite integral $\int ^b _a f(x) dx$ using Simpson's Rule, we partition the interval $[a, b]$ into an **even** number of $n$ subintervals.
+
+Width of each part $\Delta x = \frac {b - a}{n}$.
+
+On each pair of consecutive subintervals $[x_{i - 1}, x_i], [x_i, x_{i + 1}]$, we consider a quadratic function $y = ax^2 + bx + c$ such that it passes through the points:
+- $(x_{i - 1}, f(x_{i - 1}))$
+- $(x_{i}, f(x_{i}))$
+- $(x_{i + 1}, f(x_{i + 1}))$
+
+Therefore,
+
+$\int ^b _a f(x) dx \approx \frac{\Delta x}{3} \{ f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + 2f(x_4) + ... + 4f(x_{n - 1}) + f(x_n) \}$
+
+The coefficients have the following pattern:
+
+$\underbrace {1,4,2,4,2, \ldots ,4,2,4,1}_{{n + 1}\;\text{points}}$
+
+<br>
+
+>**Example:** A function $f(x)$ is given by the table of values. Approximate the area under the curve $y = f(x)$ between $x = 0$ and $x = 4$ using Simpson's Rule with $n = 4$ subintervals.
+
+<img src = "https://math24.net/images/simpsons-rule4.svg" width = 300 style = "background:white">
+
+**Solution:** For $n = 4$ subintervals, Simpson's rule is given by the following equation:
+
+$S_4 = \frac{\Delta x}{3} \{ f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + f(x_4) \}$
+
+Here, width of each subinterval is:
+
+$\Delta x = \frac {b - a}{n} = \frac {4 - 0}{4} = 1$
+
+Substituting values into the equation, we get:
+
+$A \approx S_4 = \frac {1}{3} [2 + 28 + 24 + 40 + 5] = \frac{1}{3} . 99 = 33$ (Answer)
+
+<br>
+
+>**Note:** Simpson's rule provides a more accurate value than Trapezoidal rule as it uses Quadratic Approximation instead of Linear Approximation.
+
+---
+
+### Gaussian Quadrature
+
+The Gauss integration is a very efficient method to perform numerical integration over intervals. In fact, if the function to be integrated is a polynomial of an appropriate egree, then the Gauss integration scheme produces exact results.
 
