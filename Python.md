@@ -120,7 +120,7 @@ Another iterative numerical technique for finding roots of a function. Unlike th
 
 **Curve Fitting:**  It is applied to data that contain scatter (noise), usually caused by measurement errors. Here we want to find a smooth curve that approximates the data in some sense. Thus the curve does not necessarily hit the data points.
 
-<img src = "https://www.researchgate.net/publication/350106186/figure/fig1/AS:1002224348057634@1615960313717/Linear-interpolation-black-lines-vs-curve-fit-red-line-for-hypothetical.png" height = 400>
+<img src = "https://image.slidesharecdn.com/me4010ch5curvefitting-200910162259/85/numerical-methods-curve-fitting-and-interpolation-2-320.jpg?cb=1668102346" height = 300>
 
 This image illustrates the difference between the two terms.
 
