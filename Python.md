@@ -406,7 +406,7 @@ where:
 
 Therefore the area is given by:
 
-$\int _a ^bf(x) dx \approx T_n = \frac{\Delta x}{2} \{ y_0 + 2y_1 + 2y_2 + ... + 2y_{n - 1} + 2y_n \}$
+$\int _a ^b f(x) dx \approx T_n = \frac{\Delta x}{2} \{ y_0 + 2y_1 + 2y_2 + ... + 2y_{n - 1} + y_n \}$
 
 where: $x_i = a + i (\Delta x)$
 
