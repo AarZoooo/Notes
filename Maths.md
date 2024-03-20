@@ -32,11 +32,11 @@ To be completed later
 
 The process of constructing a **curve** or mathematical function that has the best fit to a series of data points. Basically it examines the relationship between one or more independent variables and a dependent variable.
 
-Let `x` be an **independent variable** and `y` be the **dependent variable**, and we have a set of values:
+Let $x$ be an **independent variable** and $y$ be the **dependent variable**, and we have a set of values:
 
 $(x_1, y_1), (x_2, y_2), ... (x_n, y_n)$
 
-Suppose `Y = f(X)` is an approximate relation that fits into a given data $x_i, y_i$. 
+Suppose $Y = f(X)$ is an approximate relation that fits into a given data $x_i$, $y_i$. 
 
 Then $y_i$ are called **observed (given) values** and $Y_i = f(X_i)$ are **expected values**.
 
@@ -58,21 +58,21 @@ We need to make the output of this formula minimum to reduce the residuals.
 
 We fit a straight line on the given points $(x_i, y_i)$:
 
-Let: $Y = a + bx$ be the equation of a straight line to be fitted.
+Let: $Y = a + bX$ be the equation of a straight line to be fitted.
 
-Now residual or error at $x = x_i$ is:
+Now residual or error at $X = x_i$ is:
 
-$E_i = y_i - Y_i$
+$E_i = (y_i - Y_i)^2$
 
-or, $E_i = y_i - a - bx_i$
+or, $E_i = (y_i - a - bx_i)^2$
 
 Now, $E = \sum_{i=1}^{n}(y_i - Y_i)^2$
 
-therefore, $E = \sum_{i=1}^{n}(y_i - a - bx_i)$
+therefore, $E = \sum_{i=1}^{n}(y_i - a - bx_i)^2$
 
 <br>
 
-By the method of least square, `a` and `b` are to be determined so that the sum of squares of residues is minimum.
+By the method of least square, $a$ and $b$ are to be determined so that the sum of squares of residues is minimum. That is:
 
 $\frac{\delta E}{\delta a} = 0$
 
@@ -80,13 +80,35 @@ $\frac{\delta E}{\delta b} = 0$
 
 <br>
 
-now, $\frac{\delta E}{\delta a} = 2\sum_{i=1}^{n}(y_i - a - bx_i)(-1) = 0$
+$\frac{\delta E}{\delta a} = 2\sum_{i=1}^{n}(y_i - a - bx_i)(-1) = 0$
 
 or, $\sum (y_i - a - bx_i) = 0$
 
 or, $\sum y_i - a \sum 1 - b \sum x_i = 0$
 
-or, $\sum y_i = an + b \sum x_i$
+or, $\sum y_i = na + b \sum x_i$
+
+<br>
+
+$\frac{\delta E}{\delta b} = 2\sum_{i=1}^{n}(y_i - a - bx_i)(-x_i) = 0$
+
+or, $\sum (y_i x_i - a x_i - bx_i^2) = 0$
+
+or, $\sum y_i x_i - a \sum x_i - b \sum x_i^2 = 0$
+
+or, $\sum y_i x_i = a \sum x_i + b \sum x_i^2$
+
+<br>
+
+We obtained two equations, which are our normal equations for straight line. 
+
+$\sum y = na + b \sum x$
+
+$\sum xy = a \sum x + b \sum x^2$
+
+<br>
+
+Now we put the values we get from the given table into these two equations and solve them for values of $a$ and $b$. Hence, putting their values into our initial equation, we get the curve that is the best fit.
 
 ---
 
@@ -109,7 +131,7 @@ $E = \sum ^n _{i = 1} (y_i - a - bx_i - cx_i ^2) ^2$
 
 <br>
 
-By the method of least square, `a`, `b` and `c` are to be determined so that the sum of squares of residues is minimum. That is:
+By the method of least square, $a$, $b$ and $c$ are to be determined so that the sum of squares of residues is minimum. That is:
 
 $\frac{\delta E}{\delta a} = 0$
 ,
@@ -153,20 +175,20 @@ $\sum y x = a \sum x + b \sum x ^2 + c \sum x ^3$
 
 $\sum y x ^ 2 = a \sum x ^2 + b \sum x ^3 + c \sum x ^4$
 
-Upon solving these normal equations, we can get values of `a`, `b` and `c`. Hence the equation we get is the best fit.
+Upon solving these normal equations, we can get values of $a$, $b$ and $c$. Hence the equation we get is the best fit.
 
 ---
 
 ### Fitting of a Power Curve $Y = a x^b$
 
-Let $Y = a x^b$ be a power curve where `a` and `b` are constants.
+Let $Y = a X^b$ be a power curve where `a` and `b` are constants.
 
 Taking log on both sides, we get:
 $log (Y) = log (a X^b)$
 
 $log (Y) = log (a) + log (X^b)$
 
-$log (Y) = log (a) + b * log (X) ----(2)$
+$log (Y) = log (a) + (b) log (X) ----(2)$
 
 <br>
 
@@ -207,7 +229,7 @@ $log (Y) = log (a b^X)$
 
 $log(Y) = log(a) + log(b^X)$
 
-$log(Y) = log(a) + X*log(b) ---- (2)$
+$log(Y) = log(a) + (X)log(b) ---- (2)$
 
 <br>
 
@@ -247,14 +269,14 @@ Let $Y = a e^{bX} ---- (1)$
 Taking log on both sides, we have:
 $log (Y) = log (a) + log(e^{bX})$
 
-$log(Y) = log(a) + b * X * log(e) ---- (2)$
+$log(Y) = log(a) + (b X)  log(e) ---- (2)$
 
 <br>
 
 Let:
 - $log (Y) = U$
 - $log(a) = A$
-- $b*log(e) = B$
+- $(b)log(e) = B$
 
 <br>
 
@@ -296,13 +318,19 @@ Steps:
 
 1. Set up **Null hypothesis** $H_0$ and **Alternate Hypothesis** $H_1$.
 2. Set up level of significance $\alpha$ (Generally it is taken 5% or 1%)
-3. Use Z-test formula and find the value.
+3. Use Z-test formula and find the calculated value.
 4. Find out the Critical or Cut off values corresponding to $\alpha$
 5. Take the decision about the null hypothesis based on the calculated and critical value of test. i.e.
    - If `Computed value < Critical Value` => `Accept the null hypothesis`
    - If `Computed value > Critical Value` => `Reject the null hypothesis`
+
+<br>
+
+>**Note:** 
+>- $n > 30 \rightarrow$ Large sample
+>- $n <= 30 \rightarrow$ Small sample
   
-## Formula to find the value of Z-test
+### Formula to find the value of Z-test
 
 $Z = \frac{\bar x - \mu _0}{\frac{\sigma}{\sqrt n}}$
 
@@ -317,7 +345,7 @@ Where:
 1. One tailed test
 2. Two tailed test
 
-<img src = "https://d138zd1ktt9iqe.cloudfront.net/media/seo_landing_files/critical-value-2-1640777886.png" style = "background:white">
+<img src = "https://d138zd1ktt9iqe.cloudfront.net/media/seo_landing_files/critical-value-2-1640777886.png"  height = 500 style = "background:white">
 
 ### One Tailed test
 
@@ -355,41 +383,43 @@ Where:
   
   $H_1 : \bar X_1 \neq \bar X_2$
 
----
+<br>
 
-## Decision Making about Null Hypothesis using p-value
+### Decision Making about Null Hypothesis using $p$-value
 
-In this case we compare the p-value with given level of significance ($\alpha$)
+In this case we compare the $p$-value with given level of significance ($\alpha$)
 
-If p-value <= $\alpha$, then we reject the null hypothesis
+If $p$-value <= $\alpha$, then we reject the null hypothesis
 
-If p-value >= $\alpha$, then we accept the null hypothesis
+If $p$-value >= $\alpha$, then we accept the null hypothesis
 
 ### For two-tailed test:
 
-P-value = $2P[Z >= z]$
+- $P$-value = $2P[Z \geq z]$
 
 ### For one-tailed test:
 
 - For $H_1 : \mu > \bar X$ (Right tailed)
   
-  P-value = $P[Z >= z]$
+  $P$-value = $P[Z \geq z]$
 
 - For $H_1 : \mu < \bar X$ (Left tailed)
 
-  P-value = $P[Z <= z]$
+  $P$-value = $P[Z \leq z]$
+
+<br>
 
 ---
 
-**Example:** If test is right-tailed and calculated value of test statistics `z` is `1.23`, then calculate the p-value.
+**Question 1:** If test is right-tailed and calculated value of test statistics $z$ is $1.23$, then calculate the $p$-value.
 
 **Answer:** We know for right-tailed test,
 
-P-value = $P[Z >= z]$
+P-value = $P[Z \geq z]$
 
-P-value = $P[Z >= 1.23]$
+P-value = $P[Z \geq 1.23]$
 
-P-value = $1 - P[Z <= 1.23]$
+P-value = $1 - P[Z \leq 1.23]$
 
 P-value = $1 - 0.89065$
 
@@ -397,11 +427,7 @@ P-value = $0.1093$
 
 <br>
 
-Q) If test is two-tailed and calculated value of test `z` is `2.42`, then calculate p-value.
-
-## Testing of hypothesis for Population mean using Z-test
-
-**Example:** A light bulb company claims that their 100-watt light bulb has an average life of 1200 hours with Standard Deviation of 100 hours. For testing the claim, 50 new bulbs were selected randomly and allowed to burn out. The average lifetime of these bulbs was found to be 1180 hours. Is the company's claim true at 5% level of significance?
+**Question 2:** A light bulb company claims that their 100-watt light bulb has an average life of 1200 hours with Standard Deviation of 100 hours. For testing the claim, 50 new bulbs were selected randomly and allowed to burn out. The average lifetime of these bulbs was found to be 1180 hours. Is the company's claim true at 5% level of significance?
 
 **Answer:** Given:
 - $\mu _0$ = 1200
@@ -420,9 +446,15 @@ $Z_{\frac{\alpha}{2}} = \pm Z_{0.025} = \pm 1.96$
 
 Since calculated value of test `z = -1.41` is greater than critical value `(-1.96)` and less than critical value `(1.96)`: **It lies in non-rejection region.**
 
-## Testing Of Hypothesis For Difference Of Two Population Means Using Z-Test
+---
 
+### Testing Of Hypothesis For Difference Of Two Population Means Using Z-Test
 
+$z = \frac{\bar x - \bar y}{\sqrt{\frac{\sigma _1 ^2}{n _1}+ \frac{\sigma _2 ^2}{n _2}}}$
+
+where:
+- $\bar x$ and $\bar y$ are sample population means of populations 1 and 2
+- $\sigma _1$ and $\sigma _2$ are Standard Deviations of populations 1 and 2
 
 ---
 
