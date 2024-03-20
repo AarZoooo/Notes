@@ -593,10 +593,10 @@ where:
 
 <br>
 
->**Example:** Find $y(0.2)$ for $y = x - y^2$, $y(0) = 1$, with step length $0.1$ using Euler method.
+>**Example:** Find $y(0.2)$ for $y' = x - y^2$, $y(0) = 1$, with step length $0.1$ using Euler method.
 
 **Solution:** Given:
-- $y = x - y^2$
+- $y' = x - y^2$
 - $y(0) = 1$
 - $h = 0.1$
 
@@ -608,23 +608,23 @@ $y_1 = y_0 + hf(x_0, y_0)$
 
 $y_1 = 1 + (0.1)f(0, 1)$
 
-$y_1 = 1 + (0.1)(-0.5)$
+$y_1 = 1 + (0.1)(-1)$
 
-$y_1 = 0.95$
+$y_1 = 0.99$
 
 <br>
 
 $y_2 = y_1 + hf(x_1, y_1)$
 
-$y_2 = 0.95 + (0.1)f(0.1, 0.95)$
+$y_2 = 0.99 + (0.1)f(0.1, 0.99)$
 
-$y_2 = 0.95 + (0.1)(-0.425)$
+$y_2 = 0.99 + (0.1)(-0.8801)$
 
-$y_2 = 0.9075$
+$y_2 = 0.90199$
 
 <br>
 
-Therefore, $y_2 = y(0.2) = 0.9075$ (Answer)
+Therefore, $y_2 = y(0.2) = 0.90199$ (Answer)
 
 ---
 
