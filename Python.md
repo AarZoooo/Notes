@@ -518,7 +518,7 @@ $\int _a ^b f(x) dx = \frac{3 \Delta x}{8} [(y_0 + y_n) + 3(y_1 + y_2 + y_4 + y_
 
 >**Note:** Simpson's rule provides a more accurate value than Trapezoidal rule as it uses Quadratic Approximation instead of Linear Approximation.
 
----
+<!-- ---
 
 ### Gaussian Quadrature
 
@@ -547,7 +547,7 @@ where:
 
 **Solution:** The two-point Gauss quadrature rule is given by:
 
-$\int _a ^b f(x) dx \approx c_1 f_1(x) + c_2 f_2 (x)$\
+$\int _a ^b f(x) dx \approx c_1 f_1(x) + c_2 f_2 (x)$\ -->
 
 ## Ordinary Differential Equations
 

@@ -52,8 +52,6 @@ $E_i = \sum_{i=1}^{n}(y_i - Y_i)^2$
 
 We need to make the output of this formula minimum to reduce the residuals.
 
-<br>
-
 ---
 
 ### Fitting of a Straight line $Y = a + bx$
@@ -72,141 +70,207 @@ Now, $E = \sum_{i=1}^{n}(y_i - Y_i)^2$
 
 therefore, $E = \sum_{i=1}^{n}(y_i - a - bx_i)$
 
+<br>
+
 By the method of least square, `a` and `b` are to be determined so that the sum of squares of residues is minimum.
 
 $\frac{\delta E}{\delta a} = 0$
 
 $\frac{\delta E}{\delta b} = 0$
 
+<br>
+
 now, $\frac{\delta E}{\delta a} = 2\sum_{i=1}^{n}(y_i - a - bx_i)(-1) = 0$
 
-or, $\frac{\delta E}{\delta a} = \sum_{i=1}^{n}(y_i - a - bx_i) = 0$
+or, $\sum (y_i - a - bx_i) = 0$
 
 or, $\sum y_i - a \sum 1 - b \sum x_i = 0$
 
 or, $\sum y_i = an + b \sum x_i$
 
+---
+
+### Fitting of a Second-degree Parabola $𝑌 = 𝑎 + 𝑏𝑋 + 𝑐𝑋^2$
+
+Let $𝑌 = 𝑎 + 𝑏𝑋 + 𝑐𝑋^2$ be the second-degree parabola and we have a set of n points $(x_i, y_i)$, where $i = 1, 2, …, n$.
+
+With given n points $(x_i, y_i)$, the second-degree parabola be:
+
+$𝑦_𝑖 = 𝑎 + 𝑏x_𝑖 + 𝑐𝑥_𝑖 ^2$
+
 <br>
+
+Let $𝑌_𝑖 = 𝑎 + 𝑏𝑥_𝑖 + 𝑐𝑥_𝑖 ^2$ be the estimated value of $Y$. Then according to the
+principle of least squares:
+
+$E = \sum ^n _{i = 1} (y_i - Y_i)^2$
+
+$E = \sum ^n _{i = 1} (y_i - a - bx_i - cx_i ^2) ^2$
+
+<br>
+
+By the method of least square, `a`, `b` and `c` are to be determined so that the sum of squares of residues is minimum. That is:
+
+$\frac{\delta E}{\delta a} = 0$
+,
+$\frac{\delta E}{\delta b} = 0$
+,
+$\frac{\delta E}{\delta c} = 0$
+
+<br>
+
+Therefore,
+
+$\frac{\delta E}{\delta a} = 2 \sum ^n _{i = 1} (y_i - a - bx_i - cx_i ^2) (-1) = 0$
+
+or, $-2 \sum ^n _{i = 1} (y_i - a - bx_i - cx_i ^2) = 0$
+
+or, $\sum ^n _{i = 1} y_i = na + b \sum ^n _{i = 1} x_i + c \sum ^n _{i = 1} x_i ^2$
+
+<br>
+
+Similarly,
+
+$\frac{\delta E}{\delta b} = -2 \sum ^n _{i = 1} (y_i - a - bx_i - cx_i ^2)(x_i) = 0$
+
+or, $\sum y_i x_i = a \sum x_i + b \sum x_i ^2 + c \sum x_i ^3$
+
+<br>
+
+Similarly,
+
+$\frac{\delta E}{\delta c} = -2 \sum ^n _{i = 1} (y_i - a - bx_i - cx_i ^2)(x_i ^2) = 0$
+
+or, $\sum y_i x_i ^ 2 = a \sum x_i ^2 + b \sum x_i ^3 + c \sum x_i ^4$
+
+<br>
+
+Therefore, the normal equations we have are:
+
+$\sum y = na + b \sum x + c \sum x ^2$
+
+$\sum y x = a \sum x + b \sum x ^2 + c \sum x ^3$
+
+$\sum y x ^ 2 = a \sum x ^2 + b \sum x ^3 + c \sum x ^4$
+
+Upon solving these normal equations, we can get values of `a`, `b` and `c`. Hence the equation we get is the best fit.
 
 ---
 
 ### Fitting of a Power Curve $Y = a x^b$
 
-Let:
-$$
-Y = a x^b
-$$
-be a power curve where `a` and `b` are constants.
+Let $Y = a x^b$ be a power curve where `a` and `b` are constants.
 
 Taking log on both sides, we get:
-$$
-log (Y) = log (a X^b)
-$$
-$$
-log (Y) = log (a) + log (X^b)
-$$
-$$
-log Y = log (a) + b*log (X) ----(2)
-$$
-Let: $log (Y) = U$, $log (a) = A$, and $log (X) = V$
+$log (Y) = log (a X^b)$
+
+$log (Y) = log (a) + log (X^b)$
+
+$log (Y) = log (a) + b * log (X) ----(2)$
+
+<br>
+
+Let:
+- $log (Y) = U$
+- $log (a) = A$
+- $log (X) = V$
+
+<br>
 
 Then (2) becomes:
 
-$$
-U = A + bV ----(3)
-$$ 
+$U = A + bV ----(3)$ 
+
+<br>
 
 The normal equations corresponding to (3) are:
 
-$$
-\sum U = n A + b \sum V
-$$
-$$
-\sum U V = A \sum V + b \sum V^2
-$$
+$\sum U = n A + b \sum V$
 
-Solving, we get `A` and `b`
+$\sum U V = A \sum V + b \sum V^2$
+
+Solving these normal equations, we get `A` and `b`.
 
 After that take $a = antilog(A)$
 
-<br>
+Thus with the values of `a` and `b`, the curve we get is the best fit.
 
 ---
 
 ### Fitting of an exponential curve $Y = a b^X$
 
-Let:
-$$
-Y = a b^X
-$$
+Let $Y = a b^X$
 
 Applying log on both sides:
-$$
-log (Y) = log (a b^X)
-$$
-$$
-log(Y) = log(a) + log(b^X)
-$$
-$$
-log(Y) = log(a) + X*log(b) ---- (2)
-$$
 
-Let $log(Y) = U$, $log(a) = A$, $log(b) = B$
+$log (Y) = log (a b^X)$
+
+$log(Y) = log(a) + log(b^X)$
+
+$log(Y) = log(a) + X*log(b) ---- (2)$
+
+<br>
+
+Let:
+- $log(Y) = U$
+- $log(a) = A$
+- $log(b) = B$
+
+<br>
 
 Then (2) becomes:
-$$
-U = A + BX ---- (3)
-$$
+
+$U = A + BX ---- (3)$
+
+<br>
 
 THe normal equations corresponding to (3) are:
 
-$$
-\sum U = n A + B \sum X
-$$
-$$
-\sum U X = A \sum X + B \sum X^2
-$$
+$\sum U = n A + B \sum X$
+
+$\sum U X = A \sum X + B \sum X^2$
 
 Solving, we get `A` and `B`
 
 After that take $a = antilog(A)$, $b = antilog(B)$
 
-<br>
+Thus with the values of `a` and `b` the curve we get is the best fit.
 
 ---
 
 ### Fitting of exponential curve $Y = a e^{bX}$
 
-Let:
-$$
-Y = a e^{bX} ---- (1)
-$$
+Let $Y = a e^{bX} ---- (1)$
+
+<br>
 
 Taking log on both sides, we have:
-$$
-log (Y) = log (a) + log(e^{bX})
-$$
-$$
-log(Y) = log(a) + b * X * log(e) ---- (2)
-$$
+$log (Y) = log (a) + log(e^{bX})$
+
+$log(Y) = log(a) + b * X * log(e) ---- (2)$
+
+<br>
 
 Let:
 - $log (Y) = U$
 - $log(a) = A$
 - $b*log(e) = B$
 
+<br>
+
 Then (2) becomes:
-$$
-U = A + BX ---- (3)
-$$
+
+$U = A + BX ---- (3)$
+
+<br>
 
 The normal equations corresponding to (3) are:
-$$
-\sum U = n A + B \sum X
-$$
-$$
-\sum U X = A \sum X + B \sum X^2
-$$
+
+$\sum U = n A + B \sum X$
+
+$\sum U X = A \sum X + B \sum X^2$
+
+<br>
 
 Solving, we get `A` and `B`
 
@@ -214,9 +278,9 @@ After that, we take:
 - $a = antilog(A)$
 - $b = \frac{B}{log(e)}$
 
-<br>
+Thus with the values of `a` and `b`, the curve we get is the best fit.
 
----
+<br>
 
 ## Testing of Hypothesis
 
@@ -230,7 +294,7 @@ It is a statement that is yet to be tested. It is a tentative answer to your res
 
 Steps:
 
-1. Set up **Null** and **Alternate** Hypothesis
+1. Set up **Null hypothesis** $H_0$ and **Alternate Hypothesis** $H_1$.
 2. Set up level of significance $\alpha$ (Generally it is taken 5% or 1%)
 3. Use Z-test formula and find the value.
 4. Find out the Critical or Cut off values corresponding to $\alpha$
@@ -240,9 +304,7 @@ Steps:
   
 ## Formula to find the value of Z-test
 
-$$
-Z = \frac{\bar x - \mu _0}{\frac{\sigma}{\sqrt n}}
-$$
+$Z = \frac{\bar x - \mu _0}{\frac{\sigma}{\sqrt n}}$
 
 Where:
 
@@ -255,7 +317,7 @@ Where:
 1. One tailed test
 2. Two tailed test
 
-<img src = "https://d138zd1ktt9iqe.cloudfront.net/media/seo_landing_files/critical-value-2-1640777886.png">
+<img src = "https://d138zd1ktt9iqe.cloudfront.net/media/seo_landing_files/critical-value-2-1640777886.png" style = "background:white">
 
 ### One Tailed test
 
@@ -337,8 +399,6 @@ P-value = $0.1093$
 
 Q) If test is two-tailed and calculated value of test `z` is `2.42`, then calculate p-value.
 
----
-
 ## Testing of hypothesis for Population mean using Z-test
 
 **Example:** A light bulb company claims that their 100-watt light bulb has an average life of 1200 hours with Standard Deviation of 100 hours. For testing the claim, 50 new bulbs were selected randomly and allowed to burn out. The average lifetime of these bulbs was found to be 1180 hours. Is the company's claim true at 5% level of significance?
@@ -359,6 +419,10 @@ The critical values for two tailed test at 5% level of significance are:
 $Z_{\frac{\alpha}{2}} = \pm Z_{0.025} = \pm 1.96$
 
 Since calculated value of test `z = -1.41` is greater than critical value `(-1.96)` and less than critical value `(1.96)`: **It lies in non-rejection region.**
+
+## Testing Of Hypothesis For Difference Of Two Population Means Using Z-Test
+
+
 
 ---
 
