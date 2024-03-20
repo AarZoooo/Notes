@@ -482,9 +482,180 @@ where:
 
 ### Testing of hypothesis for Single Population Proportion
 
+$z = \frac {p - P}{\sqrt {\frac {PQ}{n}}}$
 
+where:
+- $p$ = sample population
+- $P$ = population proportion
+- $Q$ = $1 - P$
 
----
+<br>
 
-1. In a random sample of 100 people from town A, 60 are found to be high consumers of wheat. In another sample of 80 people from town B, 40 are found to be high consumers of wheat. Do these data reveal a significant difference between the proportions of high wheat consumers in town A and town B (at $\alpha = 0.05$)?
+>**Example:** In a sample of 1000 people in Maharashtra, 540 are rice eaters and the rest are wheat eaters. Can we assume that both rice and wheat are equally popular in the state at 1% level of significance?
+>
+>**Solution:** Given:
+>- $n = 1000$
+>- $x = 540$ (number of rice eaters)
+>- $p = \frac{x}{n} = \frac{540}{1000} = 0.54$ (sample population of rice eaters)
+>
+>Let, $H_0$ : Both rice and wheat are equally popular
+>
+>So we have:
+>- $P = 0.5$
+>- $Q = 0.5$
+>
+>And, $H_1 : P \neq 0.5$ 
+>
+>Thus test is two tailed.
+>
+>Now,
+>
+>$z = \frac {0.54 - 0.5}{\sqrt {\frac {0.5 . 0.5}{1000}}} = 2.53$
+>
+>Critical values for two-tailed test at 1% level of significance are:
+>
+>$Z_{0.005} = \pm 2.58$
+>
+>Since $-2.58 < 2.53 < 2.58$ The null hypothesis can't be rejected.
 
+<br>
+
+### Testing of hypothesis for difference of two population proportions
+
+$z = \frac{p_1 - p_2}{\sqrt{PQ (\frac{1}{n_1}+ \frac{1}{n_2})}}$
+
+where:
+- $p_1$ = sample population 1
+- $p_2$ = sample population 2
+- $P$ = population proportion = $\frac{n_1 p_1 + n_2 p_2}{n_1 + n_2}$
+- $Q$ = $1 - P$
+- $n_1$ = population 1
+- $n_2$ = population 2
+
+<br>
+
+>**Example:** A bakery wants to compare the effectiveness of two different advertising campaigns (A and B) in attracting customers who buy cupcakes. They randomly select 100 customers who saw campaign A (sample size n₁ = 100) and record that 40 of them bought cupcakes (success = 40). Similarly, they select another 80 customers who saw campaign B (sample size n₂ = 80) and record that 36 of them bought cupcakes (success = 36). Is there a significant difference in the proportion of customers who buy cupcakes between those who saw campaign A and those who saw campaign B (at a 5% significance level)?
+>
+>**Solution:** Given:
+>- $n_1 = 100$, $n_2 = 80$
+>- $x = 40$, $y = 36$
+>- $p_1 = \frac{x}{n_1} = \frac{40}{100} = 0.4$
+>- $p_2 = \frac{y}{n_2} = \frac{36}{80} = 0.45$
+>
+>Let, $H_0$ : There is no difference in the proportion of customers who buy cupcakes between those who saw campaign A and those who saw campaign B.
+>
+>So we have:
+>- $P = \frac{100(0.4) + 80(0.45)}{100 + 80} = 0.422$
+>- $Q = 0.577$
+>
+>And, $H_1 : P \neq 0.5$ 
+>
+>Thus test is two tailed.
+>
+>Now,
+>
+>$z = \frac{0.4 - 0.45}{\sqrt{0.422(0.577) (\frac{1}{100}+ \frac{1}{80})}} = -0.675$
+>
+>Critical values for two-tailed test at 1% level of significance are:
+>
+>$Z_{0.025} = \pm 1.96$
+>
+>Since $-1.96 < -0.675 < 1.96$ The null hypothesis is rejected.
+
+<br>
+
+### Testing of hypothesis for population variances
+
+$z = \frac {s^2 - \sigma ^2}{\sigma ^2 \sqrt{\frac{2}{n}}}$
+
+where:
+- $s^2$ = sample variance
+- $\sigma ^2$ = population variance
+
+<br>
+
+>**Example:** A random sample of size 65 screws is taken from a population of big screws and their length is measured in mm which gives sample variance of 9.0. Test that two years old population variance 10.5 is still maintained at present at 5% level of significance.
+>
+>**Solution:** Given:
+>- $n = 65$
+>- $s^2 = 9.0$
+>- $\sigma ^2 = 10.5$
+>
+>$H_0 : \mu = \bar x$
+>
+>$H_1 : \mu \neq \bar x$ 
+>
+>Thus test is two tailed.
+>
+>Now,
+>
+>$z = \frac {9.0 - 10.5}{10.5 \sqrt{\frac{2}{65}}} = -0.8144$
+>
+>Critical values for two-tailed test at 5% level of significance are:
+>
+>$Z_{0.025} = \pm 1.96$
+>
+>Since $-1.96 < -0.8144 < 1.96$ The null hypothesis is accepted.
+
+<br>
+
+### Testing of hypothesis for two population variances
+
+$z = \frac{s_1^2 - s_2^2}{\sqrt{\frac{2 \sigma _1 ^2}{n_1} + \frac{2 \sigma _2 ^2}{n_2}}}$
+
+where:
+- $s_1, s_2$ are sample variances of two populations respectively
+- $\sigma_1, \sigma_2$ are population variances of two populations respectively
+- $n_1, n_2$ are the two populations respectively
+
+<br>
+
+>**Example:** A machine produces 16 defective articles in a batch of 500. After overhauling it produces 3 defective articles in 100. How has the machine improved after overhauling?
+>
+>**Solution:** Given:
+>- $n = 65$
+>- $s^2 = 9.0$
+>- $\sigma ^2 = 10.5$
+>
+>$H_0 : \mu = \bar x$
+>
+>$H_1 : \mu \neq \bar x$ 
+>
+>Thus test is two tailed.
+>
+>Now,
+>
+>$z = \frac {9.0 - 10.5}{10.5 \sqrt{\frac{2}{65}}} = -0.8144$
+>
+>Critical values for two-tailed test at 5% level of significance are:
+>
+>$Z_{0.025} = \pm 1.96$
+>
+>Since $-1.96 < -0.8144 < 1.96$ The null hypothesis is accepted.
+
+<br>
+
+### Confidence interval for population mean
+
+$I = \bar x \pm Z_{\frac{\alpha}{2}} (\frac{s}{\sqrt n})$
+
+where:
+- $\bar x$ = population mean
+- $Z_{\frac{\alpha}{2}}$ = p-value of $\alpha$ from Z-table
+- $s$ = Standard Deviation
+- $n$ = population size
+
+<br>
+
+>**Example:** A random sample of 200 items from a large population gave a mean
+value of 50 and standard deviation 9. Find the 95% confidence interval for the mean population.
+>
+>**Solution:** 
+>
+>$I = 50 \pm 1.96 (\frac{9}{\sqrt 200})$
+>
+>$I = 50 \pm 1.247$
+>
+>Therefore, intervals at $[48.753, 51.247]$
+
+<br>
