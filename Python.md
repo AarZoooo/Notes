@@ -512,7 +512,7 @@ It is completely based on the cubic interpolation rather than the quadratic inte
 
 **Formula:** Simpson’s 3/8 or three-eight rule is given by:
 
-$\int _a ^b f(x) dx = \frac{3h}{8} [(y_0 + y_n) + 3(y_1 + y_2 + y_4 + y_5 + …. + y_{n-1}) + 2(y_3 + y_6 + y_9 + ….. + y_{n-3})]$
+$\int _a ^b f(x) dx = \frac{3 \Delta x}{8} [(y_0 + y_n) + 3(y_1 + y_2 + y_4 + y_5 + …. + y_{n-1}) + 2(y_3 + y_6 + y_9 + ….. + y_{n-3})]$
 
 >**Note:** This rule is applicable where the number of intervals is a multiple of 3.
 
