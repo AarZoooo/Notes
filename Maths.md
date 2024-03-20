@@ -409,44 +409,42 @@ If $p$-value >= $\alpha$, then we accept the null hypothesis
 
 <br>
 
----
-
-**Question 1:** If test is right-tailed and calculated value of test statistics $z$ is $1.23$, then calculate the $p$-value.
-
-**Answer:** We know for right-tailed test,
-
-P-value = $P[Z \geq z]$
-
-P-value = $P[Z \geq 1.23]$
-
-P-value = $1 - P[Z \leq 1.23]$
-
-P-value = $1 - 0.89065$
-
-P-value = $0.1093$
+>**Question 1:** If test is right-tailed and calculated value of test statistics $z$ is $1.23$, then calculate the $p$-value.
+>
+>**Answer:** We know for right-tailed test,
+>
+>P-value = $P[Z \geq z]$
+>
+>P-value = $P[Z \geq 1.23]$
+>
+>P-value = $1 - P[Z \leq 1.23]$
+>
+>P-value = $1 - 0.89065$
+>
+>P-value = $0.1093$
 
 <br>
 
-**Question 2:** A light bulb company claims that their 100-watt light bulb has an average life of 1200 hours with Standard Deviation of 100 hours. For testing the claim, 50 new bulbs were selected randomly and allowed to burn out. The average lifetime of these bulbs was found to be 1180 hours. Is the company's claim true at 5% level of significance?
+>**Question 2:** A light bulb company claims that their 100-watt light bulb has an average life of 1200 hours with Standard Deviation of 100 hours. For testing the claim, 50 new bulbs were selected randomly and allowed to burn out. The average lifetime of these bulbs was found to be 1180 hours. Is the company's claim true at 5% level of significance?
+>
+>**Answer:** Given:
+>- $\mu _0$ = 1200
+>- $\sigma$ = 100
+>- $n$ = 50
+>- $\bar X$ = 1180
+>
+>Now,
+>$z = \frac{\bar X - \mu _0}{\frac{\sigma}{\sqrt{n}}}$
+>
+>$z = -1.41$
+>
+>The critical values for two tailed test at 5% level of significance are:
+>
+>$Z_{\frac{\alpha}{2}} = \pm Z_{0.025} = \pm 1.96$
+>
+>Since calculated value of test `z = -1.41` is greater than critical value `(-1.96)` and less than critical value `(1.96)`: **It lies in non-rejection region.**
 
-**Answer:** Given:
-- $\mu _0$ = 1200
-- $\sigma$ = 100
-- $n$ = 50
-- $\bar X$ = 1180
-
-Now,
-$z = \frac{\bar X - \mu _0}{\frac{\sigma}{\sqrt{n}}}$
-
-$z = -1.41$
-
-The critical values for two tailed test at 5% level of significance are:
-
-$Z_{\frac{\alpha}{2}} = \pm Z_{0.025} = \pm 1.96$
-
-Since calculated value of test `z = -1.41` is greater than critical value `(-1.96)` and less than critical value `(1.96)`: **It lies in non-rejection region.**
-
----
+<br>
 
 ### Testing Of Hypothesis For Difference Of Two Population Means Using Z-Test
 
@@ -455,6 +453,36 @@ $z = \frac{\bar x - \bar y}{\sqrt{\frac{\sigma _1 ^2}{n _1}+ \frac{\sigma _2 ^2}
 where:
 - $\bar x$ and $\bar y$ are sample population means of populations 1 and 2
 - $\sigma _1$ and $\sigma _2$ are Standard Deviations of populations 1 and 2
+
+<br>
+
+>**Example:** In two samples of women from Punjab and Tamil Nadu each, the mean height of 1000 and 2000 women are 67.6 and 68.0 inches respectively. If population Standard Deviation is 5.5 inches for both, then can the mean heights of women in Punjab and Tamil Nadu be regarded as same at 1% level of significance?
+>
+>**Solution:** Given:
+>- $\bar x = 67.6$
+>- $\bar y = 68.0$
+>- $\sigma _1 = \sigma _2 = 5.5$
+>- $n_1 = 1000, n_2 = 2000$
+>
+>And we have $H_0 : \bar x = \bar y$
+>
+>$H_1 : \bar x \neq \bar y$
+>
+>Now,
+>
+>$z = \frac{67.6 - 68.0}{\sqrt{\frac{(5.5)^2}{1000}+ \frac{(5.5)^2}{2000}}} = -1.8778$
+>
+>Critical values for two-tailed test at 1% level of significance are:
+>
+>$Z_{0.005} = \pm 2.58$
+>
+>Since $-2.58 < -1.8778 < 2.58$ The null hypothesis can't be rejected
+
+<br>
+
+### Testing of hypothesis for Single Population Proportion
+
+
 
 ---
 
