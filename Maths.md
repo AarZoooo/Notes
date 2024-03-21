@@ -446,6 +446,8 @@ If $p$-value >= $\alpha$, then we accept the null hypothesis
 
 <br>
 
+---
+
 ### Testing Of Hypothesis For Difference Of Two Population Means Using Z-Test
 
 $z = \frac{\bar x - \bar y}{\sqrt{\frac{\sigma _1 ^2}{n _1}+ \frac{\sigma _2 ^2}{n _2}}}$
@@ -479,6 +481,8 @@ where:
 >Since $-2.58 < -1.8778 < 2.58$ The null hypothesis can't be rejected
 
 <br>
+
+---
 
 ### Testing of hypothesis for Single Population Proportion
 
@@ -519,6 +523,8 @@ where:
 >Since $-2.58 < 2.53 < 2.58$ The null hypothesis can't be rejected.
 
 <br>
+
+---
 
 ### Testing of hypothesis for difference of two population proportions
 
@@ -564,6 +570,8 @@ where:
 
 <br>
 
+---
+
 ### Testing of hypothesis for population variances
 
 $z = \frac {s^2 - \sigma ^2}{\sigma ^2 \sqrt{\frac{2}{n}}}$
@@ -599,41 +607,20 @@ where:
 
 <br>
 
+---
+
 ### Testing of hypothesis for two population variances
 
 $z = \frac{s_1^2 - s_2^2}{\sqrt{\frac{2 \sigma _1 ^2}{n_1} + \frac{2 \sigma _2 ^2}{n_2}}}$
 
 where:
 - $s_1, s_2$ are sample variances of two populations respectively
-- $\sigma_1, \sigma_2$ are population variances of two populations respectively
+- $\sigma_1 = (s_1)^2, \sigma_2 = (s_2)^2$ are population variances of two populations respectively
 - $n_1, n_2$ are the two populations respectively
 
 <br>
 
->**Example:** A machine produces 16 defective articles in a batch of 500. After overhauling it produces 3 defective articles in 100. How has the machine improved after overhauling?
->
->**Solution:** Given:
->- $n = 65$
->- $s^2 = 9.0$
->- $\sigma ^2 = 10.5$
->
->$H_0 : \mu = \bar x$
->
->$H_1 : \mu \neq \bar x$ 
->
->Thus test is two tailed.
->
->Now,
->
->$z = \frac {9.0 - 10.5}{10.5 \sqrt{\frac{2}{65}}} = -0.8144$
->
->Critical values for two-tailed test at 5% level of significance are:
->
->$Z_{0.025} = \pm 1.96$
->
->Since $-1.96 < -0.8144 < 1.96$ The null hypothesis is accepted.
-
-<br>
+---
 
 ### Confidence interval for population mean
 
@@ -659,3 +646,5 @@ value of 50 and standard deviation 9. Find the 95% confidence interval for the m
 >Therefore, intervals at $[48.753, 51.247]$
 
 <br>
+
+---
