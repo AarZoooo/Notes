@@ -272,7 +272,7 @@ Consider the above relation of `Employee`. We saw that the primary key is the `E
 
 ### Primary Key
 
-The primary key is an attribute of the table that identifies any row or tuple uniquely. You must choose the primary key that will uniquely find any data from the table. 
+The primary key is a candidate key of the table that identifies any row or tuple uniquely. You must choose the primary key that will uniquely find any data from the table. 
 
 **Example**
 
@@ -282,7 +282,7 @@ The primary key of the `Employee` relation will be the **`Emp_ID`**, as it will 
 
 ### Foreign Key
 
-The foreign key is quite different from the above three keys. It is used to establish a connection between two relations. Consider two relations `A` and `B`. Suppose any attribute in the relation `A` is the **primary key** of the relation B; that attribute is referred to as the **foreign key**.
+The foreign key is quite different from the above two keys. It is used to establish a connection between two relations. Consider two relations `A` and `B`. Suppose any attribute in the relation `A` is the **primary key** of the relation B; that attribute is referred to as the **foreign key**.
 
 **Example**
 
