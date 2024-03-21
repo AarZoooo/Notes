@@ -252,15 +252,23 @@ The keys in the database play a vital role in identifying the data present in it
 
 ### Types of Keys
 
-- Primary Key
 - Candidate Key
+- Primary Key
+- Foreign Key
 - Super Key
 - Alternate Key
-- Foreign Key
-- Partial Key
 - Composite Key
+- Unique Key
 
 ---
+
+### Candidate Key
+
+The candidate key of any table is a set of minimal attributes and can uniquely identify any row in the relation. There can be single or more candidate keys for a single relation. 
+
+**Example**
+
+Consider the above relation of `Employee`. We saw that the primary key is the `Emp_ID`, which is unique and non-repetitive for every employee. The other two attributes, `Passport_Number` and `License_Number`, are also non-repetitive. So, they both can serve as candidate keys.
 
 ### Primary Key
 
@@ -271,28 +279,6 @@ The primary key is an attribute of the table that identifies any row or tuple un
 Consider a relation `Employee`. It has attributes like `Emp_ID`, `Emp_Name`, `Emp_Add`, `Passport_Number`, and `License_Number`.
 
 The primary key of the `Employee` relation will be the **`Emp_ID`**, as it will uniquely identify every employee’s data. Additionally, the `Passport_Number` and `License_Number` can also serve as primary keys as they are unique for every employee.
-
-### Candidate Key
-
-The candidate key of any table is a set of minimal attributes and can uniquely identify any row in the relation. There can be single or more candidate keys for a single relation. 
-
-**Example**
-
-Consider the above relation of `Employee`. We saw that the primary key is the `Emp_ID`, which is unique and non-repetitive for every employee. The other two attributes, `Passport_Number` and `License_Number`, are also non-repetitive. So, they both can serve as candidate keys.
-
-### Super Key
-
-As the primary key and candidate key identifies every tuple uniquely, the **super key** also helps find the table’s unique tuple. The candidate key is the subset of the super key. There can be one or many super keys.
-
-**Example**
-
-We can use the same Employee relation to have a clear idea about the super key. The `Emp_ID` attribute can uniquely find out any employee’s data. The `Emp_Name` attribute cannot be used as the primary key, as two employees can have the same name. But, the combination of the `Emp_ID` and `Emp_Name` can find employee’s data uniquely. So, `(Epm_ID, Emp_Name)` serves as super keys for the Employee relation.
-
-The `Passport_Number` and `License_Number` are also super keys of the Employee relation.
-
-### Alternate Key
-
-**Candidate keys** that are left unimplemented or unused after implementing the primary key are called as alternate keys.
 
 ### Foreign Key
 
@@ -312,44 +298,19 @@ and Department relation as:
 
 In the `Employee` relation, `Emp_ID` is the primary key, whereas `Dept_ID` is the `Department` relation’s primary key. The attribute `Dept_Id` is one attribute in the `Employee` relation, which is the primary key in the `Department` relation. Hence, the `Dept_ID` serves as the foreign key in the `Employee` relation.
 
-### Partial Key
+### Super Key
 
-Partial key is a key using which all the records of the table can not be identified uniquely. However, a bunch of related tuples can be selected from the table using the partial key.
+As the primary key and candidate key identifies every tuple uniquely, the **super key** also helps find the table’s unique tuple. The candidate key is the subset of the super key. There can be one or many super keys.
 
 **Example**
 
-Consider the following schema:
+We can use the same Employee relation to have a clear idea about the super key. The `Emp_ID` attribute can uniquely find out any employee’s data. The `Emp_Name` attribute cannot be used as the primary key, as two employees can have the same name. But, the combination of the `Emp_ID` and `Emp_Name` can find employee’s data uniquely. So, `(Epm_ID, Emp_Name)` serves as super keys for the Employee relation.
 
-<table>
-<tr>
-<th>Emp_no</td>
-<th>Dependent_name</td>
-<th>Relation</td>
-</tr>
-<tr>
-<td>E1</td>
-<td>Suman</td>
-<td>Mother</td>
-</tr>
-<tr>
-<td>E1</td>
-<td>Ajay</td>
-<td>Father</td>
-</tr>
-<tr>
-<td>E2</td>
-<td>Vijay</td>
-<td>Father</td>
-</tr>
-<tr>
-<td>E2</td>
-<td>Ankush</td>
-<td>Son</td>
-</tr>
-</table>
+The `Passport_Number` and `License_Number` are also super keys of the Employee relation.
 
+### Alternate Key
 
-Here, using partial key `Emp_no`, we can not identify a tuple uniquely but we can select a bunch of tuples from the table.
+**Candidate keys** that are left unimplemented or unused after implementing the primary key are called as alternate keys.
 
 ### Composite Key
 
@@ -362,6 +323,10 @@ From the above `Employee` relation:
     Emp (Emp_ID, Emp_Name, Passport_Number, License_Number)
     
 the composite key is `(Emp_name, Emp_ID)`.
+
+### Unique Key
+
+A unique key refers to a column or a set of columns that identify every record uniquely in a table. All the values in this key would have to be unique. Remember that a unique key is different from a primary key. It is because it is only capable of having one null value. A primary key, on the other hand, cannot have a null value.
 
 <br>
 
