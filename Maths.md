@@ -647,4 +647,59 @@ value of 50 and standard deviation 9. Find the 95% confidence interval for the m
 
 <br>
 
----
+# UNIT 3
+
+## Bivariate Discrete Random Variables
+
+Let $S$ be a Sample space associated with a random variable experiment. Let $X$ and $Y$ be two random variables defined on $S$, then the pair $(X, Y)$ is called two-dimensional random variable.
+
+The value of $(X, Y)$ at a point $s \in S$ is given by the ordered pair of real numbers:
+
+$$(X(s), Y(s)) = (x, y)$$
+
+where:
+- $X(s) = x$
+- $Y(s) = y$
+
+If the possible values of $(X, Y)$ are finite or countably infinite, then $(X, Y)$ is called **Two-Dimensional Discrete Random Variable**. The possile value of $(X, Y)$ may be represented as:
+
+$$(x_i, y_j)$$
+
+where:
+
+- $i = 1, 2, ..., n$
+- $j = 1, 2, ..., m$
+
+Example: Consider the experiment of tossing a coin twice.
+
+Then $S = \{ HH, HT, TH, TT \}$
+
+Let $X =$ Denotes the number of heads obtained in first toss
+
+Let $Y =$ Denotes number of heads obtained in second toss
+
+<table>
+<tr>
+<th>S</th>
+<th>HH</th>
+<th>HT</th>
+<th>TH</th>
+<th>TT</th>
+</tr>
+<tr>
+<th>X(s)</th>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<th>Y(s)</th>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</table>
+
+$(X, Y)$ is two dimensional random variable. The range space of $(X, Y)$ is $\{ (1, 1), (1, 0), (0, 1), (0, 0) \}$ which is finite and so $(X, Y)$ is discrete random variable.
