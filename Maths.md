@@ -703,3 +703,230 @@ Let $Y =$ Denotes number of heads obtained in second toss
 </table>
 
 $(X, Y)$ is two dimensional random variable. The range space of $(X, Y)$ is $\{ (1, 1), (1, 0), (0, 1), (0, 0) \}$ which is finite and so $(X, Y)$ is discrete random variable.
+
+<br>
+
+---
+
+### Joint Probability Mass function
+
+Let $X$ and $Y$ be two random variables on a sample space $S$ with respective image sets:
+
+- $X(S) = \{ x_1, x_2, ... x_n \}$ and
+
+- $Y(S) = \{ y_1, y_2, ... y_n \}$
+
+Then the function $P$ on $X(S)$ and $Y(S)$ such that:
+
+$$
+P _{ij} = P[X = x_i, Y = y_i] = P(x_i, y_i)
+$$
+
+is called **joint probability function of $X$ and $Y$**.
+
+Also:
+
+- $\sum _{i = 1} ^n \sum _{j = 1} ^m P(x_i, y_i) = 1$
+- $P(x_i, y_i) \geq 0$
+
+<br>
+
+---
+
+### Marginal Probability function
+
+$P _X (x_i) = P(X = x_i)$
+
+$= P _{i1}  + P _{i2} + ... + P _{ij} + ... + P _{im}$
+
+$= \sum _{j = 1} ^m P _{ij} = P_i$
+
+Similarly:
+
+$P_Y(y_i) = P(Y = y_i)$
+
+$= P_{1j} + P_{2j} + ... + P_{ij} + ... + p_{nj}$
+
+$= \sum _{i = 1} ^ n P_{ij} = P_j$
+
+<br>
+
+---
+
+### Conditional Probability function
+
+Let $(X, Y)$ be a discrete two-dimensional random variable. Then the conditional probability function of $X$ when $Y = y_j$ is given as:
+
+$P(\frac{x}{y}) = P(\frac{X = x}{Y = y})$
+
+$= \frac{P[X = x_i, Y = y_j]}{P[Y = y_j]}$
+
+$= \frac{P(x_i, y_j)}{P(y_j)}$
+
+$= \frac{P_{ij}}{P_j}$
+
+Similarly, the conditional probability function of $Y$ when $X = x_i$ is defined as:
+
+$P(\frac{X = x}{Y = y})$
+
+$= \frac{P[X = x_i, Y = y_j]}{P[X = x_i]}$
+
+$= \frac{P(x_i, y_j)}{P(x_i)}$
+
+$= \frac{P_{ij}}{P_i}$
+
+<br>
+
+>Note: Two random variables $X$ and $Y$ are said to be independent if:
+>
+>$P[X = x_i, Y = y_i] = P[X = x_i] P[Y = y_i]$
+>
+>otherwise they are dependent.
+
+---
+
+**Example:** The following table represents the joint probability distribution of discrete random variable $(X, Y)$:
+
+      y  |  1  |  2
+    x    |     |   
+    -----+-----+-----
+    1    | 0.1 | 0.2
+    2    | 0.1 | 0.3 
+    3    | 0.2 | 0.1
+
+Find:
+- The marginal distribution
+- the conditional distribution of $X$ given $Y = 1$
+- $P[X + Y < 4]$
+
+<br>
+
+**Solution:** To find the marginal distribution, we have to find the marginal table, i.e. row total and column totals:
+
+      y  |  1  |  2  |  P(X)
+    x    |     |     |
+    -----+-----+-----+-------
+    1    | 0.1 | 0.2 |  0.3
+    2    | 0.1 | 0.3 |  0.4
+    3    | 0.2 | 0.1 |  0.3
+    -----+-----+-----+-------
+    P(Y) | 0.4 | 0.6 |  1.0
+
+Thus, the marginal probability distribution of X is:
+
+<table>
+<tr>
+<th>X</th>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<th>P(X)</th>
+<td>0.3</td>
+<td>0.4</td>
+<td>0.3</td>
+</tr>
+</table>
+
+<br>
+
+$P[\frac{X = 1}{Y = 1}] = \frac{P[X = 1, Y = 1]}{P[Y = 1]} = \frac{0.1}{0.4} = \frac{1}{4}$
+
+$P[\frac{X = 2}{Y = 2}] = \frac{P[X = 2, Y = 1]}{P[Y = 1]} = \frac{0.1}{0.4} = \frac{1}{4}$
+
+$P[\frac{X = 3}{Y = 1}] = \frac{1}{2}$
+
+The conditional distribution of $X$ given $Y = 1$ is:
+
+<table>
+<tr>
+<th>X</th>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<th>P[z]</th>
+<td>1/4</td>
+<td>1/4</td>
+<td>1/2</td>
+</tr>
+</table>
+
+where z $= \frac{X = x}{Y = y}$
+
+<br>
+
+As the values of $(X, Y)$ which satisfy $X + Y < 4$ are $(1, 1), (1, 2)$ and $(2, 1)$ only:
+
+$P[X + Y < 4]  = P[X = 1, Y = 1] + P[X = 1, Y = 2] + P[X = 2, Y = 1]$
+
+$= 0.1 + 0.2 + 0.1$
+
+$ = 0.4$
+
+<br>
+
+---
+
+$Q.$ Two discrete random variables $X$ and $Y$ have:
+
+$P[X = 0, Y = 0] = \frac{2}{9}$,
+
+$P(X = 0, Y = 1) = \frac{1}{9}$,
+
+$P[X = 1, Y = 0] = \frac{1}{9}$,
+
+$P(X = 1, Y = 1) = \frac{5}{9}$
+
+Examine whether $X$ and $Y$ are independent.
+
+**Solution:** Dependent
+
+---
+
+### Joint Probability Distribution
+
+The probabilities of two events, $A = \{ X \leq x \}$ and $B = \{ Y \leq y \}$ when defined as functions of $x$ and $y$  respectively are called probability distribution functions.
+
+$F(x) = P(X \leq x)$ and
+
+$F(y) = P(Y \leq y)$
+
+The **Joint Probability Distribution** of two random variables $X$ and $Y$ is defined as:
+
+$F(x, y) = P[X \leq x, Y \leq y]$
+
+<br>
+
+---
+
+### Marginal Distribution function
+
+Let $(X, Y)$ be a two dimensional discrete random variable having $F(x, y)$ as its distribution function. Now the marginal distribution function of $X$ is defined as:
+
+$F(x) = P[X \leq x]$
+
+$= P[X \leq x, Y = y_1] + P[X \leq x, Y = y_2] + ... $
+
+$= \sum _j P[X \leq x, Y = y_j]$
+
+Similarly, the marginal distribution function of Y is defined as:
+
+$F(y) = P[Y \leq y]$
+
+$= P[X = x_1, Y \leq y] + P[X = x_2, Y \leq y] + ...$
+
+$= \sum _i P[X = x_i, Y \leq y]$
+
+<br>
+
+$P[X \leq x_1. Y = y_1]$
+
+$P[X \leq x_2, Y = y_1]$
+
+<br>
+
+---
+
