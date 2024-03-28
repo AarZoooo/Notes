@@ -1213,3 +1213,127 @@ A good database should contain views due to the given reasons:
 5. **Rename Columns**: Views can also be used to rename the columns without affecting the base tables provided the number of columns in view must match the number of columns specified in select statement. Thus, renaming helps to to hide the names of the columns of the base tables.
 
 6. **Multiple view facility**: Different views can be created on the same table for different users.
+
+# UNIT 3
+
+## Subprogram
+
+These are named PL/SQL block of code which can take parameters and can be invoked.
+
+### Types
+
+- **Procedure:** Used to perform an action
+    - **Local Procedure:** It can be used in the same PL/SQL block where it is declared
+    - **Stored Procedure:** Once compiled and saved, it stays in the oracle database and can be invoked in any program
+- **Function:** Used to compute a value
+
+### Advantages
+
+- Extendibility
+- Modularity
+- Reusability
+- Maintainability
+- Abstraction
+
+<table>
+<tr>
+<th>Procedure</th>
+<th>Function</th>
+</tr>
+<tr>
+<td>Named PL/SQL block which takes parameters and performs an operation</td>
+<td>Named PL/SQL block which takes parameters and computes a value</td>
+</tr>
+<tr>
+<td>May or may not return a value</td>
+<td>Must return atleast a single value</td>
+</tr>
+<tr>
+<td>Can not return a value as direct output</td>
+<td>Can return values as direct output</td>
+</tr>
+</table>
+
+<br>
+
+### Syntax
+
+**1. Local Procedure**
+
+Here is the code for a program calculating sum and product of two numbers taken as user input and putting them as output:
+
+    DECLARE
+
+        a NUMBER;
+        b NUMBER;
+        c NUMBER;
+        d NUMBER;
+
+        PROCEDURE arithmetic (a NUMBER, b NUMBER, c OUT NUMBER, d OUT NUMBER) IS
+
+            -- Local variable declaration
+
+            BEGIN
+
+                c := a + b;
+                d := a * b;
+
+            END arithmetic
+
+    BEGIN
+
+        a :=: Enter-a;
+        b :=: Enter-b;
+
+        arithmetic(a, b, c, d);
+
+        DBMS_OUTPUT.PUT_LINE('Result of addition = ' || c);
+        DBMS_OUTPUT.PUT_LINE('Result of multiplication = ' || d);
+
+        -- Optional Exception Handling code
+
+    END;
+
+>**IN** -> DEFAULT, provides input to procedure
+>
+> **OUT** -> SPECIFIED, takes output from procedure
+>
+>**INOUT** -> SPECIFIED,  provides input to procedure, takes updated value as output from procedure
+
+**2. Stored Procedure**
+
+Here is the code for the same program, but creating and saving the procedure beforehand and then using it in a different code:
+
+    
+    CREATE PROCEDURE arithmetic (a NUMBER, b NUMBER, c OUT NUMBER, d OUT NUMBER) IS
+
+        -- Local variable declaration
+
+        BEGIN
+
+            c := a + b;
+            d := a * b;
+
+        END arithmetic
+<br>
+
+    DECLARE
+
+        a NUMBER;
+        b NUMBER;
+        c NUMBER;
+        d NUMBER;
+    
+    BEGIN
+
+        a :=: Enter-a;
+        b :=: Enter-b;
+
+        arithmetic(a, b, c, d);
+
+        DBMS_OUTPUT.PUT_LINE('Result of addition = ' || c);
+        DBMS_OUTPUT.PUT_LINE('Result of multiplication = ' || d);
+
+        -- Optional Exception Handling code
+
+    END;
